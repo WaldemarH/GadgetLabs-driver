@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DDKLaunchParams xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DebugConnectionString>com://COM1,baud=115200</DebugConnectionString>
+  <RemoteMachineHostname>\\Athlon1700</RemoteMachineHostname>
+  <PathOnTarget>%SystemRoot%\System32\Drivers\glDriver_32.sys</PathOnTarget>
+  <StartMode>PnpEnableDisable</StartMode>
+  <StartModeArg>PCI\VEN_10B5&amp;DEV_2180&amp;SUBSYS_09002020&amp;REV_02\3&amp;18D45AA6&amp;0&amp;38</StartModeArg>
+  <StartModeIntArg>0</StartModeIntArg>
+  <StopMode>PnpEnableDisable</StopMode>
+  <StopModeArg>PCI\VEN_10B5&amp;DEV_2180&amp;SUBSYS_09002020&amp;REV_02\3&amp;18D45AA6&amp;0&amp;38</StopModeArg>
+  <StopModeIntArg>0</StopModeIntArg>
+  <KeepSessionWhenDriverUnloads>false</KeepSessionWhenDriverUnloads>
+  <AutoInstallPolicy>AutoInstallInteractive</AutoInstallPolicy>
+</DDKLaunchParams>

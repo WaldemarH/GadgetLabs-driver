@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Dialog About">
+      <UniqueIdentifier>{5ce74e2c-34b8-4c5c-b631-2a72d0b47d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Dialog Main">
+      <UniqueIdentifier>{1a8e0bc0-ee4e-4bb5-bd85-9ef70befa999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ioctl">
+      <UniqueIdentifier>{bf188fb8-aacf-4e6d-8674-ee2c6f1701c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Registry">
+      <UniqueIdentifier>{ecc66a03-6fd8-4951-baea-d7774958a34e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Dialog SystemTray">
+      <UniqueIdentifier>{2b180bb8-82ab-473a-8c82-8f870cd89ad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Application">
+      <UniqueIdentifier>{9a546a5f-6451-4edc-bf39-9889181ea820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\main.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dlg_about.h">
+      <Filter>Source Files\Dialog About</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dlg_main.h">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Kernel\Source\driver_ioctl.h">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Kernel\Source\driver_ioctl_data.h">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Kernel\Source\driver_ioctl_gui.h">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\registry.h">
+      <Filter>Source Files\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dlg_system_tray.h">
+      <Filter>Source Files\Dialog SystemTray</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\application.h">
+      <Filter>Source Files\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\dlg_about.cpp">
+      <Filter>Source Files\Dialog About</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_about.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_bufferSize.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_file.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_gain_in.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_gain_out.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_monitor.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_mute.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_sync.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_system_tray.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_buttons_tree.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_control_bufferSize.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_control_cards.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_control_channels.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_control_sync.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_ioctl.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_notify.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_protecting_irp.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_main_tooltip.cpp">
+      <Filter>Source Files\Dialog Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ioctrl.cpp">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\registry_.cpp">
+      <Filter>Source Files\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_system_tray_.cpp">
+      <Filter>Source Files\Dialog SystemTray</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_system_tray_icon.cpp">
+      <Filter>Source Files\Dialog SystemTray</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_system_tray_menu.cpp">
+      <Filter>Source Files\Dialog SystemTray</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_system_tray_notify.cpp">
+      <Filter>Source Files\Dialog SystemTray</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_system_tray_tooltip.cpp">
+      <Filter>Source Files\Dialog SystemTray</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\appliation_.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\application_installation.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\application_mutex.cpp">
+      <Filter>Source Files\Application</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Control Panel.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Control Panel.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Gadgetlabs.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Gadgetlabs.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Control Panel.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

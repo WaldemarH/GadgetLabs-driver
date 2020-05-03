@@ -1,0 +1,374 @@
+# Copyright (C) 1991-2004 Altera Corporation
+# Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+# support information,  device programming or simulation file,  and any other
+# associated  documentation or information  provided by  Altera  or a partner
+# under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+# to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+# other  use  of such  megafunction  design,  netlist,  support  information,
+# device programming or simulation file,  or any other  related documentation
+# or information  is prohibited  for  any  other purpose,  including, but not
+# limited to  modification,  reverse engineering,  de-compiling, or use  with
+# any other  silicon devices,  unless such use is  explicitly  licensed under
+# a separate agreement with  Altera  or a megafunction partner.  Title to the
+# intellectual property,  including patents,  copyrights,  trademarks,  trade
+# secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+# support  information,  device programming or simulation file,  or any other
+# related documentation or information provided by  Altera  or a megafunction
+# partner, remains with Altera, the megafunction partner, or their respective
+# licensors. No other licenses, including any licenses needed under any third
+# party's intellectual property, are provided herein.
+
+
+# The default values for assignments are stored in the file
+#		SoundCache_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 4.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:43:40  AUGUST 22, 2004"
+set_global_assignment -name LAST_QUARTUS_VERSION 4.1
+set_global_assignment -name VHDL_FILE Source/main.vhd
+set_global_assignment -name VHDL_FILE Source/reg_devices.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_engine.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_sample_counter_and_transfer_engine.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_uart_counter.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_interrupt_downcounter.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_interrupt.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc4_gain_mon.vhd
+set_global_assignment -name VHDL_FILE Source/clocks_engine.vhd
+set_global_assignment -name VHDL_FILE Source/CODECs.vhd
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_1 -to LB_DATA\[4\]
+set_location_assignment PIN_2 -to LB_DATA\[5\]
+set_location_assignment PIN_3 -to LB_DATA\[6\]
+set_location_assignment PIN_8 -to LB_DATA\[7\]
+set_location_assignment PIN_9 -to LB_DATA\[8\]
+set_location_assignment PIN_10 -to LB_DATA\[9\]
+set_location_assignment PIN_11 -to LB_DATA\[10\]
+set_location_assignment PIN_12 -to LB_DATA\[11\]
+set_location_assignment PIN_13 -to LB_DATA\[12\]
+set_location_assignment PIN_14 -to LB_DATA\[13\]
+set_location_assignment PIN_15 -to LB_DATA\[14\]
+set_location_assignment PIN_16 -to LB_DATA\[15\]
+set_location_assignment PIN_20 -to LB_CLK
+set_location_assignment PIN_21 -to LB_DATA\[16\]
+set_location_assignment PIN_22 -to LB_DATA\[17\]
+set_location_assignment PIN_23 -to LB_DATA\[18\]
+set_location_assignment PIN_24 -to LB_DATA\[19\]
+set_location_assignment PIN_25 -to LB_DATA\[20\]
+set_location_assignment PIN_26 -to LB_DATA\[21\]
+set_location_assignment PIN_27 -to LB_DATA\[22\]
+set_location_assignment PIN_28 -to LB_DATA\[23\]
+set_location_assignment PIN_42 -to nCS_FPGA
+set_location_assignment PIN_43 -to nINT_OUTPUT_REQUEST
+set_location_assignment PIN_44 -to nCS_LM
+set_location_assignment PIN_45 -to LB_HOLD
+set_location_assignment PIN_46 -to LB_HOLDA
+set_location_assignment PIN_48 -to nLB_RD
+set_location_assignment PIN_49 -to nLB_WR
+set_location_assignment PIN_57 -to nINT_DAUGHTER_CARD
+set_location_assignment PIN_58 -to INT_MIDI
+set_location_assignment PIN_60 -to POWER_ON_MUTE
+set_location_assignment PIN_61 -to MONITOR_2R
+set_location_assignment PIN_62 -to MONITOR_2L
+set_location_assignment PIN_63 -to MONITOR_1R
+set_location_assignment PIN_64 -to MONITOR_1L
+set_location_assignment PIN_74 -to PLL_REFERENCE_CLOCK
+set_location_assignment PIN_75 -to CRYSTAL_OSCILATOR_IN
+set_location_assignment PIN_83 -to CODEC_LEFT_RIGHT
+set_location_assignment PIN_84 -to CODEC_BICK
+set_location_assignment PIN_87 -to CODEC2_SERIAL_DATA_IN
+set_location_assignment PIN_88 -to CODEC1_SERIAL_DATA_IN
+set_location_assignment PIN_93 -to CODEC2_SERIAL_DATA_OUT
+set_location_assignment PIN_94 -to CODEC1_SERIAL_DATA_OUT
+set_location_assignment PIN_95 -to CODEC_CONTROL_DATA
+set_location_assignment PIN_96 -to CODEC_CONTROL_CLK
+set_location_assignment PIN_97 -to CODEC_CONTROL_IF
+set_location_assignment PIN_98 -to CODEC_CS2
+set_location_assignment PIN_99 -to CODEC_CS1
+set_location_assignment PIN_100 -to CODEC_POWER_UP
+set_location_assignment PIN_101 -to CODEC_MASTER_SLAVE
+set_location_assignment PIN_106 -to nBANK_OE
+set_location_assignment PIN_107 -to nBANK_WE
+set_location_assignment PIN_108 -to nBANK_CE
+set_location_assignment PIN_110 -to PLL_INTERFACE_CLK
+set_location_assignment PIN_111 -to PLL_INTERFACE_DATA
+set_location_assignment PIN_117 -to LB_ADDRESS\[16\]
+set_location_assignment PIN_118 -to LB_ADDRESS\[15\]
+set_location_assignment PIN_119 -to LB_ADDRESS\[14\]
+set_location_assignment PIN_120 -to LB_ADDRESS\[13\]
+set_location_assignment PIN_121 -to LB_ADDRESS\[12\]
+set_location_assignment PIN_122 -to LB_ADDRESS\[11\]
+set_location_assignment PIN_123 -to LB_ADDRESS\[10\]
+set_location_assignment PIN_124 -to LB_ADDRESS\[9\]
+set_location_assignment PIN_129 -to LB_ADDRESS\[8\]
+set_location_assignment PIN_130 -to LB_ADDRESS\[7\]
+set_location_assignment PIN_131 -to LB_ADDRESS\[6\]
+set_location_assignment PIN_132 -to LB_ADDRESS\[5\]
+set_location_assignment PIN_133 -to LB_ADDRESS\[4\]
+set_location_assignment PIN_134 -to LB_ADDRESS\[3\]
+set_location_assignment PIN_135 -to LB_ADDRESS\[2\]
+set_location_assignment PIN_136 -to LB_ADDRESS\[1\]
+set_location_assignment PIN_137 -to LB_ADDRESS\[0\]
+set_location_assignment PIN_140 -to nLB_RESET
+set_location_assignment PIN_141 -to LB_DATA\[0\]
+set_location_assignment PIN_142 -to LB_DATA\[1\]
+set_location_assignment PIN_143 -to LB_DATA\[2\]
+set_location_assignment PIN_144 -to LB_DATA\[3\]
+set_location_assignment PIN_68 -to CLOCK_DAUGHTER_CARD
+set_location_assignment PIN_67 -to CLOCK_MASTER_OUT
+set_location_assignment PIN_71 -to CLOCK_PLL_A
+set_location_assignment PIN_70 -to CLOCK_SYNC_IN
+set_location_assignment PIN_114 -to DC_CONF_DONE
+set_location_assignment PIN_116 -to DC_DATA_BIT
+set_location_assignment PIN_115 -to DC_DATA_CLK
+set_location_assignment PIN_112 -to DC_nCONFIG
+set_location_assignment PIN_113 -to DC_nSTATUS
+set_location_assignment PIN_51 -to nDC_PRSNT
+set_location_assignment PIN_138 -to LB_USER0
+set_location_assignment PIN_139 -to LB_USER1
+set_location_assignment PIN_59 -to GAIN_OUT
+set_location_assignment PIN_29 -to LB_DATA\[24\]
+set_location_assignment PIN_34 -to LB_DATA\[25\]
+set_location_assignment PIN_35 -to LB_DATA\[26\]
+set_location_assignment PIN_36 -to LB_DATA\[27\]
+set_location_assignment PIN_37 -to LB_DATA\[28\]
+set_location_assignment PIN_38 -to LB_DATA\[29\]
+set_location_assignment PIN_39 -to LB_DATA\[30\]
+set_location_assignment PIN_40 -to LB_DATA\[31\]
+set_location_assignment PIN_66 -to GAIN_IN_A
+set_location_assignment PIN_65 -to GAIN_IN_B
+set_location_assignment PIN_52 -to DC_nFINISHED_TRANSFER
+set_location_assignment PIN_50 -to DC_nSTART_TRANSFER
+set_location_assignment PIN_41 -to CLOCK_UART
+
+# Timing Assignments
+# ==================
+set_global_assignment -name DO_MIN_ANALYSIS OFF
+set_global_assignment -name REPORT_IO_PATHS_SEPARATELY ON
+set_global_assignment -name IGNORE_CLOCK_SETTINGS OFF
+set_global_assignment -name FMAX_REQUIREMENT "40.0 MHz"
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name SPEED_DISK_USAGE_TRADEOFF SMART
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 3
+set_global_assignment -name FAMILY FLEX6000
+set_global_assignment -name STATE_MACHINE_PROCESSING "MINIMAL BITS"
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+set_global_assignment -name FLEX6K_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name TOP_LEVEL_ENTITY main
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE "EPF6016ATC144-3"
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name OPTIMIZE_TIMING "EXTRA EFFORT"
+set_global_assignment -name OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING OFF
+set_global_assignment -name FIT_ONLY_ONE_ATTEMPT OFF
+set_global_assignment -name AUTO_GLOBAL_REGISTER_CONTROLS OFF
+set_global_assignment -name FLEX6K_DEVICE_IO_STANDARD LVTTL/LVCMOS
+
+# EDA Netlist Writer Assignments
+# ==============================
+set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name GENERATE_RBF_FILE ON
+
+# Design Assistant Assignments
+# ============================
+set_global_assignment -name ENABLE_DRC_SETTINGS ON
+
+# LogicLock Region Assignments
+# ============================
+set_global_assignment -name LOGICLOCK_INCREMENTAL_COMPILE_ASSIGNMENT off
+
+# -----------------------
+# start CLOCK(clock_BICK)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name DUTY_CYCLE 50 -section_id clock_BICK
+	set_global_assignment -name INVERT_BASE_CLOCK OFF -section_id clock_BICK
+	set_global_assignment -name MULTIPLY_BASE_CLOCK_PERIOD_BY 2 -section_id clock_BICK
+	set_global_assignment -name DIVIDE_BASE_CLOCK_PERIOD_BY 1 -section_id clock_BICK
+	set_global_assignment -name BASED_ON_CLOCK_SETTINGS clock_MASTER_CLOCK -section_id clock_BICK
+
+# end CLOCK(clock_BICK)
+# ---------------------
+
+# ---------------------
+# start CLOCK(clock_LB)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name DUTY_CYCLE 50 -section_id clock_LB
+	set_global_assignment -name FMAX_REQUIREMENT "50.0 MHz" -section_id clock_LB
+	set_global_assignment -name INVERT_BASE_CLOCK OFF -section_id clock_LB
+	set_global_assignment -name MULTIPLY_BASE_CLOCK_PERIOD_BY 1 -section_id clock_LB
+	set_global_assignment -name DIVIDE_BASE_CLOCK_PERIOD_BY 1 -section_id clock_LB
+
+# end CLOCK(clock_LB)
+# -------------------
+
+# -------------------------------
+# start CLOCK(clock_MASTER_CLOCK)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name DUTY_CYCLE 50 -section_id clock_MASTER_CLOCK
+	set_global_assignment -name FMAX_REQUIREMENT "40.0 MHz" -section_id clock_MASTER_CLOCK
+	set_global_assignment -name INVERT_BASE_CLOCK OFF -section_id clock_MASTER_CLOCK
+	set_global_assignment -name MULTIPLY_BASE_CLOCK_PERIOD_BY 1 -section_id clock_MASTER_CLOCK
+	set_global_assignment -name DIVIDE_BASE_CLOCK_PERIOD_BY 1 -section_id clock_MASTER_CLOCK
+
+# end CLOCK(clock_MASTER_CLOCK)
+# -----------------------------
+
+# ------------------------------
+# start CLOCK(clock_SAMPLE_RATE)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name DUTY_CYCLE 50 -section_id clock_SAMPLE_RATE
+	set_global_assignment -name INVERT_BASE_CLOCK OFF -section_id clock_SAMPLE_RATE
+	set_global_assignment -name MULTIPLY_BASE_CLOCK_PERIOD_BY 384 -section_id clock_SAMPLE_RATE
+	set_global_assignment -name DIVIDE_BASE_CLOCK_PERIOD_BY 1 -section_id clock_SAMPLE_RATE
+	set_global_assignment -name BASED_ON_CLOCK_SETTINGS clock_MASTER_CLOCK -section_id clock_SAMPLE_RATE
+
+# end CLOCK(clock_SAMPLE_RATE)
+# ----------------------------
+
+# -----------------------
+# start CLOCK(clock_UART)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name FMAX_REQUIREMENT "5.0 MHz" -section_id clock_UART
+
+# end CLOCK(clock_UART)
+# ---------------------
+
+# ---------------------------------------
+# start EDA_TOOL_SETTINGS(eda_simulation)
+
+	# Analysis & Synthesis Assignments
+	# ================================
+	set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY OFF -section_id eda_simulation
+
+	# EDA Netlist Writer Assignments
+	# ==============================
+	set_global_assignment -name EDA_INCLUDE_VHDL_CONFIGURATION_DECLARATION OFF -section_id eda_simulation
+	set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
+
+# end EDA_TOOL_SETTINGS(eda_simulation)
+# -------------------------------------
+
+# ------------------
+# start ENTITY(main)
+
+	# Pin & Location Assignments
+	# ==========================
+	set_instance_assignment -name GLOBAL_SIGNAL OFF -to nRESET_ENGINES
+	set_instance_assignment -name GLOBAL_SIGNAL "GLOBAL CLOCK" -to CG_bick
+	set_instance_assignment -name GLOBAL_SIGNAL "GLOBAL CLOCK" -to CLOCK_SAMPLE_RATE_OUT
+
+	# Timing Assignments
+	# ==================
+	set_instance_assignment -name CLOCK_SETTINGS clock_LB -to LB_CLK
+	set_instance_assignment -name CLOCK_SETTINGS clock_BICK -to CG_bick
+	set_instance_assignment -name CUT ON -to DC_DATA_BIT
+	set_instance_assignment -name CUT ON -to DC_DATA_CLK
+	set_instance_assignment -name CUT ON -to PLL_INTERFACE_DATA
+	set_instance_assignment -name CUT ON -to PLL_INTERFACE_CLK
+	set_instance_assignment -name CUT ON -to CODEC_POWER_UP
+	set_instance_assignment -name CUT ON -to CODEC_CS1
+	set_instance_assignment -name CUT ON -to CODEC_CS2
+	set_instance_assignment -name CUT ON -to CODEC_CONTROL_IF
+	set_instance_assignment -name CUT ON -to CODEC_CONTROL_CLK
+	set_instance_assignment -name CUT ON -to CODEC_CONTROL_DATA
+	set_instance_assignment -name CUT ON -to CLOCK_DAUGHTER_CARD
+	set_instance_assignment -name CUT ON -to CLOCK_PLL_A
+	set_instance_assignment -name CUT ON -to CLOCK_SYNC_IN
+	set_instance_assignment -name CUT ON -to nDC_PRSNT
+	set_instance_assignment -name CUT ON -to MONITOR_2R
+	set_instance_assignment -name CUT ON -to MONITOR_2L
+	set_instance_assignment -name CUT ON -to MONITOR_1R
+	set_instance_assignment -name CUT ON -to MONITOR_1L
+	set_instance_assignment -name CUT ON -to PLL_REFERENCE_CLOCK
+	set_instance_assignment -name CLOCK_SETTINGS clock_MASTER_CLOCK -to CRYSTAL_OSCILATOR_IN
+	set_instance_assignment -name CUT ON -to GAIN_OUT
+	set_instance_assignment -name CUT ON -to GAIN_IN_A
+	set_instance_assignment -name CUT ON -to GAIN_IN_B
+	set_instance_assignment -name VIRTUAL_CLOCK_REFERENCE On -to CG_bick
+	set_instance_assignment -name CLOCK_SETTINGS clock_BICK -to "clocks_engine:CLKE\|CG_generator_bick\[1\]"
+	set_instance_assignment -name CLOCK_SETTINGS clock_SAMPLE_RATE -to "clocks_engine:CLKE\|CG_generator_sampleRate\[6\]"
+	set_instance_assignment -name CLOCK_SETTINGS clock_MASTER_CLOCK -to CLOCK_SYNC_IN
+	set_instance_assignment -name CLOCK_SETTINGS clock_MASTER_CLOCK -to CLOCK_DAUGHTER_CARD
+	set_instance_assignment -name CLOCK_SETTINGS clock_UART -to CLOCK_UART
+	set_instance_assignment -name TPD_REQUIREMENT 14ns -from nCS_LM -to nBANK_OE
+	set_instance_assignment -name TPD_REQUIREMENT 14ns -from nCS_LM -to nBANK_WE
+	set_instance_assignment -name TPD_REQUIREMENT 14ns -from nLB_RD -to nBANK_OE
+	set_instance_assignment -name TPD_REQUIREMENT 14ns -from nLB_WR -to nBANK_WE
+
+	# Analysis & Synthesis Assignments
+	# ================================
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regData
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regSelector
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regSelect_counter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regSelect_counter_adc
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regSelect_counter_dac
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regDataOld
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regDataNew
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to nSRE_counter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to ID_downCounter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to ID_startCounter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to generator
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to TE_counter1
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to TE_counter2
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to glichProtector
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to outputRegister
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to outputReg
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to CG_generator
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to interrupts
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to interrupts_status
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to IDC_downCounter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to AR_address
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to LRS_counter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to SRE_masterClockGate_protector
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to SRE_masterClockGate
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to AE_counter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to IDC_intStopper
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to TE_waitCycles
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to TE_waitCycles2
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to IDC_intDelayBuffer
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to SCR_stopRefreshing
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to BWT_busTimer
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to BWT_register
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to UC_counter
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to UC_counter_protector
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to UC_counter_status
+
+	# Fitter Assignments
+	# ==================
+	set_instance_assignment -name AUTO_GLOBAL_CLOCK OFF -to nID_reset
+
+# end ENTITY(main)
+# ----------------

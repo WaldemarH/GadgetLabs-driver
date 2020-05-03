@@ -1,0 +1,971 @@
+Fitter report for SoundCache824
+Sun Oct 31 21:42:43 2010
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Summary
+  3. Fitter Settings
+  4. Fitter Device Options
+  5. Fitter Equations
+  6. Floorplan View
+  7. Input Pins
+  8. Output Pins
+  9. Bidir Pins
+ 10. All Package Pins
+ 11. Control Signals
+ 12. Global & Other Fast Signals
+ 13. Carry Chains
+ 14. Cascade Chains
+ 15. Non-Global High Fan-Out Signals
+ 16. LAB
+ 17. Local Routing Interconnect
+ 18. LAB External Interconnect
+ 19. Row Interconnect
+ 20. LAB Column Interconnect
+ 21. Fitter Resource Usage Summary
+ 22. Fitter Resource Utilization by Entity
+ 23. Delay Chain Summary
+ 24. Pin-Out File
+ 25. Fitter Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++------------------------------------------------------------------+
+; Fitter Summary                                                   ;
++-----------------------+------------------------------------------+
+; Fitter Status         ; Successful - Sun Oct 31 21:42:43 2010    ;
+; Quartus II Version    ; 4.1 Build 181 06/29/2004 SJ Full Version ;
+; Revision Name         ; SoundCache824                            ;
+; Top-level Entity Name ; SoundCache824                            ;
+; Family                ; FLEX6000                                 ;
+; Device                ; EPF6016QC208-3                           ;
+; Timing Models         ; Production                               ;
+; Total logic elements  ; 892 / 1,320 ( 67 % )                     ;
+; Total pins            ; 137 / 171 ( 80 % )                       ;
++-----------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Fitter Settings                                                                      ;
++--------------------------------------------+--------------------+--------------------+
+; Option                                     ; Setting            ; Default Value      ;
++--------------------------------------------+--------------------+--------------------+
+; Device                                     ; EPF6016QC208-3     ;                    ;
+; Optimize IOC Register Placement for Timing ; Off                ; On                 ;
+; Optimize Timing                            ; Normal compilation ; Normal compilation ;
+; Limit to One Fitting Attempt               ; Off                ; Off                ;
+; Fitter Initial Placement Seed              ; 1                  ; 1                  ;
+; Slow Slew Rate                             ; Off                ; Off                ;
+; Auto Global Clock                          ; On                 ; On                 ;
+; Auto Global Register Control Signals       ; On                 ; On                 ;
++--------------------------------------------+--------------------+--------------------+
+
+
++--------------------------------------------------------------------+
+; Fitter Device Options                                              ;
++----------------------------------------------+---------------------+
+; Option                                       ; Setting             ;
++----------------------------------------------+---------------------+
+; Auto-restart configuration after error       ; Off                 ;
+; Release clears before tri-states             ; Off                 ;
+; Enable user-supplied start-up clock (CLKUSR) ; Off                 ;
+; Enable device-wide reset (DEV_CLRn)          ; Off                 ;
+; Enable device-wide output enable (DEV_OE)    ; Off                 ;
+; Enable INIT_DONE output                      ; Off                 ;
+; Configuration scheme                         ; Passive Serial      ;
+; Reserve all unused pins                      ; As input tri-stated ;
++----------------------------------------------+---------------------+
+
+
++------------------+
+; Fitter Equations ;
++------------------+
+The equations can be found in D:/Work/Laboratory/Programiranje/Drivers/GadgetLabs_Driver_New/Hardware/Firmware/Source Code/SoundCache824/SoundCache824.fit.eqn.
+
+
++----------------+
+; Floorplan View ;
++----------------+
+Floorplan report data cannot be output to ASCII.
+Please use Quartus II to view the floorplan report data.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                   ;
++---------------------------+-------+-----+------+---------+--------+--------------+-------------------------+---------------+-----------------+---------------+
+; Name                      ; Pin # ; Row ; Col. ; Fan-Out ; Global ; I/O Register ; Use Local Routing Input ; Power Up High ; PCI I/O Enabled ; Single-Pin CE ;
++---------------------------+-------+-----+------+---------+--------+--------------+-------------------------+---------------+-----------------+---------------+
+; LB_CLK                    ; 28    ; --  ; --   ; 206     ; yes    ; no           ; no                      ; no            ; no              ; no            ;
+; CLOCK_18MHz               ; 128   ; --  ; --   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; nCS_FPGA                  ; 57    ; --  ; 1    ; 12      ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; nLB_RD                    ; 68    ; --  ; 7    ; 76      ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; nLB_RESET                 ; 3     ;  A  ; --   ; 43      ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; nLB_WR                    ; 69    ; --  ; 7    ; 13      ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; LB_HOLDA                  ; 61    ; --  ; 3    ; 20      ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; CLOCK_SYNC_IN             ; 106   ;  F  ; --   ; 6       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; nCS_LM                    ; 59    ; --  ; 2    ; 2       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; DC_nFINISHED_TRANSFER     ; 74    ; --  ; 10   ; 2       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; nINT_DAUGHTER_CARD        ; 75    ; --  ; 11   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; CLOCK_16MHz               ; 105   ;  F  ; --   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; INT_MIDI                  ; 76    ; --  ; 11   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; DC_nPRSNT                 ; 73    ; --  ; 10   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; DC_CONF_DONE              ; 173   ; --  ; 16   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; DC_nSTATUS                ; 172   ; --  ; 17   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; CONVERTER3_SERIAL_DATA_IN ; 125   ;  D  ; --   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; CONVERTER2_SERIAL_DATA_IN ; 126   ;  D  ; --   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; CONVERTER1_SERIAL_DATA_IN ; 127   ;  D  ; --   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; CONVERTER4_SERIAL_DATA_IN ; 124   ;  D  ; --   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
+; CLOCK_DAUGHTER_CARD       ; 117   ;  E  ; --   ; 1       ; no     ; no           ; no                      ; no            ; no              ; no            ;
++---------------------------+-------+-----+------+---------+--------+--------------+-------------------------+---------------+-----------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                               ;
++----------------------------+-------+-----+------+--------------+--------------------------+---------------+----------------+-----------------+---------------+---------------+------------+
+; Name                       ; Pin # ; Row ; Col. ; I/O Register ; Use Local Routing Output ; Power Up High ; Slow Slew Rate ; PCI I/O Enabled ; Single-Pin OE ; Single-Pin CE ; Open Drain ;
++----------------------------+-------+-----+------+--------------+--------------------------+---------------+----------------+-----------------+---------------+---------------+------------+
+; MUTE_CH7                   ; 141   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MUTE_CH6                   ; 146   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MUTE_CH5                   ; 142   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MUTE_CH4                   ; 151   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MUTE_CH3                   ; 143   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MUTE_CH2                   ; 152   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MUTE_CH1                   ; 144   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH8                    ; 161   ; --  ; 22   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH7                    ; 162   ; --  ; 21   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH6                    ; 163   ; --  ; 20   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH5                    ; 164   ; --  ; 20   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH4                    ; 167   ; --  ; 19   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH3                    ; 168   ; --  ; 19   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH2                    ; 169   ; --  ; 18   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MON_CH1                    ; 170   ; --  ; 18   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; SPARE7                     ; 109   ;  E  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_1                       ; 160   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_2                       ; 159   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_3                       ; 158   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_4                       ; 157   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTERS_LEFT_RIGHT_DAC  ; 134   ;  C  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTER1_SERIAL_DATA_OUT ; 140   ;  C  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTER2_SERIAL_DATA_OUT ; 139   ;  C  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTER3_SERIAL_DATA_OUT ; 138   ;  C  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTER4_SERIAL_DATA_OUT ; 137   ;  C  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nINT_OUTPUT_REQUEST        ; 58    ; --  ; 2    ; no           ; no                       ; no            ; no             ; no              ; yes           ; no            ; no         ;
+; GAIN_CH8_IN                ; 83    ; --  ; 13   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH7_IN                ; 84    ; --  ; 14   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH6_IN                ; 85    ; --  ; 14   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH5_IN                ; 86    ; --  ; 15   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH4_IN                ; 87    ; --  ; 15   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH3_IN                ; 88    ; --  ; 16   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH2_IN                ; 89    ; --  ; 16   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH1_IN                ; 90    ; --  ; 17   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH8_OUT               ; 91    ; --  ; 18   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH7_OUT               ; 92    ; --  ; 18   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH6_OUT               ; 93    ; --  ; 19   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTERS_LEFT_RIGHT_ADC  ; 122   ;  D  ; --   ; no           ; yes                      ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTERS_96FS_DAC        ; 133   ;  C  ; --   ; no           ; yes                      ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH5_OUT               ; 94    ; --  ; 19   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH4_OUT               ; 97    ; --  ; 20   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH3_OUT               ; 98    ; --  ; 21   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH2_OUT               ; 99    ; --  ; 21   ; no           ; yes                      ; no            ; no             ; no              ; no            ; no            ; no         ;
+; GAIN_CH1_OUT               ; 100   ; --  ; 22   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; MUTE_CH8                   ; 145   ;  B  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nCS_FPGA_DAUGHTER          ; 119   ;  E  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nBANK_CE                   ; 156   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nBANK_OE                   ; 154   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nBANK_WE                   ; 155   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; LB_HOLD                    ; 60    ; --  ; 3    ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nLB_CLOCK_SELECT0          ; 82    ; --  ; 12   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nLB_CLOCK_SELECT1          ; 101   ;  F  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nLB_CLOCK_SELECT2          ; 103   ;  F  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CLOCK_MASTER_OUT           ; 104   ;  F  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; DC_DATA_BIT                ; 175   ; --  ; 15   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; DC_DATA_CLK                ; 174   ; --  ; 16   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_5                       ; 205   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_6                       ; 206   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_7                       ; 207   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; TP_8                       ; 208   ;  A  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; CONVERTERS_96FS_ADC        ; 123   ;  D  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nRESET_ADC_3               ; 107   ;  F  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nRESET_ADC_2               ; 108   ;  E  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nRESET_ADC_1               ; 120   ;  D  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; DC_nCONFIG                 ; 171   ; --  ; 17   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; DC_nSTART_TRANSFER         ; 81    ; --  ; 12   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; DAC_DIF0                   ; 136   ;  C  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; nRESET_ADC_0               ; 121   ;  D  ; --   ; no           ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
++----------------------------+-------+-----+------+--------------+--------------------------+---------------+----------------+-----------------+---------------+---------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Bidir Pins                                                                                                                                                                                                                       ;
++----------------------+-------+-----+------+---------+--------+--------------+-------------------------+--------------------------+---------------+----------------+-----------------+---------------+---------------+------------+
+; Name                 ; Pin # ; Row ; Col. ; Fan-Out ; Global ; I/O Register ; Use Local Routing Input ; Use Local Routing Output ; Power Up High ; Slow Slew Rate ; PCI I/O Enabled ; Single-Pin CE ; Single-Pin OE ; Open Drain ;
++----------------------+-------+-----+------+---------+--------+--------------+-------------------------+--------------------------+---------------+----------------+-----------------+---------------+---------------+------------+
+; LB_DATA[23]          ; 37    ;  E  ; --   ; 12      ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[0]  ; 54    ;  F  ; --   ; 87      ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; no            ; no         ;
+; LB_DATA[5]           ; 13    ;  B  ; --   ; 9       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[6]           ; 14    ;  B  ; --   ; 9       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[7]           ; 15    ;  B  ; --   ; 8       ; no     ; no           ; no                      ; yes                      ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[8]           ; 16    ;  C  ; --   ; 8       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[2]           ; 10    ;  B  ; --   ; 9       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[3]           ; 11    ;  B  ; --   ; 8       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[9]           ; 17    ;  C  ; --   ; 9       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[10]          ; 18    ;  C  ; --   ; 8       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[4]           ; 12    ;  B  ; --   ; 9       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[15]          ; 29    ;  D  ; --   ; 6       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[11]          ; 20    ;  C  ; --   ; 6       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[13]          ; 22    ;  C  ; --   ; 7       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[12]          ; 21    ;  C  ; --   ; 7       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[1]  ; 204   ; --  ; 1    ; 11      ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[0]           ; 4     ;  B  ; --   ; 10      ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[14]          ; 23    ;  C  ; --   ; 6       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[1]           ; 5     ;  B  ; --   ; 10      ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[17]          ; 31    ;  D  ; --   ; 4       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[19]          ; 33    ;  D  ; --   ; 4       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[21]          ; 35    ;  D  ; --   ; 4       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[22]          ; 36    ;  D  ; --   ; 4       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[16]          ; 30    ;  D  ; --   ; 4       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[18]          ; 32    ;  D  ; --   ; 4       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[2]  ; 203   ; --  ; 2    ; 10      ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA[20]          ; 34    ;  D  ; --   ; 4       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[2]     ; 41    ;  E  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[3]     ; 42    ;  E  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[4]     ; 48    ;  F  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[5]     ; 49    ;  F  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[6]     ; 50    ;  F  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[1]     ; 40    ;  E  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[7]     ; 51    ;  F  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[3]  ; 202   ; --  ; 2    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[4]  ; 201   ; --  ; 3    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[5]  ; 198   ; --  ; 4    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[6]  ; 197   ; --  ; 4    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[7]  ; 196   ; --  ; 5    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[8]  ; 195   ; --  ; 5    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[9]  ; 194   ; --  ; 6    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[10] ; 193   ; --  ; 6    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[11] ; 192   ; --  ; 7    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[12] ; 191   ; --  ; 7    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[13] ; 190   ; --  ; 8    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[14] ; 189   ; --  ; 9    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_ADDRESS_16TO1[15] ; 188   ; --  ; 9    ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
+; LB_DATA_UPPER[0]     ; 39    ;  E  ; --   ; 0       ; no     ; no           ; no                      ; no                       ; no            ; no             ; no              ; no            ; yes           ; no         ;
++----------------------+-------+-----+------+---------+--------+--------------+-------------------------+--------------------------+---------------+----------------+-----------------+---------------+---------------+------------+
+
+
++---------------------------------------------------+
+; All Package Pins                                  ;
++-------+----------------------------+--------------+
+; Pin # ; Usage                      ; I/O Standard ;
++-------+----------------------------+--------------+
+; 1     ; RESERVED_INPUT             ;              ;
+; 2     ; RESERVED_INPUT             ;              ;
+; 3     ; nLB_RESET                  ; LVTTL/LVCMOS ;
+; 4     ; LB_DATA[0]                 ; LVTTL/LVCMOS ;
+; 5     ; LB_DATA[1]                 ; LVTTL/LVCMOS ;
+; 6     ; ^nCE                       ;              ;
+; 7     ; GND_IO                     ;              ;
+; 8     ; VCC_INT                    ;              ;
+; 9     ; VCC_IO                     ;              ;
+; 10    ; LB_DATA[2]                 ; LVTTL/LVCMOS ;
+; 11    ; LB_DATA[3]                 ; LVTTL/LVCMOS ;
+; 12    ; LB_DATA[4]                 ; LVTTL/LVCMOS ;
+; 13    ; LB_DATA[5]                 ; LVTTL/LVCMOS ;
+; 14    ; LB_DATA[6]                 ; LVTTL/LVCMOS ;
+; 15    ; LB_DATA[7]                 ; LVTTL/LVCMOS ;
+; 16    ; LB_DATA[8]                 ; LVTTL/LVCMOS ;
+; 17    ; LB_DATA[9]                 ; LVTTL/LVCMOS ;
+; 18    ; LB_DATA[10]                ; LVTTL/LVCMOS ;
+; 19    ; RESERVED_INPUT             ;              ;
+; 20    ; LB_DATA[11]                ; LVTTL/LVCMOS ;
+; 21    ; LB_DATA[12]                ; LVTTL/LVCMOS ;
+; 22    ; LB_DATA[13]                ; LVTTL/LVCMOS ;
+; 23    ; LB_DATA[14]                ; LVTTL/LVCMOS ;
+; 24    ; GND+                       ;              ;
+; 25    ; GND_IO                     ;              ;
+; 26    ; VCC_INT                    ;              ;
+; 27    ; VCC_IO                     ;              ;
+; 28    ; LB_CLK                     ; LVTTL/LVCMOS ;
+; 29    ; LB_DATA[15]                ; LVTTL/LVCMOS ;
+; 30    ; LB_DATA[16]                ; LVTTL/LVCMOS ;
+; 31    ; LB_DATA[17]                ; LVTTL/LVCMOS ;
+; 32    ; LB_DATA[18]                ; LVTTL/LVCMOS ;
+; 33    ; LB_DATA[19]                ; LVTTL/LVCMOS ;
+; 34    ; LB_DATA[20]                ; LVTTL/LVCMOS ;
+; 35    ; LB_DATA[21]                ; LVTTL/LVCMOS ;
+; 36    ; LB_DATA[22]                ; LVTTL/LVCMOS ;
+; 37    ; LB_DATA[23]                ; LVTTL/LVCMOS ;
+; 38    ; RESERVED_INPUT             ;              ;
+; 39    ; LB_DATA_UPPER[0]           ; LVTTL/LVCMOS ;
+; 40    ; LB_DATA_UPPER[1]           ; LVTTL/LVCMOS ;
+; 41    ; LB_DATA_UPPER[2]           ; LVTTL/LVCMOS ;
+; 42    ; LB_DATA_UPPER[3]           ; LVTTL/LVCMOS ;
+; 43    ; GND_IO                     ;              ;
+; 44    ; VCC_INT                    ;              ;
+; 45    ; VCC_IO                     ;              ;
+; 46    ; ^MSEL                      ;              ;
+; 47    ; RESERVED_INPUT             ;              ;
+; 48    ; LB_DATA_UPPER[4]           ; LVTTL/LVCMOS ;
+; 49    ; LB_DATA_UPPER[5]           ; LVTTL/LVCMOS ;
+; 50    ; LB_DATA_UPPER[6]           ; LVTTL/LVCMOS ;
+; 51    ; LB_DATA_UPPER[7]           ; LVTTL/LVCMOS ;
+; 52    ; RESERVED_INPUT             ;              ;
+; 53    ; RESERVED_INPUT             ;              ;
+; 54    ; LB_ADDRESS_16TO1[0]        ; LVTTL/LVCMOS ;
+; 55    ; RESERVED_INPUT             ;              ;
+; 56    ; RESERVED_INPUT             ;              ;
+; 57    ; nCS_FPGA                   ; LVTTL/LVCMOS ;
+; 58    ; nINT_OUTPUT_REQUEST        ; LVTTL/LVCMOS ;
+; 59    ; nCS_LM                     ; LVTTL/LVCMOS ;
+; 60    ; LB_HOLD                    ; LVTTL/LVCMOS ;
+; 61    ; LB_HOLDA                   ; LVTTL/LVCMOS ;
+; 62    ; GND_IO                     ;              ;
+; 63    ; VCC_IO                     ;              ;
+; 64    ; RESERVED_INPUT             ;              ;
+; 65    ; RESERVED_INPUT             ;              ;
+; 66    ; RESERVED_INPUT             ;              ;
+; 67    ; RESERVED_INPUT             ;              ;
+; 68    ; nLB_RD                     ; LVTTL/LVCMOS ;
+; 69    ; nLB_WR                     ; LVTTL/LVCMOS ;
+; 70    ; RESERVED_INPUT             ;              ;
+; 71    ; RESERVED_INPUT             ;              ;
+; 72    ; RESERVED_INPUT             ;              ;
+; 73    ; DC_nPRSNT                  ; LVTTL/LVCMOS ;
+; 74    ; DC_nFINISHED_TRANSFER      ; LVTTL/LVCMOS ;
+; 75    ; nINT_DAUGHTER_CARD         ; LVTTL/LVCMOS ;
+; 76    ; INT_MIDI                   ; LVTTL/LVCMOS ;
+; 77    ; ^nCONFIG                   ;              ;
+; 78    ; GND_IO                     ;              ;
+; 79    ; VCC_IO                     ;              ;
+; 80    ; ^nSTATUS                   ;              ;
+; 81    ; DC_nSTART_TRANSFER         ; LVTTL/LVCMOS ;
+; 82    ; nLB_CLOCK_SELECT0          ; LVTTL/LVCMOS ;
+; 83    ; GAIN_CH8_IN                ; LVTTL/LVCMOS ;
+; 84    ; GAIN_CH7_IN                ; LVTTL/LVCMOS ;
+; 85    ; GAIN_CH6_IN                ; LVTTL/LVCMOS ;
+; 86    ; GAIN_CH5_IN                ; LVTTL/LVCMOS ;
+; 87    ; GAIN_CH4_IN                ; LVTTL/LVCMOS ;
+; 88    ; GAIN_CH3_IN                ; LVTTL/LVCMOS ;
+; 89    ; GAIN_CH2_IN                ; LVTTL/LVCMOS ;
+; 90    ; GAIN_CH1_IN                ; LVTTL/LVCMOS ;
+; 91    ; GAIN_CH8_OUT               ; LVTTL/LVCMOS ;
+; 92    ; GAIN_CH7_OUT               ; LVTTL/LVCMOS ;
+; 93    ; GAIN_CH6_OUT               ; LVTTL/LVCMOS ;
+; 94    ; GAIN_CH5_OUT               ; LVTTL/LVCMOS ;
+; 95    ; GND_IO                     ;              ;
+; 96    ; VCC_IO                     ;              ;
+; 97    ; GAIN_CH4_OUT               ; LVTTL/LVCMOS ;
+; 98    ; GAIN_CH3_OUT               ; LVTTL/LVCMOS ;
+; 99    ; GAIN_CH2_OUT               ; LVTTL/LVCMOS ;
+; 100   ; GAIN_CH1_OUT               ; LVTTL/LVCMOS ;
+; 101   ; nLB_CLOCK_SELECT1          ; LVTTL/LVCMOS ;
+; 102   ; RESERVED_INPUT             ;              ;
+; 103   ; nLB_CLOCK_SELECT2          ; LVTTL/LVCMOS ;
+; 104   ; CLOCK_MASTER_OUT           ; LVTTL/LVCMOS ;
+; 105   ; CLOCK_16MHz                ; LVTTL/LVCMOS ;
+; 106   ; CLOCK_SYNC_IN              ; LVTTL/LVCMOS ;
+; 107   ; nRESET_ADC_3               ; LVTTL/LVCMOS ;
+; 108   ; nRESET_ADC_2               ; LVTTL/LVCMOS ;
+; 109   ; SPARE7                     ; LVTTL/LVCMOS ;
+; 110   ; GND_IO                     ;              ;
+; 111   ; VCC_INT                    ;              ;
+; 112   ; VCC_IO                     ;              ;
+; 113   ; RESERVED_INPUT             ;              ;
+; 114   ; RESERVED_INPUT             ;              ;
+; 115   ; RESERVED_INPUT             ;              ;
+; 116   ; RESERVED_INPUT             ;              ;
+; 117   ; CLOCK_DAUGHTER_CARD        ; LVTTL/LVCMOS ;
+; 118   ; RESERVED_INPUT             ;              ;
+; 119   ; nCS_FPGA_DAUGHTER          ; LVTTL/LVCMOS ;
+; 120   ; nRESET_ADC_1               ; LVTTL/LVCMOS ;
+; 121   ; nRESET_ADC_0               ; LVTTL/LVCMOS ;
+; 122   ; CONVERTERS_LEFT_RIGHT_ADC  ; LVTTL/LVCMOS ;
+; 123   ; CONVERTERS_96FS_ADC        ; LVTTL/LVCMOS ;
+; 124   ; CONVERTER4_SERIAL_DATA_IN  ; LVTTL/LVCMOS ;
+; 125   ; CONVERTER3_SERIAL_DATA_IN  ; LVTTL/LVCMOS ;
+; 126   ; CONVERTER2_SERIAL_DATA_IN  ; LVTTL/LVCMOS ;
+; 127   ; CONVERTER1_SERIAL_DATA_IN  ; LVTTL/LVCMOS ;
+; 128   ; CLOCK_18MHz                ; LVTTL/LVCMOS ;
+; 129   ; GND_IO                     ;              ;
+; 130   ; VCC_INT                    ;              ;
+; 131   ; VCC_IO                     ;              ;
+; 132   ; GND+                       ;              ;
+; 133   ; CONVERTERS_96FS_DAC        ; LVTTL/LVCMOS ;
+; 134   ; CONVERTERS_LEFT_RIGHT_DAC  ; LVTTL/LVCMOS ;
+; 135   ; RESERVED_INPUT             ;              ;
+; 136   ; DAC_DIF0                   ; LVTTL/LVCMOS ;
+; 137   ; CONVERTER4_SERIAL_DATA_OUT ; LVTTL/LVCMOS ;
+; 138   ; CONVERTER3_SERIAL_DATA_OUT ; LVTTL/LVCMOS ;
+; 139   ; CONVERTER2_SERIAL_DATA_OUT ; LVTTL/LVCMOS ;
+; 140   ; CONVERTER1_SERIAL_DATA_OUT ; LVTTL/LVCMOS ;
+; 141   ; MUTE_CH7                   ; LVTTL/LVCMOS ;
+; 142   ; MUTE_CH5                   ; LVTTL/LVCMOS ;
+; 143   ; MUTE_CH3                   ; LVTTL/LVCMOS ;
+; 144   ; MUTE_CH1                   ; LVTTL/LVCMOS ;
+; 145   ; MUTE_CH8                   ; LVTTL/LVCMOS ;
+; 146   ; MUTE_CH6                   ; LVTTL/LVCMOS ;
+; 147   ; GND_IO                     ;              ;
+; 148   ; VCC_INT                    ;              ;
+; 149   ; VCC_IO                     ;              ;
+; 150   ; ^CONF_DONE                 ;              ;
+; 151   ; MUTE_CH4                   ; LVTTL/LVCMOS ;
+; 152   ; MUTE_CH2                   ; LVTTL/LVCMOS ;
+; 153   ; RESERVED_INPUT             ;              ;
+; 154   ; nBANK_OE                   ; LVTTL/LVCMOS ;
+; 155   ; nBANK_WE                   ; LVTTL/LVCMOS ;
+; 156   ; nBANK_CE                   ; LVTTL/LVCMOS ;
+; 157   ; TP_4                       ; LVTTL/LVCMOS ;
+; 158   ; TP_3                       ; LVTTL/LVCMOS ;
+; 159   ; TP_2                       ; LVTTL/LVCMOS ;
+; 160   ; TP_1                       ; LVTTL/LVCMOS ;
+; 161   ; MON_CH8                    ; LVTTL/LVCMOS ;
+; 162   ; MON_CH7                    ; LVTTL/LVCMOS ;
+; 163   ; MON_CH6                    ; LVTTL/LVCMOS ;
+; 164   ; MON_CH5                    ; LVTTL/LVCMOS ;
+; 165   ; GND_IO                     ;              ;
+; 166   ; VCC_IO                     ;              ;
+; 167   ; MON_CH4                    ; LVTTL/LVCMOS ;
+; 168   ; MON_CH3                    ; LVTTL/LVCMOS ;
+; 169   ; MON_CH2                    ; LVTTL/LVCMOS ;
+; 170   ; MON_CH1                    ; LVTTL/LVCMOS ;
+; 171   ; DC_nCONFIG                 ; LVTTL/LVCMOS ;
+; 172   ; DC_nSTATUS                 ; LVTTL/LVCMOS ;
+; 173   ; DC_CONF_DONE               ; LVTTL/LVCMOS ;
+; 174   ; DC_DATA_CLK                ; LVTTL/LVCMOS ;
+; 175   ; DC_DATA_BIT                ; LVTTL/LVCMOS ;
+; 176   ; RESERVED_INPUT             ;              ;
+; 177   ; RESERVED_INPUT             ;              ;
+; 178   ; RESERVED_INPUT             ;              ;
+; 179   ; RESERVED_INPUT             ;              ;
+; 180   ; RESERVED_INPUT             ;              ;
+; 181   ; ^DATA                      ;              ;
+; 182   ; GND_IO                     ;              ;
+; 183   ; VCC_IO                     ;              ;
+; 184   ; ^DCLK                      ;              ;
+; 185   ; RESERVED_INPUT             ;              ;
+; 186   ; RESERVED_INPUT             ;              ;
+; 187   ; RESERVED_INPUT             ;              ;
+; 188   ; LB_ADDRESS_16TO1[15]       ; LVTTL/LVCMOS ;
+; 189   ; LB_ADDRESS_16TO1[14]       ; LVTTL/LVCMOS ;
+; 190   ; LB_ADDRESS_16TO1[13]       ; LVTTL/LVCMOS ;
+; 191   ; LB_ADDRESS_16TO1[12]       ; LVTTL/LVCMOS ;
+; 192   ; LB_ADDRESS_16TO1[11]       ; LVTTL/LVCMOS ;
+; 193   ; LB_ADDRESS_16TO1[10]       ; LVTTL/LVCMOS ;
+; 194   ; LB_ADDRESS_16TO1[9]        ; LVTTL/LVCMOS ;
+; 195   ; LB_ADDRESS_16TO1[8]        ; LVTTL/LVCMOS ;
+; 196   ; LB_ADDRESS_16TO1[7]        ; LVTTL/LVCMOS ;
+; 197   ; LB_ADDRESS_16TO1[6]        ; LVTTL/LVCMOS ;
+; 198   ; LB_ADDRESS_16TO1[5]        ; LVTTL/LVCMOS ;
+; 199   ; GND_IO                     ;              ;
+; 200   ; VCC_IO                     ;              ;
+; 201   ; LB_ADDRESS_16TO1[4]        ; LVTTL/LVCMOS ;
+; 202   ; LB_ADDRESS_16TO1[3]        ; LVTTL/LVCMOS ;
+; 203   ; LB_ADDRESS_16TO1[2]        ; LVTTL/LVCMOS ;
+; 204   ; LB_ADDRESS_16TO1[1]        ; LVTTL/LVCMOS ;
+; 205   ; TP_5                       ; LVTTL/LVCMOS ;
+; 206   ; TP_6                       ; LVTTL/LVCMOS ;
+; 207   ; TP_7                       ; LVTTL/LVCMOS ;
+; 208   ; TP_8                       ; LVTTL/LVCMOS ;
++-------+----------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+---------+---------------+--------------+
+; Name                                                                                                                        ; Pin #   ; Fan-Out ; Usage         ; Global Usage ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+---------+---------------+--------------+
+; LB_CLK                                                                                                                      ; 28      ; 206     ; Clock         ; Pin          ;
+; clocks_engine:CLKE|CG_generator_bick[1]                                                                                     ; LC1_C22 ; 303     ; Clock         ; Internal     ;
+; clocks_engine:CLKE|CG_generator_sampleRate[6]                                                                               ; LC1_D22 ; 32      ; Clock         ; Internal     ;
+; LB_DATA[15]~3739                                                                                                            ; LC6_C1  ; 16      ; Output enable ; Internal     ;
+; LB_DATA[23]~3712                                                                                                            ; LC6_C2  ; 9       ; Output enable ; Non-global   ;
+; nMemory_readEnable                                                                                                          ; LC6_F1  ; 9       ; Output enable ; Non-global   ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|nMEMORY_CE~54                               ; LC1_A14 ; 15      ; Output enable ; Non-global   ;
+; reg_SC_INTERRUPT:SC_INTERRUPT|ORedInterrupts~14                                                                             ; LC1_B11 ; 1       ; Output enable ; Non-global   ;
+; CLOCK_SYNC_IN                                                                                                               ; 106     ; 6       ; Clock         ; Non-global   ;
+; lineDecoder_3to8:LD|nOutputEnable_write[2]~49                                                                               ; LC2_D2  ; 13      ; Async. clear  ; Non-global   ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_waitfortransferrequest~6 ; LC5_C21 ; 26      ; Sync. clear   ; Non-global   ;
+; clocks_engine:CLKE|SRE_masterClock                                                                                          ; LC2_D16 ; 3       ; Clock         ; Non-global   ;
+; clocks_engine:CLKE|SRE_masterClockGate                                                                                      ; LC5_D16 ; 10      ; Async. clear  ; Non-global   ;
+; reg_SC_ENGINE:SC_ENGINE|regData[3]                                                                                          ; LC3_B22 ; 18      ; Async. clear  ; Non-global   ;
+; reg_SC_ENGINE:SC_ENGINE|regData[4]                                                                                          ; LC1_B22 ; 7       ; Async. clear  ; Non-global   ;
+; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|reduce_nor~230                                                        ; LC10_D6 ; 11      ; Sync. load    ; Non-global   ;
+; clocks_engine:CLKE|SRE_selectedClock~1                                                                                      ; LC8_D16 ; 3       ; Clock         ; Non-global   ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+---------+---------------+--------------+
+
+
++----------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                ;
++-----------------------------------------------+---------+---------+--------+
+; Name                                          ; Pin #   ; Fan-Out ; Global ;
++-----------------------------------------------+---------+---------+--------+
+; LB_CLK                                        ; 28      ; 206     ; yes    ;
+; CLOCK_18MHz                                   ; 128     ; 1       ; no     ;
+; clocks_engine:CLKE|CG_generator_bick[1]       ; LC1_C22 ; 303     ; yes    ;
+; clocks_engine:CLKE|CG_generator_sampleRate[6] ; LC1_D22 ; 32      ; yes    ;
+; LB_DATA[15]~3739                              ; LC6_C1  ; 16      ; yes    ;
++-----------------------------------------------+---------+---------+--------+
+
+
++---------------------------------------------+
+; Carry Chains                                ;
++--------------------+------------------------+
+; Carry Chain Length ; Number of Carry Chains ;
++--------------------+------------------------+
+; 0                  ; 0                      ;
+; 1                  ; 0                      ;
+; 2                  ; 0                      ;
+; 3                  ; 0                      ;
+; 4                  ; 0                      ;
+; 5                  ; 1                      ;
+; 6                  ; 0                      ;
+; 7                  ; 1                      ;
+; 8                  ; 0                      ;
+; 9                  ; 2                      ;
+; 10                 ; 0                      ;
+; 11                 ; 1                      ;
+; 12                 ; 0                      ;
+; 13                 ; 0                      ;
+; 14                 ; 0                      ;
+; 15                 ; 0                      ;
+; 16                 ; 1                      ;
++--------------------+------------------------+
+
+
++----------------+
+; Cascade Chains ;
++--------+-------+
+; Length ; Count ;
++--------+-------+
+; 2      ; 63    ;
+; 3      ; 3     ;
++--------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Non-Global High Fan-Out Signals                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+
+; Name                                                                                                                        ; Fan-Out ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+
+; CONVERTERs_engine:CE|nBick24_4halfs                                                                                         ; 191     ;
+; CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_2                                                            ; 190     ;
+; CONVERTERs_engine:CE|nBick24_2halfs                                                                                         ; 98      ;
+; CONVERTERs_engine:CE|nBick24_3halfs                                                                                         ; 96      ;
+; LB_ADDRESS_16TO1[0]                                                                                                         ; 87      ;
+; nLB_RD                                                                                                                      ; 76      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~50                          ; 52      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~53                          ; 45      ;
+; nLB_RESET                                                                                                                   ; 43      ;
+; lineDecoder_3to8:LD|nOutputEnable_write[5]~47                                                                               ; 35      ;
+; lineDecoder_3to8:LD|nOutputEnable_write[2]~48                                                                               ; 28      ;
+; lineDecoder_3to8:LD|nOutputEnable_read[4]~598                                                                               ; 26      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_waitfortransferrequest~6 ; 26      ;
+; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[0]~819                                                          ; 25      ;
+; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[3]~825                                                          ; 24      ;
+; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[2]~823                                                          ; 24      ;
+; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[4]~820                                                          ; 24      ;
+; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[5]~821                                                          ; 24      ;
+; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[6]~822                                                          ; 24      ;
+; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[1]~824                                                          ; 24      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~52                          ; 24      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~51                          ; 23      ;
+; lineDecoder_3to8:LD|nOutputEnable_read[1]~597                                                                               ; 23      ;
+; LB_HOLDA                                                                                                                    ; 20      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_channel_status                          ; 18      ;
+; reg_SC_ENGINE:SC_ENGINE|regData[3]                                                                                          ; 18      ;
+; lineDecoder_3to8:LD|nOutputEnable_write[6]                                                                                  ; 16      ;
+; lineDecoder_3to8:LD|nOutputEnable_write[4]                                                                                  ; 16      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|nMEMORY_CE~54                               ; 15      ;
+; lineDecoder_3to8:LD|nOutputEnable_write[2]~46                                                                               ; 15      ;
+; lineDecoder_3to8:LD|nOutputEnable_write[2]~51                                                                               ; 14      ;
+; nLB_WR                                                                                                                      ; 13      ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~49                          ; 13      ;
+; LB_DATA[23]                                                                                                                 ; 12      ;
+; nCS_FPGA                                                                                                                    ; 12      ;
+; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|reduce_nor~230                                                        ; 11      ;
+; LB_ADDRESS_16TO1[1]                                                                                                         ; 11      ;
+; LB_ADDRESS_16TO1[2]                                                                                                         ; 10      ;
+; LB_DATA[1]                                                                                                                  ; 10      ;
+; LB_DATA[0]                                                                                                                  ; 10      ;
+; clocks_engine:CLKE|SRE_masterClockGate                                                                                      ; 10      ;
+; LB_DATA[9]                                                                                                                  ; 9       ;
+; nMemory_readEnable                                                                                                          ; 9       ;
+; LB_DATA[2]                                                                                                                  ; 9       ;
+; LB_DATA[23]~3712                                                                                                            ; 9       ;
+; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|LessThan~9                                  ; 9       ;
+; LB_DATA[6]                                                                                                                  ; 9       ;
+; LB_DATA[5]                                                                                                                  ; 9       ;
+; lineDecoder_3to8:LD|nOutputEnable_read[0]~599                                                                               ; 9       ;
+; LB_DATA[4]                                                                                                                  ; 9       ;
++-----------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------+
+; LAB                                       ;
++--------------------------+----------------+
+; Number of Logic Elements ; Number of LABs ;
++--------------------------+----------------+
+; 0                        ; 4              ;
+; 1                        ; 0              ;
+; 2                        ; 0              ;
+; 3                        ; 3              ;
+; 4                        ; 5              ;
+; 5                        ; 6              ;
+; 6                        ; 16             ;
+; 7                        ; 59             ;
+; 8                        ; 29             ;
+; 9                        ; 8              ;
+; 10                       ; 2              ;
++--------------------------+----------------+
+
+
++--------------------------------------------------------------------+
+; Local Routing Interconnect                                         ;
++-----------------------------+--------------------------------------+
+; Local Routing Interconnects ; Number of Local Interconnect Regions ;
++-----------------------------+--------------------------------------+
+; 0                           ; 0                                    ;
+; 1                           ; 0                                    ;
+; 2                           ; 5                                    ;
+; 3                           ; 10                                   ;
+; 4                           ; 18                                   ;
+; 5                           ; 21                                   ;
+; 6                           ; 31                                   ;
+; 7                           ; 32                                   ;
+; 8                           ; 11                                   ;
+; 9                           ; 7                                    ;
+; 10                          ; 3                                    ;
++-----------------------------+--------------------------------------+
+
+
++-------------------------------------------------------------------+
+; LAB External Interconnect                                         ;
++----------------------------+--------------------------------------+
+; LAB External Interconnects ; Number of Local Interconnect Regions ;
++----------------------------+--------------------------------------+
+; 0                          ; 0                                    ;
+; 1                          ; 0                                    ;
+; 2                          ; 5                                    ;
+; 3                          ; 4                                    ;
+; 4                          ; 4                                    ;
+; 5                          ; 5                                    ;
+; 6                          ; 20                                   ;
+; 7                          ; 17                                   ;
+; 8                          ; 16                                   ;
+; 9                          ; 20                                   ;
+; 10                         ; 15                                   ;
+; 11                         ; 11                                   ;
+; 12                         ; 11                                   ;
+; 13                         ; 3                                    ;
+; 14                         ; 3                                    ;
+; 15                         ; 1                                    ;
+; 16                         ; 1                                    ;
+; 17                         ; 2                                    ;
++----------------------------+--------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Row Interconnect                                                                         ;
++-------+---------------------+-----------------------------+------------------------------+
+; Row   ; Interconnect Used   ; Left Half Interconnect Used ; Right Half Interconnect Used ;
++-------+---------------------+-----------------------------+------------------------------+
+;  A    ;  62 / 96 ( 64 % )   ;  42 / 48 ( 87 % )           ;  42 / 48 ( 87 % )            ;
+;  B    ;  58 / 96 ( 60 % )   ;  39 / 48 ( 81 % )           ;  37 / 48 ( 77 % )            ;
+;  C    ;  45 / 96 ( 46 % )   ;  15 / 48 ( 31 % )           ;  24 / 48 ( 50 % )            ;
+;  D    ;  65 / 96 ( 67 % )   ;  46 / 48 ( 95 % )           ;  33 / 48 ( 68 % )            ;
+;  E    ;  27 / 96 ( 28 % )   ;  24 / 48 ( 50 % )           ;  13 / 48 ( 27 % )            ;
+;  F    ;  61 / 96 ( 63 % )   ;  26 / 48 ( 54 % )           ;  31 / 48 ( 64 % )            ;
+; Total ;  318 / 576 ( 55 % ) ;  192 / 288 ( 66 % )         ;  180 / 288 ( 62 % )          ;
++-------+---------------------+-----------------------------+------------------------------+
+
+
++-----------------------------+
+; LAB Column Interconnect     ;
++-------+---------------------+
+; Col.  ; Interconnect Used   ;
++-------+---------------------+
+; 1     ;  11 / 20 ( 55 % )   ;
+; 2     ;  13 / 20 ( 65 % )   ;
+; 3     ;  12 / 20 ( 60 % )   ;
+; 4     ;  11 / 20 ( 55 % )   ;
+; 5     ;  10 / 20 ( 50 % )   ;
+; 6     ;  12 / 20 ( 60 % )   ;
+; 7     ;  17 / 20 ( 85 % )   ;
+; 8     ;  12 / 20 ( 60 % )   ;
+; 9     ;  11 / 20 ( 55 % )   ;
+; 10    ;  13 / 20 ( 65 % )   ;
+; 11    ;  17 / 20 ( 85 % )   ;
+; 12    ;  13 / 20 ( 65 % )   ;
+; 13    ;  12 / 20 ( 60 % )   ;
+; 14    ;  7 / 20 ( 35 % )    ;
+; 15    ;  17 / 20 ( 85 % )   ;
+; 16    ;  11 / 20 ( 55 % )   ;
+; 17    ;  13 / 20 ( 65 % )   ;
+; 18    ;  14 / 20 ( 70 % )   ;
+; 19    ;  10 / 20 ( 50 % )   ;
+; 20    ;  12 / 20 ( 60 % )   ;
+; 21    ;  11 / 20 ( 55 % )   ;
+; 22    ;  9 / 20 ( 45 % )    ;
+; Total ;  268 / 440 ( 60 % ) ;
++-------+---------------------+
+
+
++--------------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                            ;
++--------------------------------+-----------------------------------------+
+; Resource                       ; Usage                                   ;
++--------------------------------+-----------------------------------------+
+; Logic cells                    ; 892 / 1,320 ( 67 % )                    ;
+; Registers                      ; 542 / 1,320 ( 41 % )                    ;
+; Logic elements in carry chains ; 57                                      ;
+; User inserted logic cells      ; 0                                       ;
+; Virtual pins                   ; 0                                       ;
+; I/O pins                       ; 137 / 171 ( 80 % )                      ;
+;     -- Clock pins              ; 0                                       ;
+;     -- Dedicated input pins    ; 0 / 4 ( 0 % )                           ;
+; Global signals                 ; 3                                       ;
+; Maximum fan-out node           ; clocks_engine:CLKE|CG_generator_bick[1] ;
+; Maximum fan-out                ; 303                                     ;
+; Total fan-out                  ; 3862                                    ;
+; Average fan-out                ; 3.75                                    ;
++--------------------------------+-----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                          ;
++--------------------------------------------------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Compilation Hierarchy Node                                                           ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name                                                                                                                                                           ;
++--------------------------------------------------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; |SoundCache824                                                                       ; 892 (153)   ; 542          ; 0           ; 137  ; 350 (153)    ; 33 (0)            ; 509 (0)          ; 57 (0)          ; |SoundCache824                                                                                                                                                                ;
+;    |CONVERTERs_engine:CE|                                                            ; 489 (479)   ; 389          ; 0           ; 0    ; 100 (92)     ; 4 (2)             ; 385 (385)        ; 0 (0)           ; |SoundCache824|CONVERTERs_engine:CE                                                                                                                                           ;
+;       |event_pulse_generator_rising_edge:EPG|                                        ; 3 (3)       ; 2            ; 0           ; 0    ; 1 (1)        ; 2 (2)             ; 0 (0)            ; 0 (0)           ; |SoundCache824|CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG                                                                                                     ;
+;       |lineDecoder_3to8b:LD_CH|                                                      ; 7 (7)       ; 0            ; 0           ; 0    ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |SoundCache824|CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH                                                                                                                   ;
+;    |clocks_engine:CLKE|                                                              ; 23 (23)     ; 11           ; 0           ; 0    ; 12 (12)      ; 3 (3)             ; 8 (8)            ; 7 (7)           ; |SoundCache824|clocks_engine:CLKE                                                                                                                                             ;
+;    |lineDecoder_3to8:LD|                                                             ; 16 (16)     ; 0            ; 0           ; 0    ; 16 (16)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |SoundCache824|lineDecoder_3to8:LD                                                                                                                                            ;
+;    |reg_SC8_GAIN:SC8_GAIN|                                                           ; 16 (16)     ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0 (0)           ; |SoundCache824|reg_SC8_GAIN:SC8_GAIN                                                                                                                                          ;
+;    |reg_SC8_MON_MUTE:SC8_MON_MUTE|                                                   ; 16 (16)     ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 0 (0)           ; |SoundCache824|reg_SC8_MON_MUTE:SC8_MON_MUTE                                                                                                                                  ;
+;    |reg_SC_DEVICES:SC_DEVICES|                                                       ; 3 (3)       ; 3            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 3 (3)            ; 0 (0)           ; |SoundCache824|reg_SC_DEVICES:SC_DEVICES                                                                                                                                      ;
+;    |reg_SC_ENGINE:SC_ENGINE|                                                         ; 16 (5)      ; 10           ; 0           ; 0    ; 6 (0)        ; 4 (0)             ; 6 (5)            ; 5 (0)           ; |SoundCache824|reg_SC_ENGINE:SC_ENGINE                                                                                                                                        ;
+;       |clockTester:CT2|                                                              ; 11 (11)     ; 5            ; 0           ; 0    ; 6 (6)        ; 4 (4)             ; 1 (1)            ; 5 (5)           ; |SoundCache824|reg_SC_ENGINE:SC_ENGINE|clockTester:CT2                                                                                                                        ;
+;    |reg_SC_INTERRUPT:SC_INTERRUPT|                                                   ; 10 (10)     ; 9            ; 0           ; 0    ; 1 (1)        ; 2 (2)             ; 7 (7)            ; 0 (0)           ; |SoundCache824|reg_SC_INTERRUPT:SC_INTERRUPT                                                                                                                                  ;
+;    |reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|                           ; 34 (12)     ; 11           ; 0           ; 0    ; 23 (12)      ; 0 (0)             ; 11 (0)           ; 11 (0)          ; |SoundCache824|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER                                                                                                          ;
+;       |lpm_counter:IDC_downCounter_rtl_0|                                            ; 22 (0)      ; 11           ; 0           ; 0    ; 11 (0)       ; 0 (0)             ; 11 (0)           ; 11 (0)          ; |SoundCache824|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0                                                                        ;
+;          |alt_synch_counter_f:wysi_counter|                                          ; 22 (0)      ; 11           ; 0           ; 0    ; 11 (0)       ; 0 (0)             ; 11 (0)           ; 11 (0)          ; |SoundCache824|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter                                       ;
+;             |alt_asynch_counter_f:asynch_counter|                                    ; 22 (22)     ; 11           ; 0           ; 0    ; 11 (11)      ; 0 (0)             ; 11 (11)          ; 11 (11)         ; |SoundCache824|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter   ;
+;    |reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE| ; 116 (88)    ; 77           ; 0           ; 0    ; 39 (39)      ; 20 (17)           ; 57 (32)          ; 34 (9)          ; |SoundCache824|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE                                                                                ;
+;       |lpm_counter:BWT_busTimer_rtl_1|                                               ; 9 (0)       ; 9            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 9 (0)            ; 9 (0)           ; |SoundCache824|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|lpm_counter:BWT_busTimer_rtl_1                                                 ;
+;          |alt_synch_counter_f:wysi_counter|                                          ; 9 (9)       ; 9            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 9 (9)            ; 9 (9)           ; |SoundCache824|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|lpm_counter:BWT_busTimer_rtl_1|alt_synch_counter_f:wysi_counter                ;
+;       |neg_event_pulse_generator:EPG_LEFT|                                           ; 3 (3)       ; 3            ; 0           ; 0    ; 0 (0)        ; 3 (3)             ; 0 (0)            ; 0 (0)           ; |SoundCache824|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT                                             ;
+;       |sample_counter:AC|                                                            ; 16 (0)      ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (0)           ; 16 (0)          ; |SoundCache824|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC                                                              ;
+;          |lpm_counter:counter_L_rtl_2|                                               ; 16 (0)      ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (0)           ; 16 (0)          ; |SoundCache824|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_2                                  ;
+;             |alt_synch_counter_f:wysi_counter|                                       ; 16 (16)     ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 16 (16)         ; |SoundCache824|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_2|alt_synch_counter_f:wysi_counter ;
++--------------------------------------------------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Delay Chain Summary                                 ;
++----------------------------+----------+-------------+
+; Name                       ; Pin Type ; Pad to Core ;
++----------------------------+----------+-------------+
+; nCS_FPGA                   ; Input    ; OFF         ;
+; CLOCK_DAUGHTER_CARD        ; Input    ; OFF         ;
+; CLOCK_18MHz                ; Input    ; OFF         ;
+; CLOCK_16MHz                ; Input    ; OFF         ;
+; CLOCK_SYNC_IN              ; Input    ; OFF         ;
+; LB_HOLDA                   ; Input    ; OFF         ;
+; DC_nFINISHED_TRANSFER      ; Input    ; OFF         ;
+; LB_CLK                     ; Input    ; OFF         ;
+; nCS_LM                     ; Input    ; OFF         ;
+; nLB_WR                     ; Input    ; OFF         ;
+; nLB_RESET                  ; Input    ; OFF         ;
+; nLB_RD                     ; Input    ; OFF         ;
+; nINT_DAUGHTER_CARD         ; Input    ; OFF         ;
+; INT_MIDI                   ; Input    ; OFF         ;
+; DC_nPRSNT                  ; Input    ; OFF         ;
+; DC_CONF_DONE               ; Input    ; OFF         ;
+; DC_nSTATUS                 ; Input    ; OFF         ;
+; CONVERTER3_SERIAL_DATA_IN  ; Input    ; OFF         ;
+; CONVERTER2_SERIAL_DATA_IN  ; Input    ; OFF         ;
+; CONVERTER1_SERIAL_DATA_IN  ; Input    ; OFF         ;
+; CONVERTER4_SERIAL_DATA_IN  ; Input    ; OFF         ;
+; nCS_FPGA_DAUGHTER          ; Output   ; OFF         ;
+; nBANK_CE                   ; Output   ; OFF         ;
+; nBANK_OE                   ; Output   ; OFF         ;
+; nBANK_WE                   ; Output   ; OFF         ;
+; LB_HOLD                    ; Output   ; OFF         ;
+; nLB_CLOCK_SELECT0          ; Output   ; OFF         ;
+; nLB_CLOCK_SELECT1          ; Output   ; OFF         ;
+; nLB_CLOCK_SELECT2          ; Output   ; OFF         ;
+; CLOCK_MASTER_OUT           ; Output   ; OFF         ;
+; DC_DATA_BIT                ; Output   ; OFF         ;
+; DC_DATA_CLK                ; Output   ; OFF         ;
+; DC_nCONFIG                 ; Output   ; OFF         ;
+; DC_nSTART_TRANSFER         ; Output   ; OFF         ;
+; DAC_DIF0                   ; Output   ; OFF         ;
+; nRESET_ADC_0               ; Output   ; OFF         ;
+; nRESET_ADC_1               ; Output   ; OFF         ;
+; nRESET_ADC_2               ; Output   ; OFF         ;
+; nRESET_ADC_3               ; Output   ; OFF         ;
+; CONVERTERS_96FS_ADC        ; Output   ; OFF         ;
+; CONVERTERS_96FS_DAC        ; Output   ; OFF         ;
+; CONVERTERS_LEFT_RIGHT_ADC  ; Output   ; OFF         ;
+; CONVERTERS_LEFT_RIGHT_DAC  ; Output   ; OFF         ;
+; CONVERTER1_SERIAL_DATA_OUT ; Output   ; OFF         ;
+; CONVERTER2_SERIAL_DATA_OUT ; Output   ; OFF         ;
+; CONVERTER3_SERIAL_DATA_OUT ; Output   ; OFF         ;
+; CONVERTER4_SERIAL_DATA_OUT ; Output   ; OFF         ;
+; nINT_OUTPUT_REQUEST        ; Output   ; OFF         ;
+; GAIN_CH8_IN                ; Output   ; OFF         ;
+; GAIN_CH7_IN                ; Output   ; OFF         ;
+; GAIN_CH6_IN                ; Output   ; OFF         ;
+; GAIN_CH5_IN                ; Output   ; OFF         ;
+; GAIN_CH4_IN                ; Output   ; OFF         ;
+; GAIN_CH3_IN                ; Output   ; OFF         ;
+; GAIN_CH2_IN                ; Output   ; OFF         ;
+; GAIN_CH1_IN                ; Output   ; OFF         ;
+; GAIN_CH8_OUT               ; Output   ; OFF         ;
+; GAIN_CH7_OUT               ; Output   ; OFF         ;
+; GAIN_CH6_OUT               ; Output   ; OFF         ;
+; GAIN_CH5_OUT               ; Output   ; OFF         ;
+; GAIN_CH4_OUT               ; Output   ; OFF         ;
+; GAIN_CH3_OUT               ; Output   ; OFF         ;
+; GAIN_CH2_OUT               ; Output   ; OFF         ;
+; GAIN_CH1_OUT               ; Output   ; OFF         ;
+; MUTE_CH8                   ; Output   ; OFF         ;
+; MUTE_CH7                   ; Output   ; OFF         ;
+; MUTE_CH6                   ; Output   ; OFF         ;
+; MUTE_CH5                   ; Output   ; OFF         ;
+; MUTE_CH4                   ; Output   ; OFF         ;
+; MUTE_CH3                   ; Output   ; OFF         ;
+; MUTE_CH2                   ; Output   ; OFF         ;
+; MUTE_CH1                   ; Output   ; OFF         ;
+; MON_CH8                    ; Output   ; OFF         ;
+; MON_CH7                    ; Output   ; OFF         ;
+; MON_CH6                    ; Output   ; OFF         ;
+; MON_CH5                    ; Output   ; OFF         ;
+; MON_CH4                    ; Output   ; OFF         ;
+; MON_CH3                    ; Output   ; OFF         ;
+; MON_CH2                    ; Output   ; OFF         ;
+; MON_CH1                    ; Output   ; OFF         ;
+; SPARE7                     ; Output   ; OFF         ;
+; TP_1                       ; Output   ; OFF         ;
+; TP_2                       ; Output   ; OFF         ;
+; TP_3                       ; Output   ; OFF         ;
+; TP_4                       ; Output   ; OFF         ;
+; TP_5                       ; Output   ; OFF         ;
+; TP_6                       ; Output   ; OFF         ;
+; TP_7                       ; Output   ; OFF         ;
+; TP_8                       ; Output   ; OFF         ;
+; LB_ADDRESS_16TO1[15]       ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[14]       ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[13]       ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[12]       ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[11]       ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[10]       ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[9]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[8]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[7]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[6]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[5]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[4]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[3]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[2]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[1]        ; Bidir    ; OFF         ;
+; LB_ADDRESS_16TO1[0]        ; Bidir    ; OFF         ;
+; LB_DATA[23]                ; Bidir    ; OFF         ;
+; LB_DATA[22]                ; Bidir    ; OFF         ;
+; LB_DATA[21]                ; Bidir    ; OFF         ;
+; LB_DATA[20]                ; Bidir    ; OFF         ;
+; LB_DATA[19]                ; Bidir    ; OFF         ;
+; LB_DATA[18]                ; Bidir    ; OFF         ;
+; LB_DATA[17]                ; Bidir    ; OFF         ;
+; LB_DATA[16]                ; Bidir    ; OFF         ;
+; LB_DATA[15]                ; Bidir    ; OFF         ;
+; LB_DATA[14]                ; Bidir    ; OFF         ;
+; LB_DATA[13]                ; Bidir    ; OFF         ;
+; LB_DATA[12]                ; Bidir    ; OFF         ;
+; LB_DATA[11]                ; Bidir    ; OFF         ;
+; LB_DATA[10]                ; Bidir    ; OFF         ;
+; LB_DATA[9]                 ; Bidir    ; OFF         ;
+; LB_DATA[8]                 ; Bidir    ; OFF         ;
+; LB_DATA[7]                 ; Bidir    ; OFF         ;
+; LB_DATA[6]                 ; Bidir    ; OFF         ;
+; LB_DATA[5]                 ; Bidir    ; OFF         ;
+; LB_DATA[4]                 ; Bidir    ; OFF         ;
+; LB_DATA[3]                 ; Bidir    ; OFF         ;
+; LB_DATA[2]                 ; Bidir    ; OFF         ;
+; LB_DATA[1]                 ; Bidir    ; OFF         ;
+; LB_DATA[0]                 ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[7]           ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[6]           ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[5]           ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[4]           ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[3]           ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[2]           ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[1]           ; Bidir    ; OFF         ;
+; LB_DATA_UPPER[0]           ; Bidir    ; OFF         ;
++----------------------------+----------+-------------+
+
+
++--------------+
+; Pin-Out File ;
++--------------+
+The pin-out file can be found in D:/Work/Laboratory/Programiranje/Drivers/GadgetLabs_Driver_New/Hardware/Firmware/Source Code/SoundCache824/SoundCache824.pin.
+
+
++-----------------+
+; Fitter Messages ;
++-----------------+
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 4.1 Build 181 06/29/2004 SJ Full Version
+    Info: Processing started: Sun Oct 31 21:42:35 2010
+Info: Command: quartus_fit --import_settings_files=off --export_settings_files=off SoundCache824 -c SoundCache824
+Info: Selected device EPF6016QC208-3 for design SoundCache824
+Info: Promoted cell clocks_engine:CLKE|CG_generator_bick[1] to global signal automatically
+Info: Promoted cell clocks_engine:CLKE|CG_generator_sampleRate[6] to global signal automatically
+Info: Promoted cell LB_DATA[15]~3739 to global signal automatically
+Info: Promoted cell LB_CLK to global signal automatically
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Detected fmax, tsu, tco, and/or tpd requirements -- optimizing circuit to achieve only the specified requirements
+Info: Timing-driven compilation in progress
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Started fitting attempt 1 on Sun Oct 31 2010 at 21:42:36
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Inserting extra timing delay for MultiVolt I/O interface
+Info: Quartus II Fitter was successful. 0 errors, 0 warnings
+    Info: Processing ended: Sun Oct 31 21:42:43 2010
+    Info: Elapsed time: 00:00:08
+
+

@@ -1,0 +1,141 @@
+The original FAQ was written by Rob->slightly edited by Waldemar.
+-------------------------------------------------------------------------------
+GadgetLabs WavePro series windows driver
+Version 1.0
+11/07/2010
+
+
+TABLE OF CONTENTS:
+
+Q1 - Is there a Windows XP/Vista/7 driver for my GadgetLabs card?
+Q2 - Where can I get the driver? 
+Q3 - Will the driver work with my 824/424/496?
+Q4 - Will the driver work with my daughter card?
+Q5 - Does the driver support 24 bit / 96 kHz recording and playback?
+Q6 - How do I enable the inputs on the GL?
+Q7 - Where is the GadgetLabs audio control panel?
+     How do I set the input levels?
+Q8 - I can't get MIDI to work with the driver.
+Q9 - When I record multiple channels, the tracks are slightly out of sync with one another.
+Q10 - How many cards in the system does the driver support?
+Q11 - How can I sync my cards?
+Q12 - I'm getting dropouts. What should I do?
+Q13 - How to use the surround channel?
+
+THE FAQ:
+---------------------------------------
+Q1 - Is there a Windows XP/Vista/7 32/64bit driver for my GadgetLabs card?
+
+Yes there is a brand new version 4.x driver which works with most Windows OSes.
+Currently catalog files support XP SP2 and up(32bit), Vista(32/64bit) and 7 (32/64bit).
+If somebody is using other OSes please mail me and the support for that system will be added.
+
+---------------------------------------
+Q2 - Where can I get the driver?
+
+The latest version of the driver is available at
+http://mostek.subcultural.com/ and http://gadgetlabs.org.
+
+---------------------------------------
+Q3 - Will the driver work with my GadgetLabs 424/496/824 card?
+
+The driver works with all WavePro series cards.
+
+---------------------------------------
+Q4 - Will the driver work with my daughter card?
+
+Daughter cards wont be supported.
+The 824 Altera chip can't handle any more code in it -> it's working right at the borders already.
+So I doubt I could squize anything else in there.
+
+---------------------------------------
+Q5 - Does the driver support 24 bit/96 kHz recording and playback?
+
+Yes -> but only on 424/496 cards.
+
+---------------------------------------
+Q6- How do I enable the inputs on the GL?
+
+All inputs and outputs are enabled automatically. If you want to use
+them in audio software you have to enable them in that software and
+not in 'Sound and Audio Settings' part of Windows ControlPanel.
+
+'Sound and Audio Settings' part doesn't have any connection to the driver
+whatsoever -> in here you set only how Windows will use the driver and not
+how audio software will.
+
+---------------------------------------
+Q7 - Where is the GadgetLabs audio control panel?
+
+If everything is working, it should be one of the icons in the system tray.
+
+If it isn't there, start gadgetlabs_gui_32.exe (32 bit OSes) or gadgetlabs_gui_64.exe (64 bit OSes).
+
+---------------------------------------
+Q8 - I can't get MIDI to work with the driver.
+
+The 4.0.0.x doesn't support MIDI anymore... maybe some of the next versions will.
+
+---------------------------------------
+Q9 - When I record multiple channels, the tracks are slightly out of
+sync with one another. What is wrong?
+
+1st Try using ASIO driver.
+
+2nd WDM Drivers:
+Driver is missing a time stamper so there is nothing you can do except manually align
+the tracks. Adobe Audition is one of those apps.
+
+3rd:
+This can happen with some audio software if you have enabled
+'Compensate for channel start' or something like this->disable it.
+
+The reason is that driver is capable of starting all the channels in perfect sync.
+So it doesn't need any start compensation.
+
+---------------------------------------
+Q10 - How many cards in the system does the driver support?
+
+4.
+
+Also the tests have shown that useful limit is at 2 cards per system.
+
+---------------------------------------
+Q11 - How can I sync my cards?
+
+Open ControlPanel and click the Sync menu item.
+
+Notice:
+If menu is not enabled then your cards are missing sync cable.
+
+---------------------------------------
+Q12 - I'm getting dropouts. What should I do?
+
+What does your CPU and disk performance meter show you?
+  With small buffers the driver uses the dropouts can occur
+  if your CPU or disk is running above 60% (it can run fine even up to 80%,
+  but this is more a wish than anything).
+
+You can even get dropouts if you have cheep hardware -> as normally they just take the system
+until they finish -> no matter what.
+  Similar symptoms can happen when you burn a CD -> as for some things to do the CDR driver just takes
+  the system -> audio dropouts. Take notice that this doesn't mean you have a bad burner -> this
+  is just a common thing they all do -> but yes, cheaper hardware do it more often.
+
+Similar if you have hungry LAN cards... latest tests show that VmWare Network drivers are one of them.
+
+---------------------------------------
+Q13 - How to use the surround channel?
+
+If application supports channel selection use 'WavePro All' channel.
+This will use all of your cards channels.
+
+If application doesn't support channel selection go to ControlPanel->Sound and select 'WavePro All' channel
+as default channel.
+
+Notice:
+for 4xx cards you can open 4 channels at a time, so maximum of QUAD Surround mode can be used
+for 824 cards you can open 8 channels at a time, so maximum of 7+1 Sourround mode can be used
+
+Notice2:
+If 'WavePro All' channel is opened all other channels will be disabled.

@@ -1,0 +1,1 @@
+If you need to build kernel driver from WDK build environment copy these files to source dir and run build_32 or build_64.

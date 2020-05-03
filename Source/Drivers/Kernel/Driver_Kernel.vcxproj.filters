@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Card">
+      <UniqueIdentifier>{7d88e3e3-91e4-48a9-b218-a2ff14c75be8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Card\Header Files">
+      <UniqueIdentifier>{9bac5faf-2e54-44dc-b668-038d2c83ac94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Channel">
+      <UniqueIdentifier>{963b53c6-100a-4db7-80e1-ef6104d17320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{6c0b722e-6b9d-4e7d-9f46-015418488297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers\IO Port">
+      <UniqueIdentifier>{7944b89c-574f-42cf-bd61-014b15b8b076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers\Delay">
+      <UniqueIdentifier>{9c75c550-2a67-4fa1-ac1f-76884c70b72b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers\SyncStart">
+      <UniqueIdentifier>{15b33948-0789-4526-99c7-b37955342bc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers\NotifyEvent">
+      <UniqueIdentifier>{e8f39d93-3469-4449-ac96-c29b7f0b033c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers\Linked Array">
+      <UniqueIdentifier>{dab900e9-82e6-4743-8419-f0b0baa0027b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers\ASIO Handles">
+      <UniqueIdentifier>{62b0edb9-bba8-410f-b676-a71637ba4723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logger">
+      <UniqueIdentifier>{07121a72-f0b2-40b5-84d6-73961a2cac75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Driver">
+      <UniqueIdentifier>{d69020b9-b978-4c36-8375-531fa2ef24df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Driver\ASIO">
+      <UniqueIdentifier>{6cd1b4a5-9af2-47de-b2ad-3061359cad48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Driver\AVStream">
+      <UniqueIdentifier>{4fa0ae9c-ddbd-4db3-8b62-b77700b978cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Driver\AVStream\Filter">
+      <UniqueIdentifier>{f3cbd18e-2cca-4588-9a56-c2dd133bb41f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Driver\GUI">
+      <UniqueIdentifier>{d3746805-f1e8-4b62-8acd-8e0bbaba15f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Driver\Data">
+      <UniqueIdentifier>{9d6d9251-77ff-449f-8064-2d100b0db51a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Driver\AVStream\Filter\Pin Wave">
+      <UniqueIdentifier>{7e0086ce-a577-4829-a50b-e354f0ee3ea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Driver\AVStream\Filter\Pin Midi">
+      <UniqueIdentifier>{4fef73a8-64b4-447e-9018-d6b2af4d48a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Channel\Midi">
+      <UniqueIdentifier>{e12715b6-98d4-46ff-9439-39fe1469e93c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Channel\Wave">
+      <UniqueIdentifier>{7f066b27-87e8-4c16-95f7-0f627933fec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Channel\Wave\All">
+      <UniqueIdentifier>{4e50bab5-d7b2-47aa-9906-4de32b6a1039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Channel\Wave\Base">
+      <UniqueIdentifier>{2a46b922-0a83-448e-9d0c-106aea15ebd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Channel\Wave\Stereo">
+      <UniqueIdentifier>{ef87dca3-09b4-43c3-a84d-242db40883fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_altera.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_channel_properties.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_channels.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_clock.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_codec.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_pll.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_plx.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_stream.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\card_uart.cpp">
+      <Filter>Source Files\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_base_.cpp">
+      <Filter>Source Files\Channel\Wave\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_base_copy_buffers.cpp">
+      <Filter>Source Files\Channel\Wave\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_base_transfer.cpp">
+      <Filter>Source Files\Channel\Wave\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_stereo_.cpp">
+      <Filter>Source Files\Channel\Wave\Stereo</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_stereo_copy_buffers_asio.cpp">
+      <Filter>Source Files\Channel\Wave\Stereo</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_stereo_copy_buffers_avstream.cpp">
+      <Filter>Source Files\Channel\Wave\Stereo</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_all_.cpp">
+      <Filter>Source Files\Channel\Wave\All</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_all_copy_buffers_avstream.cpp">
+      <Filter>Source Files\Channel\Wave\All</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\sync_start_.cpp">
+      <Filter>Source Files\Helpers\SyncStart</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\sync_start_channel.cpp">
+      <Filter>Source Files\Helpers\SyncStart</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\sync_start_linking.cpp">
+      <Filter>Source Files\Helpers\SyncStart</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\notify_event_.cpp">
+      <Filter>Source Files\Helpers\NotifyEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\notify_event_events.cpp">
+      <Filter>Source Files\Helpers\NotifyEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\linked_array_.cpp">
+      <Filter>Source Files\Helpers\Linked Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\asio_handle_.cpp">
+      <Filter>Source Files\Helpers\ASIO Handles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\asio_handle_buffers.cpp">
+      <Filter>Source Files\Helpers\ASIO Handles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\asio_handle_channels.cpp">
+      <Filter>Source Files\Helpers\ASIO Handles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\asio_handle_create_remove.cpp">
+      <Filter>Source Files\Helpers\ASIO Handles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\asio_handle_transfer.cpp">
+      <Filter>Source Files\Helpers\ASIO Handles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_log.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_log_fast.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_card.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_card_plx.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_channel.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_driver_avstream.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_driver_avstream_pin_format.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_driver_avstream_pin_state.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_ioctl_asio.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_ioctl_gui.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_time.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_.cpp">
+      <Filter>Source Files\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_interface.cpp">
+      <Filter>Source Files\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_interface_device_io.cpp">
+      <Filter>Source Files\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_isr.cpp">
+      <Filter>Source Files\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_ioctl_asio.cpp">
+      <Filter>Source Files\Driver\ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_start_stop.cpp">
+      <Filter>Source Files\Driver\AVStream</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_interface_.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_register_wave.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_ioctl_gui.cpp">
+      <Filter>Source Files\Driver\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_ioctl_data.cpp">
+      <Filter>Source Files\Driver\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_proces_ioctl_data.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_register_midi.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_automation.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Wave</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_common.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Wave</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_format.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Wave</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_start_stop.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Wave</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_state.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Wave</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_midi_automation.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_midi_start_stop.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_midi_.cpp">
+      <Filter>Source Files\Channel\Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\driver_avstream_filter_pin_midi_state.cpp">
+      <Filter>Source Files\Driver\AVStream\Filter\Pin Midi</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\channel_midi_copy_buffers.cpp">
+      <Filter>Source Files\Channel\Midi</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\main.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\main_defines.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_altera_firmware.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_altera_firmware_4xx.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_altera_firmware_824.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_codec.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_pci.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_pll.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_plx.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\card_uart.h">
+      <Filter>Source Files\Card\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\channel_base.h">
+      <Filter>Source Files\Channel\Wave\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\channel_stereo.h">
+      <Filter>Source Files\Channel\Wave\Stereo</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\channel_all.h">
+      <Filter>Source Files\Channel\Wave\All</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\port.h">
+      <Filter>Source Files\Helpers\IO Port</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\delay.h">
+      <Filter>Source Files\Helpers\Delay</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\sync_start.h">
+      <Filter>Source Files\Helpers\SyncStart</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\notify_event.h">
+      <Filter>Source Files\Helpers\NotifyEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\linked_array.h">
+      <Filter>Source Files\Helpers\Linked Array</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\asio_handle.h">
+      <Filter>Source Files\Helpers\ASIO Handles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\logger.h">
+      <Filter>Source Files\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\driver.h">
+      <Filter>Source Files\Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\driver_ioctl.h">
+      <Filter>Source Files\Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\driver_ioctl_asio.h">
+      <Filter>Source Files\Driver\ASIO</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\driver_avstream_filter_interface.h">
+      <Filter>Source Files\Driver\AVStream\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\driver_avstream_filter_register.h">
+      <Filter>Source Files\Driver\AVStream\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\driver_ioctl_gui.h">
+      <Filter>Source Files\Driver\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\driver_ioctl_data.h">
+      <Filter>Source Files\Driver\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\channel_midi.h">
+      <Filter>Source Files\Channel\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\midi.h">
+      <Filter>Source Files\Channel\Midi</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Source\Driver_Kernel.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

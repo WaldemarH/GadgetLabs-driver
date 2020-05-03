@@ -1,0 +1,290 @@
+[Version]
+Signature="$Windows NT$"
+Class=Media
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%ProviderName%
+LayoutFile=layout.inf,layout1.inf
+CatalogFile.NTX86=glt_32.cat
+CatalogFile.NTAMD64=glt_64.cat
+DriverVer = 01/16/2010,4.2.0.2
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+;--------------------------------------------------------------------------------------------------
+;---- Source Files --------------------------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+[SourceDisksNames]
+1 = "GadgetLabs Love Team Installation Disk",,,
+
+[SourceDisksFiles]
+gadgetlabs_asio_32.dll = 1
+gadgetlabs_asio_64.dll = 1
+gadgetlabs_gui_32.exe = 1
+gadgetlabs_gui_64.exe = 1
+gadgetlabs_driver_32.sys = 1
+gadgetlabs_driver_64.sys = 1
+gadgetlabs.inf = 1
+
+;--------------------------------------------------------------------------------------------------
+;---- Directories Definition ----------------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+[DestinationDirs]
+wavePro_asio_64_WOW64.CopyFiles=10,SysWOW64
+
+wavePro_user_32.CopyFiles=11
+wavePro_user_64.CopyFiles=11
+
+wavePro_kernel_32.CopyFiles=12
+wavePro_kernel_64.CopyFiles=12
+
+;--------------------------------------------------------------------------------------------------
+;---- Manufacturer&Cards Definition ---------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+[Manufacturer]
+%MnfName%=GadgetLabs,NTX86,NTAMD64
+
+[GadgetLabs.NTX86]
+%GL.DeviceDesc.424%=wavePro,PCI\VEN_10B5&DEV_2135&SUBSYS_04002020
+%GL.DeviceDesc.496%=wavePro,PCI\VEN_10B5&DEV_2180&SUBSYS_09002020
+%GL.DeviceDesc.824%=wavePro,PCI\VEN_10B5&DEV_9050&SUBSYS_08202020	;Rev 2
+%GL.DeviceDesc.824%=wavePro,PCI\VEN_10B5&DEV_9050&SUBSYS_08302020	;Rev 3
+%GL.DeviceDesc.824%=wavePro,PCI\VEN_10B5&DEV_2108&SUBSYS_08402020	;Rev 4
+
+[GadgetLabs.NTAMD64]
+%GL.DeviceDesc.424%=wavePro,PCI\VEN_10B5&DEV_2135&SUBSYS_04002020
+%GL.DeviceDesc.496%=wavePro,PCI\VEN_10B5&DEV_2180&SUBSYS_09002020
+%GL.DeviceDesc.824%=wavePro,PCI\VEN_10B5&DEV_9050&SUBSYS_08202020	;Rev 2
+%GL.DeviceDesc.824%=wavePro,PCI\VEN_10B5&DEV_9050&SUBSYS_08302020	;Rev 3
+%GL.DeviceDesc.824%=wavePro,PCI\VEN_10B5&DEV_2108&SUBSYS_08402020	;Rev 4
+
+;--------------------------------------------------------------------------------------------------
+;---- Device Definition (Install the driver.) -----------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+;---- 32 bit ----
+[wavePro.NTX86]
+include=ks.inf,wdmaudio.inf
+needs=KS.Registration,WDMAUDIO.Registration
+CopyFiles=wavePro_user_32.CopyFiles,wavePro_kernel_32.CopyFiles
+AddReg=wavePro_user_32.AddReg,wavePro_kernel_32.AddReg,wavePro_names.AddReg
+
+;---- 64 bit ----
+[wavePro.NTAMD64]
+include=ks.inf,wdmaudio.inf
+needs=KS.Registration,WDMAUDIO.Registration
+CopyFiles=wavePro_asio_64_WOW64.CopyFiles,wavePro_user_64.CopyFiles,wavePro_kernel_64.CopyFiles
+AddReg=wavePro_user_64.AddReg,wavePro_kernel_64.AddReg,wavePro_names.AddReg
+
+;--------------------------------------------------------------------------------------------------
+;---- Copy Files ----------------------------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+;---- 32 bit ----
+[wavePro_user_32.CopyFiles]
+gadgetlabs_asio_32.dll
+gadgetlabs_gui_32.exe
+
+[wavePro_kernel_32.CopyFiles]
+gadgetlabs_driver_32.sys
+
+;---- 64 bit ----
+[wavePro_asio_64_WOW64.CopyFiles]
+gadgetlabs_asio_32.dll
+
+[wavePro_user_64.CopyFiles]
+gadgetlabs_asio_64.dll
+gadgetlabs_gui_64.exe
+
+[wavePro_kernel_64.CopyFiles]
+gadgetlabs_driver_64.sys
+
+;--------------------------------------------------------------------------------------------------
+;---- Set Registry --------------------------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+;---- 32 bit ----
+[wavePro_user_32.AddReg]
+;ASIO driver
+HKLM,SOFTWARE\ASIO\%AsioName_32%,CLSID,0,%AsioClassID_32%
+HKLM,SOFTWARE\ASIO\%AsioName_32%,Description,0,%AsioName_32%
+
+HKCR,CLSID\%AsioClassID_32%,,0,%AsioName_32%
+HKCR,CLSID\%AsioClassID_32%\InProcServer32,,0,%11%\gadgetlabs_asio_32.dll
+HKCR,CLSID\%AsioClassID_32%\InProcServer32,ThreadingModel,0,Apartment
+
+;GUI
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Run,Gadgetlabs_Gui,,%11%\gadgetlabs_gui_32.exe
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,Gadgetlabs_Gui,,"gadgetlabs_gui_32.exe -start_GUI:gadgetlabs_gui_32.exe"
+
+[wavePro_kernel_32.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi"
+HKR,,Driver,,gadgetlabs_driver_32.sys
+
+;MME support
+HKR,Drivers,SubClasses,,"wave,midi"
+HKR,Drivers\wave\wdmaud.drv,Description,,%WavePro.MME_Driver%
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Description,,%WavePro.MME_Driver%
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+
+;---- 64 bit ----
+[wavePro_user_64.AddReg]
+;ASIO driver 32 bit
+HKLM,SOFTWARE\Wow6432Node\ASIO\%AsioName_32%,CLSID,0,%AsioClassID_32%
+HKLM,SOFTWARE\Wow6432Node\ASIO\%AsioName_32%,Description,0,%AsioName_32%
+
+HKCR,Wow6432Node\CLSID\%AsioClassID_32%,,0,%AsioName_32%
+HKCR,Wow6432Node\CLSID\%AsioClassID_32%\InProcServer32,,0,%10%\SysWOW64\gadgetlabs_asio_32.dll
+HKCR,Wow6432Node\CLSID\%AsioClassID_32%\InProcServer32,ThreadingModel,0,Apartment
+
+;ASIO driver 64 bit
+HKLM,SOFTWARE\ASIO\%AsioName_64%,CLSID,0,%AsioClassID_64%
+HKLM,SOFTWARE\ASIO\%AsioName_64%,Description,0,%AsioName_64%
+
+HKCR,CLSID\%AsioClassID_64%,,0,%AsioName_64%
+HKCR,CLSID\%AsioClassID_64%\InProcServer32,,0,%11%\gadgetlabs_asio_64.dll
+HKCR,CLSID\%AsioClassID_64%\InProcServer32,ThreadingModel,0,Apartment
+
+;GUI
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Run,Gadgetlabs_Gui,,%11%\gadgetlabs_gui_64.exe
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,Gadgetlabs_Gui,,%11%\"gadgetlabs_gui_64.exe -start_GUI:gadgetlabs_gui_64.exe"
+
+[wavePro_kernel_64.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi"
+HKR,,Driver,,gadgetlabs_driver_64.sys
+
+;MME support
+HKR,Drivers,SubClasses,,"wave,midi"
+HKR,Drivers\wave\wdmaud.drv,Description,,%WavePro.MME_Driver%
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Description,,%WavePro.MME_Driver%
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+
+[wavePro_names.AddReg]
+HKLM,%MediaCategories%\{1C2C57A7-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57A7-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57A8-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57A8-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57A9-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57A9-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57AA-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57AA-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57AB-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57AB-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57AC-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57AC-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57AD-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57AD-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57AE-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57AE-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57AF-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57AF-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B0-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B0-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B1-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B1-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B2-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B2-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B3-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B3-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B4-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B4-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B5-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B5-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B6-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B6-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B7-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B7-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B8-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B8-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57B9-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57B9-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57BA-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57BA-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57BB-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57BB-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57BC-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57BC-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57BD-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57BD-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+HKLM,%MediaCategories%\{1C2C57BE-1F1F-4689-9621-AC52DE4E363E},Name,,%GL_Channel%
+HKLM,%MediaCategories%\{1C2C57BE-1F1F-4689-9621-AC52DE4E363E},Display,1,00,00,00,00
+
+;--------------------------------------------------------------------------------------------------
+;---- Services Definition -------------------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+;---- 32 bit ----
+[wavePro.NTX86.Services]
+AddService=WavePro, 0x00000002, wavePro.ServiceInstall_32, 
+
+[wavePro.ServiceInstall_32]
+DisplayName   = %WavePro.DeviceDesc%
+ServiceType   = 1               ;SERVICE_KERNEL_DRIVER
+StartType     = 3               ;SERVICE_DEMAND_START
+ErrorControl  = 1               ;SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\gadgetlabs_driver_32.sys
+
+;---- 64 bit ----
+[wavePro.NTAMD64.Services]
+AddService=WavePro, 0x00000002, wavePro.ServiceInstall_64, 
+
+[wavePro.ServiceInstall_64]
+DisplayName   = %WavePro.DeviceDesc%
+ServiceType   = 1               ;SERVICE_KERNEL_DRIVER
+StartType     = 3               ;SERVICE_DEMAND_START
+ErrorControl  = 1               ;SERVICE_ERROR_NORMAL
+ServiceBinary = %12%\gadgetlabs_driver_64.sys
+
+;--------------------------------------------------------------------------------------------------
+;---- Uninstall -----------------------------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+;it's not working yet and probably never will
+;[DefaultUninstall.NT]
+;DelReg=RemoveReg
+;DelFiles=wavePro_kernel.CopyFiles       ;wavePro_user.CopyFiles
+
+;[RemoveReg]
+;ASIO driver
+;HKLM,SOFTWARE\ASIO\%AsioName%,CLSID
+;HKLM,SOFTWARE\ASIO\%AsioName%,Description
+;HKLM,SOFTWARE\Wow6432Node\ASIO\%AsioName%,CLSID
+;HKLM,SOFTWARE\Wow6432Node\ASIO\%AsioName%,Description
+;
+;HKCR,CLSID\%AsioClassID_32%
+;HKCR,CLSID\%AsioClassID_64%
+
+;ControlPanel
+;HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Run,GLControlPanel,,%11%\gadgetlabs_gui_32.exe
+
+;--------------------------------------------------------------------------------------------------
+;---- Strings -------------------------------------------------------------------------------------
+;--------------------------------------------------------------------------------------------------
+[Strings]
+;-------------------------------------------------
+;[Version]
+ProviderName="GL Love Team"
+
+;---- Manufacturer&Cards Definition --------------
+;[Manufacturer]
+MnfName="GadgetLabs"
+
+;[GadgetLabs]
+GL.DeviceDesc.424="GadgetLabs WavePro 424"
+GL.DeviceDesc.496="GadgetLabs WavePro 496"
+GL.DeviceDesc.824="GadgetLabs WavePro 824"
+
+;---- Device Definition (Install the driver.) ----
+;[asio.AddReg]
+AsioName_32="GadgetLabs WavePro (32 bit)"
+AsioName_64="GadgetLabs WavePro (64 bit)"
+AsioClassID_32="{0469AB8B-8466-43A1-84ED-E4D38F97B9AF}"
+AsioClassID_64="{051A46AB-C2D6-48e8-8320-187984242203}"
+
+;[wavePro.AddReg]
+WavePro.MME_Driver="WavePro MME driver"
+
+;[wavePro_names.AddReg]
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+GL_Channel="GL channel"
+
+;---- Services Definition -------------------------
+WavePro.DeviceDesc="Service for GadgetLabs WavePro Driver"
+

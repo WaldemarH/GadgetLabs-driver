@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ASIO SDK">
+      <UniqueIdentifier>{6e9f77f4-b9ac-4238-8f7e-4347b63fd31a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ioctl">
+      <UniqueIdentifier>{4da55b03-0425-4315-8331-28c9eb7c4232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GL ASIO">
+      <UniqueIdentifier>{65c895dc-b1c7-4d1a-aa59-ab36c27e8b05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GL ASIO\Register">
+      <UniqueIdentifier>{e0721829-d1bc-457c-9921-5576942d3f60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GL ASIO\COM Object">
+      <UniqueIdentifier>{e5fa56b2-3c6c-4338-84c8-8fd30d996bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\COM">
+      <UniqueIdentifier>{1374d20a-20ed-4831-9813-d52ea110a6d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\COM\Factory">
+      <UniqueIdentifier>{2c377901-e2fd-4b95-b713-f732c1d9104f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Dialog ControlPanel">
+      <UniqueIdentifier>{d9095f0b-fabd-4e9a-b022-243ff3bf9394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Registry">
+      <UniqueIdentifier>{9d6d6e2b-87f2-4e0c-8fd7-f97cfad9dabe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logger">
+      <UniqueIdentifier>{eb626d46-b307-42cb-92a9-fecc70126972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="export_functions.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\main.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ASIO\asio.h">
+      <Filter>Source Files\ASIO SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ASIO\asiodrvr.h">
+      <Filter>Source Files\ASIO SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ASIO\asiosys.h">
+      <Filter>Source Files\ASIO SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ASIO\iasiodrv.h">
+      <Filter>Source Files\ASIO SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Kernel\Source\driver_ioctl.h">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Kernel\Source\driver_ioctl_asio.h">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Kernel\Source\driver_ioctl_data.h">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\gl_asio.h">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\gl_register.h">
+      <Filter>Source Files\GL ASIO\Register</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\gl_com_object.h">
+      <Filter>Source Files\GL ASIO\COM Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\COM\combase.h">
+      <Filter>Source Files\COM</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\COM\wxdebug.h">
+      <Filter>Source Files\COM</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\COM\com_factory.h">
+      <Filter>Source Files\COM\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dlg_control_panel.h">
+      <Filter>Source Files\Dialog ControlPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\registry.h">
+      <Filter>Source Files\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\logger.h">
+      <Filter>Source Files\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources\resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ASIO\asio_register.cpp">
+      <Filter>Source Files\ASIO SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GUI\Source\ioctrl.cpp">
+      <Filter>Source Files\Ioctl</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_asio.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_asio_buffers.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_asio_channels.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_asio_clock.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_asio_sample_rate.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_asio_start_stop.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_asio_switch.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_kernel_asio.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_kernel_asio_protecting_irp.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_kernel_data.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_register.cpp">
+      <Filter>Source Files\GL ASIO\Register</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_com_object.cpp">
+      <Filter>Source Files\GL ASIO\COM Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\COM\combase.cpp">
+      <Filter>Source Files\COM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\COM\dllentry.cpp">
+      <Filter>Source Files\COM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\COM\com_factory_.cpp">
+      <Filter>Source Files\COM\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\COM\com_factory_iclassfactory.cpp">
+      <Filter>Source Files\COM\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\COM\com_factory_iunkown.cpp">
+      <Filter>Source Files\COM\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_control_panel_cards.cpp">
+      <Filter>Source Files\Dialog ControlPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_control_panel_initialize.cpp">
+      <Filter>Source Files\Dialog ControlPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_control_panel_messages.cpp">
+      <Filter>Source Files\Dialog ControlPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dlg_control_panel_save.cpp">
+      <Filter>Source Files\Dialog ControlPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\registry_.cpp">
+      <Filter>Source Files\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_asio_asio.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_asio_buffers.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_asio_channels.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_kernel_asio.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_log.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\logger_time.cpp">
+      <Filter>Source Files\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\gl_asio_kernel_common.cpp">
+      <Filter>Source Files\GL ASIO</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\glAsio.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

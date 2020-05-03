@@ -1,0 +1,76 @@
+MAJORCOMP=ntos
+
+TARGETNAME=gadgetlabs_driver_32
+TARGETTYPE=DRIVER
+TARGETLIBS=$(DDK_LIB_PATH)\ks.lib
+
+INCLUDES=$(DDK_INC_PATH)
+DRIVERTYPE=WDM
+
+MSC_WARNING_LEVEL=/W4
+C_DEFINES=$(C_DEFINES) -DUNICODE -D_UNICODE -DDEBUG_LEVEL=DEBUGLVL_BLAB -D_WIN2K_COMPAT_SLIST_USAGE
+
+LINKER_FLAGS =$(LINKER_FLAGS) -merge:PAGECONST=PAGE
+
+SOURCES=\
+             Driver_Kernel.rc    \
+             asio_handle_.cpp    \
+             asio_handle_buffers.cpp    \
+             asio_handle_channels.cpp    \
+             asio_handle_create_remove.cpp    \
+             asio_handle_transfer.cpp    \
+             card.cpp    \
+             card_altera.cpp    \
+             card_channels.cpp    \
+             card_channel_properties.cpp    \
+             card_clock.cpp    \
+             card_codec.cpp    \
+             card_pll.cpp    \
+             card_plx.cpp    \
+             card_stream.cpp    \
+             card_uart.cpp    \
+             channel_all_.cpp    \
+             channel_all_copy_buffers_avstream.cpp    \
+             channel_base_.cpp    \
+             channel_base_copy_buffers.cpp    \
+             channel_base_transfer.cpp    \
+             channel_stereo_.cpp    \
+             channel_stereo_copy_buffers_asio.cpp    \
+             channel_stereo_copy_buffers_avstream.cpp    \
+             delay.cpp    \
+             driver_.cpp    \
+             driver_avstream_filter_interface_.cpp    \
+             driver_avstream_filter_pin_automation.cpp    \
+             driver_avstream_filter_pin_common.cpp    \
+             driver_avstream_filter_pin_format.cpp    \
+             driver_avstream_filter_pin_start_stop.cpp    \
+             driver_avstream_filter_pin_state.cpp    \
+             driver_avstream_filter_register_wave.cpp    \
+             driver_avstream_start_stop.cpp    \
+             driver_interface.cpp    \
+             driver_interface_device_io.cpp    \
+             driver_ioctl_asio.cpp    \
+             driver_ioctl_data.cpp    \
+             driver_ioctl_gui.cpp    \
+             driver_isr.cpp    \
+             linked_array_.cpp    \
+             logger_.cpp    \
+             logger_log.cpp    \
+             logger_log_fast.cpp    \
+             logger_proces_card.cpp    \
+             logger_proces_card_plx.cpp    \
+             logger_proces_channel.cpp    \
+             logger_proces_driver_avstream.cpp    \
+             logger_proces_driver_avstream_pin_format.cpp    \
+             logger_proces_driver_avstream_pin_state.cpp    \
+             logger_proces_ioctl_asio.cpp    \
+             logger_proces_ioctl_gui.cpp    \
+             logger_time.cpp    \
+             main.cpp    \
+             notify_event_.cpp    \
+             notify_event_events.cpp    \
+             port.cpp    \
+             sync_start_.cpp    \
+             sync_start_channel.cpp    \
+             sync_start_linking.cpp
+

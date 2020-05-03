@@ -1,0 +1,393 @@
+# Copyright (C) 1991-2004 Altera Corporation
+# Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+# support information,  device programming or simulation file,  and any other
+# associated  documentation or information  provided by  Altera  or a partner
+# under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+# to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+# other  use  of such  megafunction  design,  netlist,  support  information,
+# device programming or simulation file,  or any other  related documentation
+# or information  is prohibited  for  any  other purpose,  including, but not
+# limited to  modification,  reverse engineering,  de-compiling, or use  with
+# any other  silicon devices,  unless such use is  explicitly  licensed under
+# a separate agreement with  Altera  or a megafunction partner.  Title to the
+# intellectual property,  including patents,  copyrights,  trademarks,  trade
+# secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+# support  information,  device programming or simulation file,  or any other
+# related documentation or information provided by  Altera  or a megafunction
+# partner, remains with Altera, the megafunction partner, or their respective
+# licensors. No other licenses, including any licenses needed under any third
+# party's intellectual property, are provided herein.
+
+
+# The default values for assignments are stored in the file
+#		SoundCache824_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 4.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:25:48  JULY 09, 2005"
+set_global_assignment -name LAST_QUARTUS_VERSION 4.1
+set_global_assignment -name VHDL_FILE Source/SoundCache824.vhd
+set_global_assignment -name VHDL_FILE Source/clocks_engine.vhd
+set_global_assignment -name VHDL_FILE Source/CONVERTERs.vhd
+set_global_assignment -name VHDL_FILE Source/reg_devices.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_engine.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_sample_counter_and_transfer_engine.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_interrupt_downcounter.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc_interrupt.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc8_gain.vhd
+set_global_assignment -name VHDL_FILE Source/reg_sc8_mon_mute.vhd
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_28 -to LB_CLK
+set_location_assignment PIN_57 -to nCS_FPGA
+set_location_assignment PIN_119 -to nCS_FPGA_DAUGHTER
+set_location_assignment PIN_59 -to nCS_LM
+set_location_assignment PIN_3 -to nLB_RESET
+set_location_assignment PIN_156 -to nBANK_CE
+set_location_assignment PIN_154 -to nBANK_OE
+set_location_assignment PIN_155 -to nBANK_WE
+set_location_assignment PIN_60 -to LB_HOLD
+set_location_assignment PIN_61 -to LB_HOLDA
+set_location_assignment PIN_82 -to nLB_CLOCK_SELECT0
+set_location_assignment PIN_101 -to nLB_CLOCK_SELECT1
+set_location_assignment PIN_103 -to nLB_CLOCK_SELECT2
+set_location_assignment PIN_105 -to CLOCK_16MHz
+set_location_assignment PIN_128 -to CLOCK_18MHz
+set_location_assignment PIN_117 -to CLOCK_DAUGHTER_CARD
+set_location_assignment PIN_104 -to CLOCK_MASTER_OUT
+set_location_assignment PIN_106 -to CLOCK_SYNC_IN
+set_location_assignment PIN_173 -to DC_CONF_DONE
+set_location_assignment PIN_175 -to DC_DATA_BIT
+set_location_assignment PIN_174 -to DC_DATA_CLK
+set_location_assignment PIN_171 -to DC_nCONFIG
+set_location_assignment PIN_73 -to DC_nPRSNT
+set_location_assignment PIN_172 -to DC_nSTATUS
+set_location_assignment PIN_136 -to DAC_DIF0
+set_location_assignment PIN_121 -to nRESET_ADC_0
+set_location_assignment PIN_120 -to nRESET_ADC_1
+set_location_assignment PIN_108 -to nRESET_ADC_2
+set_location_assignment PIN_107 -to nRESET_ADC_3
+set_location_assignment PIN_123 -to CONVERTERS_96FS_ADC
+set_location_assignment PIN_133 -to CONVERTERS_96FS_DAC
+set_location_assignment PIN_122 -to CONVERTERS_LEFT_RIGHT_ADC
+set_location_assignment PIN_134 -to CONVERTERS_LEFT_RIGHT_DAC
+set_location_assignment PIN_127 -to CONVERTER1_SERIAL_DATA_IN
+set_location_assignment PIN_126 -to CONVERTER2_SERIAL_DATA_IN
+set_location_assignment PIN_125 -to CONVERTER3_SERIAL_DATA_IN
+set_location_assignment PIN_124 -to CONVERTER4_SERIAL_DATA_IN
+set_location_assignment PIN_140 -to CONVERTER1_SERIAL_DATA_OUT
+set_location_assignment PIN_139 -to CONVERTER2_SERIAL_DATA_OUT
+set_location_assignment PIN_138 -to CONVERTER3_SERIAL_DATA_OUT
+set_location_assignment PIN_137 -to CONVERTER4_SERIAL_DATA_OUT
+set_location_assignment PIN_76 -to INT_MIDI
+set_location_assignment PIN_75 -to nINT_DAUGHTER_CARD
+set_location_assignment PIN_58 -to nINT_OUTPUT_REQUEST
+set_location_assignment PIN_90 -to GAIN_CH1_IN
+set_location_assignment PIN_89 -to GAIN_CH2_IN
+set_location_assignment PIN_88 -to GAIN_CH3_IN
+set_location_assignment PIN_87 -to GAIN_CH4_IN
+set_location_assignment PIN_86 -to GAIN_CH5_IN
+set_location_assignment PIN_85 -to GAIN_CH6_IN
+set_location_assignment PIN_84 -to GAIN_CH7_IN
+set_location_assignment PIN_83 -to GAIN_CH8_IN
+set_location_assignment PIN_100 -to GAIN_CH1_OUT
+set_location_assignment PIN_99 -to GAIN_CH2_OUT
+set_location_assignment PIN_98 -to GAIN_CH3_OUT
+set_location_assignment PIN_97 -to GAIN_CH4_OUT
+set_location_assignment PIN_94 -to GAIN_CH5_OUT
+set_location_assignment PIN_93 -to GAIN_CH6_OUT
+set_location_assignment PIN_92 -to GAIN_CH7_OUT
+set_location_assignment PIN_91 -to GAIN_CH8_OUT
+set_location_assignment PIN_170 -to MON_CH1
+set_location_assignment PIN_169 -to MON_CH2
+set_location_assignment PIN_168 -to MON_CH3
+set_location_assignment PIN_167 -to MON_CH4
+set_location_assignment PIN_164 -to MON_CH5
+set_location_assignment PIN_163 -to MON_CH6
+set_location_assignment PIN_162 -to MON_CH7
+set_location_assignment PIN_161 -to MON_CH8
+set_location_assignment PIN_144 -to MUTE_CH1
+set_location_assignment PIN_152 -to MUTE_CH2
+set_location_assignment PIN_143 -to MUTE_CH3
+set_location_assignment PIN_151 -to MUTE_CH4
+set_location_assignment PIN_142 -to MUTE_CH5
+set_location_assignment PIN_146 -to MUTE_CH6
+set_location_assignment PIN_141 -to MUTE_CH7
+set_location_assignment PIN_145 -to MUTE_CH8
+set_location_assignment PIN_68 -to nLB_RD
+set_location_assignment PIN_69 -to nLB_WR
+set_location_assignment PIN_109 -to SPARE7
+set_location_assignment PIN_160 -to TP_1
+set_location_assignment PIN_159 -to TP_2
+set_location_assignment PIN_158 -to TP_3
+set_location_assignment PIN_157 -to TP_4
+set_location_assignment PIN_205 -to TP_5
+set_location_assignment PIN_206 -to TP_6
+set_location_assignment PIN_207 -to TP_7
+set_location_assignment PIN_208 -to TP_8
+set_location_assignment PIN_48 -to LB_DATA_UPPER\[4\]
+set_location_assignment PIN_49 -to LB_DATA_UPPER\[5\]
+set_location_assignment PIN_50 -to LB_DATA_UPPER\[6\]
+set_location_assignment PIN_51 -to LB_DATA_UPPER\[7\]
+set_location_assignment PIN_39 -to LB_DATA_UPPER\[0\]
+set_location_assignment PIN_40 -to LB_DATA_UPPER\[1\]
+set_location_assignment PIN_41 -to LB_DATA_UPPER\[2\]
+set_location_assignment PIN_42 -to LB_DATA_UPPER\[3\]
+set_location_assignment PIN_37 -to LB_DATA\[23\]
+set_location_assignment PIN_36 -to LB_DATA\[22\]
+set_location_assignment PIN_35 -to LB_DATA\[21\]
+set_location_assignment PIN_34 -to LB_DATA\[20\]
+set_location_assignment PIN_33 -to LB_DATA\[19\]
+set_location_assignment PIN_32 -to LB_DATA\[18\]
+set_location_assignment PIN_31 -to LB_DATA\[17\]
+set_location_assignment PIN_30 -to LB_DATA\[16\]
+set_location_assignment PIN_29 -to LB_DATA\[15\]
+set_location_assignment PIN_23 -to LB_DATA\[14\]
+set_location_assignment PIN_22 -to LB_DATA\[13\]
+set_location_assignment PIN_21 -to LB_DATA\[12\]
+set_location_assignment PIN_20 -to LB_DATA\[11\]
+set_location_assignment PIN_18 -to LB_DATA\[10\]
+set_location_assignment PIN_17 -to LB_DATA\[9\]
+set_location_assignment PIN_16 -to LB_DATA\[8\]
+set_location_assignment PIN_15 -to LB_DATA\[7\]
+set_location_assignment PIN_14 -to LB_DATA\[6\]
+set_location_assignment PIN_13 -to LB_DATA\[5\]
+set_location_assignment PIN_12 -to LB_DATA\[4\]
+set_location_assignment PIN_11 -to LB_DATA\[3\]
+set_location_assignment PIN_10 -to LB_DATA\[2\]
+set_location_assignment PIN_4 -to LB_DATA\[0\]
+set_location_assignment PIN_5 -to LB_DATA\[1\]
+set_location_assignment PIN_201 -to LB_ADDRESS_16TO1\[4\]
+set_location_assignment PIN_202 -to LB_ADDRESS_16TO1\[3\]
+set_location_assignment PIN_203 -to LB_ADDRESS_16TO1\[2\]
+set_location_assignment PIN_204 -to LB_ADDRESS_16TO1\[1\]
+set_location_assignment PIN_54 -to LB_ADDRESS_16TO1\[0\]
+set_location_assignment PIN_188 -to LB_ADDRESS_16TO1\[15\]
+set_location_assignment PIN_189 -to LB_ADDRESS_16TO1\[14\]
+set_location_assignment PIN_190 -to LB_ADDRESS_16TO1\[13\]
+set_location_assignment PIN_191 -to LB_ADDRESS_16TO1\[12\]
+set_location_assignment PIN_192 -to LB_ADDRESS_16TO1\[11\]
+set_location_assignment PIN_193 -to LB_ADDRESS_16TO1\[10\]
+set_location_assignment PIN_194 -to LB_ADDRESS_16TO1\[9\]
+set_location_assignment PIN_195 -to LB_ADDRESS_16TO1\[8\]
+set_location_assignment PIN_196 -to LB_ADDRESS_16TO1\[7\]
+set_location_assignment PIN_197 -to LB_ADDRESS_16TO1\[6\]
+set_location_assignment PIN_198 -to LB_ADDRESS_16TO1\[5\]
+set_location_assignment PIN_74 -to DC_nFINISHED_TRANSFER
+set_location_assignment PIN_81 -to DC_nSTART_TRANSFER
+
+# Timing Assignments
+# ==================
+set_global_assignment -name REPORT_IO_PATHS_SEPARATELY ON
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 208
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 3
+set_global_assignment -name FAMILY FLEX6000
+set_global_assignment -name STATE_MACHINE_PROCESSING "MINIMAL BITS"
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name FLEX6K_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name TOP_LEVEL_ENTITY SoundCache824
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE "EPF6016QC208-3"
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name OPTIMIZE_HOLD_TIMING OFF
+set_global_assignment -name OPTIMIZE_TIMING "NORMAL COMPILATION"
+set_global_assignment -name OPTIMIZE_IOC_REGISTER_PLACEMENT_FOR_TIMING OFF
+set_global_assignment -name FLEX6K_DEVICE_IO_STANDARD LVTTL/LVCMOS
+
+# EDA Netlist Writer Assignments
+# ==============================
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim (VHDL output from Quartus II)"
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name GENERATE_RBF_FILE ON
+
+# Design Assistant Assignments
+# ============================
+set_global_assignment -name ENABLE_DRC_SETTINGS OFF
+
+# LogicLock Region Assignments
+# ============================
+set_global_assignment -name LOGICLOCK_INCREMENTAL_COMPILE_ASSIGNMENT off
+
+# -----------------------
+# start CLOCK(CLOCK_96FS)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name BASED_ON_CLOCK_SETTINGS CLOCK_MASTER_CLOCK -section_id CLOCK_96FS
+	set_global_assignment -name DUTY_CYCLE 50 -section_id CLOCK_96FS
+	set_global_assignment -name INVERT_BASE_CLOCK OFF -section_id CLOCK_96FS
+	set_global_assignment -name MULTIPLY_BASE_CLOCK_PERIOD_BY 4 -section_id CLOCK_96FS
+	set_global_assignment -name DIVIDE_BASE_CLOCK_PERIOD_BY 1 -section_id CLOCK_96FS
+
+# end CLOCK(CLOCK_96FS)
+# ---------------------
+
+# ---------------------
+# start CLOCK(CLOCK_FS)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name BASED_ON_CLOCK_SETTINGS CLOCK_MASTER_CLOCK -section_id CLOCK_FS
+	set_global_assignment -name DUTY_CYCLE 50 -section_id CLOCK_FS
+	set_global_assignment -name INVERT_BASE_CLOCK OFF -section_id CLOCK_FS
+	set_global_assignment -name MULTIPLY_BASE_CLOCK_PERIOD_BY 384 -section_id CLOCK_FS
+	set_global_assignment -name DIVIDE_BASE_CLOCK_PERIOD_BY 1 -section_id CLOCK_FS
+
+# end CLOCK(CLOCK_FS)
+# -------------------
+
+# -------------------------------
+# start CLOCK(CLOCK_MASTER_CLOCK)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name FMAX_REQUIREMENT "25.0 MHz" -section_id CLOCK_MASTER_CLOCK
+	set_global_assignment -name DUTY_CYCLE 50 -section_id CLOCK_MASTER_CLOCK
+
+# end CLOCK(CLOCK_MASTER_CLOCK)
+# -----------------------------
+
+# -------------------
+# start CLOCK(LB_CLK)
+
+	# Timing Assignments
+	# ==================
+	set_global_assignment -name FMAX_REQUIREMENT "50.0 MHz" -section_id LB_CLK
+	set_global_assignment -name DUTY_CYCLE 50 -section_id LB_CLK
+
+# end CLOCK(LB_CLK)
+# -----------------
+
+# ---------------------------------------
+# start EDA_TOOL_SETTINGS(eda_simulation)
+
+	# Analysis & Synthesis Assignments
+	# ================================
+	set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY OFF -section_id eda_simulation
+
+	# EDA Netlist Writer Assignments
+	# ==============================
+	set_global_assignment -name EDA_INCLUDE_VHDL_CONFIGURATION_DECLARATION ON -section_id eda_simulation
+	set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+	set_global_assignment -name EDA_MAINTAIN_DESIGN_HIERARCHY OFF -section_id eda_simulation
+
+# end EDA_TOOL_SETTINGS(eda_simulation)
+# -------------------------------------
+
+# ---------------------------
+# start ENTITY(SoundCache824)
+
+	# Timing Assignments
+	# ==================
+	set_instance_assignment -name CLOCK_SETTINGS LB_CLK -to LB_CLK
+	set_instance_assignment -name CUT ON -to MON_CH1
+	set_instance_assignment -name CUT ON -to MON_CH2
+	set_instance_assignment -name CUT ON -to MON_CH3
+	set_instance_assignment -name CUT ON -to MON_CH4
+	set_instance_assignment -name CUT ON -to MON_CH5
+	set_instance_assignment -name CUT ON -to MON_CH6
+	set_instance_assignment -name CUT ON -to MON_CH7
+	set_instance_assignment -name CUT ON -to MON_CH8
+	set_instance_assignment -name CUT ON -to MUTE_CH1
+	set_instance_assignment -name CUT ON -to MUTE_CH2
+	set_instance_assignment -name CUT ON -to MUTE_CH3
+	set_instance_assignment -name CUT ON -to MUTE_CH4
+	set_instance_assignment -name CUT ON -to MUTE_CH5
+	set_instance_assignment -name CUT ON -to MUTE_CH6
+	set_instance_assignment -name CUT ON -to MUTE_CH7
+	set_instance_assignment -name CUT ON -to MUTE_CH8
+	set_instance_assignment -name CUT ON -to nLB_RESET
+	set_instance_assignment -name CUT ON -to GAIN_CH1_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH2_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH3_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH4_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH5_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH6_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH7_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH8_OUT
+	set_instance_assignment -name CUT ON -to GAIN_CH1_IN
+	set_instance_assignment -name CUT ON -to GAIN_CH2_IN
+	set_instance_assignment -name CUT ON -to GAIN_CH3_IN
+	set_instance_assignment -name CUT ON -to GAIN_CH4_IN
+	set_instance_assignment -name CUT ON -to GAIN_CH5_IN
+	set_instance_assignment -name CUT ON -to GAIN_CH6_IN
+	set_instance_assignment -name CUT ON -to GAIN_CH7_IN
+	set_instance_assignment -name CUT ON -to GAIN_CH8_IN
+	set_instance_assignment -name CUT ON -to INT_MIDI
+	set_instance_assignment -name CUT ON -to nINT_DAUGHTER_CARD
+	set_instance_assignment -name CUT ON -to nINT_OUTPUT_REQUEST
+	set_instance_assignment -name CUT ON -to DC_nPRSNT
+	set_instance_assignment -name CUT ON -to DC_DATA_BIT
+	set_instance_assignment -name CUT ON -to DC_DATA_CLK
+	set_instance_assignment -name CUT ON -to DC_CONF_DONE
+	set_instance_assignment -name CUT ON -to DC_nCONFIG
+	set_instance_assignment -name CUT ON -to DC_nSTATUS
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to CLOCK_16MHz
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to CLOCK_18MHz
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to CLOCK_DAUGHTER_CARD
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to CLOCK_MASTER_OUT
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to CLOCK_SYNC_IN
+	set_instance_assignment -name CUT ON -to nLB_CLOCK_SELECT0
+	set_instance_assignment -name CUT ON -to nLB_CLOCK_SELECT1
+	set_instance_assignment -name CUT ON -to nLB_CLOCK_SELECT2
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_96FS -to CONVERTERS_96FS_ADC
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_96FS -to CONVERTERS_96FS_DAC
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_FS -to CONVERTERS_LEFT_RIGHT_ADC
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_FS -to CONVERTERS_LEFT_RIGHT_DAC
+	set_instance_assignment -name CUT ON -to SPARE7
+	set_instance_assignment -name CUT ON -to TP_1
+	set_instance_assignment -name CUT ON -to TP_2
+	set_instance_assignment -name CUT ON -to TP_3
+	set_instance_assignment -name CUT ON -to TP_4
+	set_instance_assignment -name CUT ON -to TP_5
+	set_instance_assignment -name CUT ON -to TP_6
+	set_instance_assignment -name CUT ON -to TP_7
+	set_instance_assignment -name CUT ON -to TP_8
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_96FS -to "clocks_engine:CLKE\|CG_generator_bick\[1\]"
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_FS -to "clocks_engine:CLKE\|CG_generator_sampleRate\[6\]"
+	set_instance_assignment -name CUT ON -to "reg_SC_ENGINE:SC_ENGINE\|regData\[0\]"
+	set_instance_assignment -name CUT ON -to "reg_SC_ENGINE:SC_ENGINE\|regData\[1\]"
+	set_instance_assignment -name CUT ON -to "reg_SC_ENGINE:SC_ENGINE\|regData\[2\]"
+	set_instance_assignment -name CUT ON -to "reg_SC_ENGINE:SC_ENGINE\|regData\[3\]"
+	set_instance_assignment -name CUT ON -to "reg_SC_DEVICES:SC_DEVICES\|regData\[0\]"
+	set_instance_assignment -name CUT ON -to "reg_SC_DEVICES:SC_DEVICES\|regData\[1\]"
+	set_instance_assignment -name CUT ON -to "reg_SC_DEVICES:SC_DEVICES\|regData\[2\]"
+	set_instance_assignment -name CUT ON -to CLOCK_16MHz
+	set_instance_assignment -name CUT ON -to CLOCK_18MHz
+	set_instance_assignment -name CUT ON -to CLOCK_DAUGHTER_CARD
+	set_instance_assignment -name CUT ON -to CLOCK_SYNC_IN
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to SRE_masterClock
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to SRE_selectedClock
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to "clocks_engine:CLKE\|SRE_masterClock"
+	set_instance_assignment -name CLOCK_SETTINGS CLOCK_MASTER_CLOCK -to "clocks_engine:CLKE\|SRE_selectedClock"
+	set_instance_assignment -name TPD_REQUIREMENT 18ns -from nLB_RD -to nBANK_OE
+	set_instance_assignment -name TPD_REQUIREMENT 18ns -from nCS_LM -to nBANK_OE
+	set_instance_assignment -name TPD_REQUIREMENT 18ns -from nLB_RD -to nBANK_CE
+	set_instance_assignment -name TPD_REQUIREMENT 18ns -from nCS_LM -to nBANK_CE
+
+	# Analysis & Synthesis Assignments
+	# ================================
+	set_instance_assignment -name POWER_UP_LEVEL LOW -to regData
+
+# end ENTITY(SoundCache824)
+# -------------------------

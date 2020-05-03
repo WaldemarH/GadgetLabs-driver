@@ -1,0 +1,92 @@
+Flow report for SoundCache
+Sun Jan 16 11:07:21 2011
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Elapsed Time
+  5. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++------------------------------------------------------------------+
+; Flow Summary                                                     ;
++-----------------------+------------------------------------------+
+; Flow Status           ; Successful - Sun Jan 16 11:07:21 2011    ;
+; Quartus II Version    ; 4.1 Build 181 06/29/2004 SJ Full Version ;
+; Revision Name         ; SoundCache                               ;
+; Top-level Entity Name ; main                                     ;
+; Family                ; FLEX6000                                 ;
+; Device                ; EPF6016ATC144-3                          ;
+; Timing Models         ; Production                               ;
+; Total logic elements  ; 867 / 1,320 ( 65 % )                     ;
+; Total pins            ; 103 / 117 ( 88 % )                       ;
++-----------------------+------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 01/16/2011 11:06:50 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; SoundCache          ;
++-------------------+---------------------+
+
+
++-------------------------------------+
+; Flow Elapsed Time                   ;
++----------------------+--------------+
+; Module Name          ; Elapsed Time ;
++----------------------+--------------+
+; Analysis & Synthesis ; 00:00:05     ;
+; Fitter               ; 00:00:20     ;
+; Assembler            ; 00:00:00     ;
+; Timing Analyzer      ; 00:00:00     ;
+; Design Assistant     ; 00:00:00     ;
+; Total                ; 00:00:25     ;
++----------------------+--------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --import_settings_files=on --export_settings_files=off SoundCache -c SoundCache
+quartus_fit --import_settings_files=off --export_settings_files=off SoundCache -c SoundCache
+quartus_asm --import_settings_files=off --export_settings_files=off SoundCache -c SoundCache
+quartus_tan --import_settings_files=off --export_settings_files=off SoundCache -c SoundCache
+quartus_drc --import_settings_files=off --export_settings_files=off SoundCache -c SoundCache
+
+
+

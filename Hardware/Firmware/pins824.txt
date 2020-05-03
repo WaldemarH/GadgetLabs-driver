@@ -1,0 +1,242 @@
+ALTERA6016QC208-3
+
+824 cards are hardwired to: ADC -> format 2 type of sample data transfer -> I2S
+                            DAC -> format 6 type of sample data transfer -> I2S (connect DAC_DIF0 to 0 in Altera)
+
+clocks: - 384*44.1kHz = 16.9344MHz
+        - 384*48.0kHz = 18.3320MHz
+
+NOTICE:
+As the design of the PLD code is that the clocks are removed from the ADCs/DACs next behaviour is
+expected by the datasheet explanation:
+- ADC : 
+
+- DAC : as soon LRCLK or MCLK are removed the DACs will go into power-down state ->
+        when the clocks will come back again the DACs will auto power and calibrate them
+        selfs automatically, so no driver calibration is required.
+
+NOTICE2:
+Daughter cards headers have different connections -> if PLD code will be written
+use only those that are common to all master cards.
+
+
+*******************************************************************************
+**  Altera chip 6016A pins explained  *****************************************
+*******************************************************************************
+
+pin       type      Altera name    Card name           explanation
+1         IN/OUT    I/O A          LB_USER0            USER 0 I/O pin (can be used for anything)
+2         IN/OUT    I/O A          LB_USER1            USER 1 I/O pin (can be used for anything)
+3         IN        I/O A          LB_RESET#           local BUS reset (it should reset devices on local BUS)
+
+4         3state    I/O B          LB_LD0              local bus data line
+5         3state    I/O B          LB_LD1              local bus data line
+
+10        3state    I/O B          LB_LD2              local bus data line
+11        3state    I/O B          LB_LD3              local bus data line
+12        3state    I/O B          LB_LD4              local bus data line
+13        3state    I/O B          LB_LD5              local bus data line
+14        3state    I/O B          LB_LD6              local bus data line
+15        3state    I/O B          LB_LD7              local bus data line
+16        3state    I/O C          LB_LD8              local bus data line
+17        3state    I/O C          LB_LD9              local bus data line
+18        3state    I/O C          LB_LD10             local bus data line
+
+20        3state    I/O C          LB_LD11             local bus data line
+21        3state    I/O C          LB_LD12             local bus data line
+22        3state    I/O C          LB_LD13             local bus data line
+23        3state    I/O C          LB_LD14             local bus data line
+
+24        IN        Ded. Input     MCLK3               dedicated input ( global clock 3 )
+28        IN        Ded. Input     LCLK1               dedicated input ( global clock 1 )
+
+29        3state    I/O D          LB_LD15             local bus data line
+30        3state    I/O D          LB_LD16             local bus data line
+31        3state    I/O D          LB_LD17             local bus data line
+32        3state    I/O D          LB_LD18             local bus data line
+33        3state    I/O D          LB_LD19             local bus data line
+34        3state    I/O D          LB_LD20             local bus data line
+35        3state    I/O D          LB_LD21             local bus data line
+36        3state    I/O D          LB_LD22             local bus data line
+37        3state    I/O E          LB_LD23             local bus data line
+
+39        3state    I/O E          LB_LD24             local bus data line
+40        3state    I/O E          LB_LD25             local bus data line
+41        3state    I/O E          LB_LD26             local bus data line
+42        3state    I/O E          LB_LD27             local bus data line
+
+48        3state    I/O F          LB_LD28             local bus data line
+49        3state    I/O F          LB_LD29             local bus data line
+50        3state    I/O F          LB_LD30             local bus data line
+51        3state    I/O F          LB_LD31             local bus data line
+
+52        IN        I/O F          CLK4M               4MHz clock from UART
+
+53        IN        I/O F          LB_LBE0#(LB_LA0)    local BUS address byte 0 enable ( use as LB_LA0 )
+54        IN        I/O F          LB_LBE1#(LB_LA1)    local BUS address byte 1 enable ( use as LB_LA1 )
+55        IN        I/O F          LB_LBE2#            local BUS address byte 2 enable (DO NOT USE -> HiZ)
+56        IN        I/O F          LB_LBE3#            local BUS address byte 3 enable (DO NOT USE -> HiZ)
+
+57        IN        I/O C1         FPGA_CS#            Altera chip select (registers)
+58        OUT_OD    I/O C2         FPGA_INT#           interrupt request
+59        IN        I/O C2         LM_CS#              local memory chip select
+60        OUT       I/O C3         LB_HOLD             local bus request
+61        IN        I/O C4         LB_HOLDA            local bus granted
+
+65                  I/O C5         LB_BTERM#           Burst terminate (DO NOT USE -> HiZ )
+66        OUT_OD    I/O C5         LB_RDY#             Local Ready In (DO NOT USE -> HiZ )
+                                                       Indicates read data is on the local BUS or that write data is accepted.
+67                  I/O C6         LB_LW/R#            Asserted high for writes and low for reads. (DO NOT USE -> HiZ )
+68        IN        I/O C7         LB_RD#         
+69        IN        I/O C7         LB_WR#         
+70        IN        I/O C8         LB_BLAST#           (DO NOT USE -> HiZ )
+71        IN        I/O C8         LB_ADS#             (DO NOT USE -> HiZ )
+72        IN        I/O C9         LB_ALE              (DO NOT USE -> HiZ )
+
+73        IN        I/O C10        SPD_PRSNT#          daughter card present
+74        IN        I/O C10        SPD_REQ             local BUS request (same as LB_HOLD)
+75        IN        I/O C11        SPD_INT#            SPDIF interrupt
+76        IN        I/O C11        MIDI_INT            UART interrupt
+
+81        OUT       I/O C10        SPD_GNT             local BUS granted (by the Altera chip) (same as LB_HOLDA)
+
+82        OUT       I/O C12        LB_CLOCK_SELECT0#   set 18MHz clock to local bus (only one of LB_CLOCK_SELECTx can be enabled at one time)
+                                                       Notes:
+                                                        LB_CLOCK_SELECT0#  -> set 18MHz clock to local bus
+                                                        LB_CLOCK_SELECT1#  -> set PCI clock to local bus
+                                                        LB_CLOCK_SELECT2#  -> set master clock to local bus
+
+83        OUT       I/O C13        GAIN_CH8_IN         set gain of input channel 8
+84        OUT       I/O C14        GAIN_CH7_IN         set gain of input channel 7
+85        OUT       I/O C14        GAIN_CH6_IN         set gain of input channel 6
+86        OUT       I/O C15        GAIN_CH5_IN         set gain of input channel 5
+87        OUT       I/O C15        GAIN_CH4_IN         set gain of input channel 4
+88        OUT       I/O C16        GAIN_CH3_IN         set gain of input channel 3
+89        OUT       I/O C16        GAIN_CH2_IN         set gain of input channel 2
+90        OUT       I/O C17        GAIN_CH1_IN         set gain of input channel 1
+
+91        OUT       I/O C13        GAIN_CH8_OUT        set gain of output channel 8
+92        OUT       I/O C13        GAIN_CH7_OUT        set gain of output channel 7
+93        OUT       I/O C13        GAIN_CH6_OUT        set gain of output channel 6
+94        OUT       I/O C13        GAIN_CH5_OUT        set gain of output channel 5
+97        OUT       I/O C13        GAIN_CH4_OUT        set gain of output channel 4
+98        OUT       I/O C13        GAIN_CH3_OUT        set gain of output channel 3
+99        OUT       I/O C13        GAIN_CH2_OUT        set gain of output channel 2
+100       OUT       I/O C13        GAIN_CH1_OUT        set gain of output channel 1
+
+101       OUT       I/O F          LB_CLOCK_SELECT1#   set PCI clock to local bus (only one of LB_CLOCK_SELECTx can be enabled at one time)
+103       OUT       I/O F          LB_CLOCK_SELECT2#   set MAIN clock to local bus (only one of LB_CLOCK_SELECTx can be enabled at one time)
+                                                       Notes:
+                                                        LB_CLOCK_SELECT0#  -> set 18MHz clock to local bus
+                                                        LB_CLOCK_SELECT1#  -> set PCI clock to local bus
+                                                        LB_CLOCK_SELECT2#  -> set master clock to local bus
+
+104       OUT       I/O C23        MCLKOUT             master clock out (358xFS)
+105       IN        I/O F          16M                 16.9344MHz clock IN
+106       IN        I/O F          MSTRCLK             sync clock IN
+
+107       OUT       TDO(F)         ADC3_RST#           AD 3 converter reset
+108       OUT       I/O(E)         ADC2_RST#           AD 2 converter reset
+
+109       IN/OUT    I/O(E)         SPARE7              test point (not connected anywhere -> should be pulled to ground)
+113       IN/OUT    I/O(E)         TEST3(SPARE6)       same as test3 connection on 4xx boards(pin 79) (HiZ)
+114       IN/OUT    I/O(E)         TEST2(SPARE5)       same as test2 connection on 4xx boards(pin 80) (HiZ)
+115       IN/OUT    I/O(E)         TEST1(SPARE4)       same as test1 connection on 4xx boards(pin 81) (HiZ)
+116       IN/OUT    I/O(E)         TEST0(SPARE3)       same as test0 connection on 4xx boards(pin 82) (HiZ)
+
+117       IN        I/O(E)         LRCLK_CE(SPARE2)    daughter card clock
+118       OUT       I/O(E)         LB_LA1(SPARE1)      local address 1 (on 824 must be connected through the FPGA)
+119       OUT       I/O(E)         FPGA_CS#(SPARE0)    Altera chip select (registers)(on 824 must be connected through the FPGA)
+                                                       (for daughter cards)
+
+120       OUT       IO(D)          ADC1_RST#           AD 1 converter reset
+121       OUT       IO(D)          ADC0_RST#           AD 0 converter reset
+
+122       OUT       IO(D)          LRCLK(ADC_LRCLK)    AD converters left/right select clock
+123       OUT       IO(D)          96FS(ADC_SCLK)      AD converters data transfer clock (96xFS) (similar to BICK on 4xx)
+
+124       IN        IO(D)          ADC_SDIN3           AD converter 3 sample data (input)
+125       IN        IO(D)          ADC_SDIN2           AD converter 2 sample data (input)
+126       IN        IO(D)          ADC_SDIN1           AD converter 1 sample data (input)
+127       IN        IO(D)          ADC_SDIN0           AD converter 0 sample data (input)
+
+128       IN        Ded. Input     18.432MHz           18.432MHz global clock input
+132       IN        Ded. Input     not used            (global clock connector)
+
+133       OUT       IO(C)          96FS(DAC_SCLK)      DA converters data transfer clock (96xFS) (similar to BICK on 4xx)
+134       OUT       IO(C)          LRCLK(DAC_LRCLK)    DA converters left/right select clock
+
+136       OUT       IO(C)          DAC_DIF0(DAC_CALIB) DA converters sample type format selection - connect to 0 ( DIF0 and DIF1 are connected to +5V )
+
+137       OUT       IO(B)          DAC_SDIN3           DA converter 3 sample data
+138       OUT       IO(B)          DAC_SDIN2           DA converter 2 sample data
+139       OUT       IO(B)          DAC_SDIN1           DA converter 1 sample data
+140       OUT       IO(B)          DAC_SDIN0           DA converter 0 sample data
+
+141       OUT       IO(B)          DAC_MUTEL3#(CH7)    DA converter 3 mute left channel
+142       OUT       IO(B)          DAC_MUTEL2#(CH5)    DA converter 2 mute left channel
+143       OUT       IO(B)          DAC_MUTEL1#(CH3)    DA converter 1 mute left channel
+144       OUT       IO(B)          DAC_MUTEL0#(CH1)    DA converter 0 mute left channel
+145       OUT       IO(B)          DAC_MUTER3#(CH8)    DA converter 3 mute right channel
+146       OUT       IO(B)          DAC_MUTER2#(CH6)    DA converter 2 mute right channel
+151       OUT       IO(B)          DAC_MUTER1#(CH4)    DA converter 1 mute right channel
+152       OUT       IO(B)          DAC_MUTER0#(CH2)    DA converter 0 mute right channel
+
+153       not used ( pull to ground )
+
+154       OUT       IO(A)          BANK0_OE#           SRAM control pin (output enable)
+155       OUT       IO(A)          BANK0_WE#           SRAM control pin (write enable)
+156       OUT       IO(A)          BANK0_CE#           SRAM control pin (chip enable) (has external pull up)
+
+157 \
+158 |
+159 | test points ( pull to ground )
+160 /
+
+161       OUT       IN(A)          MON_CH8              Monitor channel 8
+162       OUT       IN(A)          MON_CH7              Monitor channel 8
+163       OUT       IN(A)          MON_CH6              Monitor channel 8
+164       OUT       IN(A)          MON_CH5              Monitor channel 8
+
+167       OUT       IN(A)          MON_CH4              Monitor channel 8
+168       OUT       IN(A)          MON_CH3              Monitor channel 8
+169       OUT       IN(A)          MON_CH2              Monitor channel 8
+170       OUT       IN(A)          MON_CH1              Monitor channel 8
+
+
+171       OUT       I/O RA         SPD_nCONFIG          SPDIF Altera nCONFIG
+172       3state    I/O C24        SPD_nSTATUS          SPDIF Altera nSTATUS
+173       3state    I/O C23        SPD_CONF_DONE        SPIDF Altera CONF_DONE        
+174       OUT       I/O C22        SPD_DCLK             SPDIF Altera DCLK
+175       OUT       I/O C21        SPD_DATA             SPDIF Altera DATA
+
+176 \
+177 / not connected ( connect to ground )
+
+178 DEV_OE -> not used ( connect to ground )
+
+179 \
+180 / not connected ( connenct to ground )
+
+188       IN        I/O C20        LB_LA16              local BUS address line
+189       IN        I/O C19        LB_LA15              local BUS address line
+190       IN        I/O C18        LB_LA14              local BUS address line
+191       IN        I/O C17        LB_LA13              local BUS address line
+192       IN        I/O C16        LB_LA12              local BUS address line
+193       IN        I/O C15        LB_LA11              local BUS address line
+194       IN        I/O C14        LB_LA10              local BUS address line
+195       IN        I/O C13        LB_LA9               local BUS address line
+196       IN        I/O C12        LB_LA8               local BUS address line
+197       IN        I/O C11        LB_LA7               local BUS address line
+198       IN        I/O C10        LB_LA6               local BUS address line
+
+201       IN        I/O C9         LB_LA5               local BUS address line
+202       IN        I/O C8         LB_LA4               local BUS address line
+203       IN        I/O C7         LB_LA3               local BUS address line
+204       IN        I/O C6         LB_LA2               local BUS address line
+
+205 \
+206 |
+207 | test points ( connect to ground )
+208 /
+

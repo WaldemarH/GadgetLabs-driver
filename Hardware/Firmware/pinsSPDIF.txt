@@ -1,0 +1,229 @@
+Altera chip: EPF10K10TC144-4
+
+
+
+HEADER: 2x17 (type is looking from SPDIF card)
+pin       type      SPDIF Card Name          496 Card name       824 Card Name       explanation
+1         GND       GND                      GND_D               GND_D               digital ground
+2         VCC       VCC                      VCC_D               VCC_D               digital power (+5V)
+3         GND       GND                      GND                 GND                 digital ground
+4         VCC       VCC                      VCC_D               VCC_D               digital power (+5V)
+5         OUT       SPD_REQ                  SPD_REQ             SPD_REQ             local BUS request (same as LB_HOLD)
+6         VCC       VCC                      VCC_D               VCC_D               digital power (+5V)
+7         IN        SPD_GNT                  SPD_GNT             SPD_GNT             local BUS granted (by the main card Altera chip) (same as LB_HOLDA)
+8         IN        #SPD_CS_N                #SPD_CS             #SPD_CS             ChipSelect 2 (SPDIF card chipSelect -> Digital Memory)
+9         OUT       #SPD_INT                 #SPD_INT            #SPD_INT            SPDIF interrupt
+10        IN        MCLK                     MCLK4               MCLK4               master card clock IN
+11        IN        #LB_RDY                  #LB_RDY             #LB_RDY             Local Ready In
+                                                                                     Indicates read data is on the local BUS or that write data is accepted.
+12        IN        CLK16M                   MCLK_11             SPD_16M             16.9344MHz (384*44100Hz) clock in for 44100Hz
+13        OUT(GND)  #SPD_PRSNT               #SPD_PRSNT          #SPD_PRSNT          daughter card present
+14        IN        CLK18M                   MCLK_24             SPD_18M             18.4320MHz (384*48000Hz) clock in for 48000Hz
+15        IN/OUT    LB_LAD23                 LB_LAD23            LB_LAD23            data line
+16        IN/OUT    LB_LAD15                 LB_LAD15            LB_LAD15            data line
+17        IN/OUT    LB_LAD22                 LB_LAD22            LB_LAD22            data line
+18        IN/OUT    LB_LAD14                 LB_LAD14            LB_LAD14            data line
+19        IN/OUT    LB_LAD21                 LB_LAD21            LB_LAD21            data line
+20        IN/OUT    LB_LAD13                 LB_LAD13            LB_LAD13            data line
+21        IN/OUT    LB_LAD20                 LB_LAD20            LB_LAD20            data line
+22        IN/OUT    LB_LAD12                 LB_LAD12            LB_LAD12            data line
+23        IN/OUT    LB_LAD19                 LB_LAD19            LB_LAD19            data line
+24        IN/OUT    LB_LAD11                 LB_LAD11            LB_LAD11            data line
+25        IN/OUT    LB_LAD18                 LB_LAD18            LB_LAD18            data line
+26        IN/OUT    LB_LAD10                 LB_LAD10            LB_LAD10            data line
+27        IN/OUT    LB_LAD17                 LB_LAD17            LB_LAD17            data line
+28        IN/OUT    LB_LAD9                  LB_LAD9             LB_LAD9             data line
+29        IN/OUT    LB_LAD16                 LB_LAD16            LB_LAD16            data line
+30        IN/OUT    LB_LAD8                  LB_LAD8             LB_LAD8             data line
+31        IN/OUT    SPARE4                   TEST1               SPARE4              (can be used for anything)
+32        IN/OUT    SPARE6                   TEST3               SPARE6              (can be used for anything)
+33        IN/OUT    SPARE5                   TEST2               SPARE5              (can be used for anything)
+34        IN        LB_CLK                   LCLK2               LCLK2               local BUS clock
+
+
+
+HEADER: 2x20
+1         IN        LB_LA2                   LB_LA2              LB_LA2              local BUS address
+2         IN/OUT    LB_LAD0                  LB_LAD0             LB_LAD0             data line
+3         IN        LB_LA3                   LB_LA3              LB_LA3              local BUS address
+4         IN/OUT    LB_LAD1                  LB_LAD1             LB_LAD1             data line
+5         IN        LB_LA4                   LB_LA4              LB_LA4              local BUS address
+6         IN/OUT    LB_LAD2                  LB_LAD2             LB_LAD2             data line
+7         IN        LB_LA5                   LB_LA5              LB_LA5              local BUS address
+8         IN/OUT    LB_LAD3                  LB_LAD3             LB_LAD3             data line
+9         IN        LB_LA6                   LB_LA6              LB_LA6              local BUS address
+10        IN/OUT    LB_LAD4                  LB_LAD4             LB_LAD4             data line
+11        IN        LB_LA7                   LB_LA7              LB_LA7              local BUS address
+12        IN/OUT    LB_LAD5                  LB_LAD5             LB_LAD5             data line
+13        IN        LB_LA8                   LB_LA8              LB_LA8              local BUS address
+14        IN/OUT    LB_LAD6                  LB_LAD6             LB_LAD6             data line
+15        IN        LB_LA9                   LB_LA9              LB_LA9              local BUS address
+16        IN/OUT    LB_LAD7                  LB_LAD7             LB_LAD7             data line
+17        IN        LB_LA10                  LB_LA10             LB_LA10             local BUS address
+18        IN        #LB_RESET_N              #LB_RESET           #LB_RESET           local BUS reset (it should reset devices on local BUS)
+19        IN        LB_LA11                  LB_LA11             LB_LA11             local BUS address
+20        IN        #LB_BLAST_N              TST_LRCLK           #LB_BLAST           (on 496 it's a test pin)/local BUS blast
+21        IN        LB_LA12                  LB_LA12             LB_LA12             local BUS address
+22        IN        #LB_WR_N                 #LB_WR              #LB_WR              local BUS wirte
+23        IN        LB_LA13                  LB_LA13             LB_LA13             local BUS address
+24        IN        #LB_RD_N                 #LB_RD              #LB_RD              local BUS read
+25        IN        LB_LA14                  LB_LA14             LB_LA14             local BUS address
+26        IN        #LB_ADS_N                LB_LA16             LB_ADS#             local BUS address
+27        IN        LB_LA15                  LB_LA15             LB_LA15             local BUS address
+28        VCC       VCC                      VCC_D               VCC_D               digital power (+5V)
+29        GND       GND                      GND_D               GND_D               digital ground
+30        VCC       VCC                      VCC_D               VCC_D               digital power (+5V)
+31        IN        #FPGA_CS_N               #FPGA_CS            SPARE0              FPGA chip select
+32        OUT       LRCLK_CE                 LRCLK_CE            SPARE2              digital IN clock
+33        IN        LB_LBE1                  LB_LA1              SPARE1              local BUS address
+34        IN/OUT    SPARE3                   TEST0               SPARE3              (can be used for anything)
+35        IN        nCONFIGIN                SPD_nCONFIG         SPD_nCONFIG         SPDIF Altera nCONFIG
+36        IN        DATA_IN                  SPD_DATA            SPD_DATA            SPDIF Altera DATA
+37        IN        nSTATUS_IN               SPD_nSTATUS         SPD_nSTATUS         SPDIF Altera nSTATUS
+38        IN        DCLK_IN                  SPD_DCLK            SPD_DCLK            SPDIF Altera DCLK
+39        GND       GND                      GND_D               GND_D               digital ground
+40        IN        CONF_DONE_IN             SPD_CONF_DONE       SPD_CONF_DONE       SPIDF Altera CONF_DONE
+
+      
+HEADER: 1x7 (JP5)
+1                   SPD_TXP
+2                   SPD_TXN
+3                   SPD_RX
+4                   VCC            Power
+5                   TX_OPT
+6                   GND            Power ground
+7                   WORDCLOCK
+*******************************************************************************
+**  Altera chip pins explained  ***********************************************
+*******************************************************************************
+
+pin       type      Altera name    Card name      explanation
+2                   CONF_DONE      CONF_DONE_IN   SPIDF Altera CONF_DONE
+
+7         IN/OUT    I/O Row A      LB_LAD0        local BUS data
+8         IN/OUT    I/O Row A      LB_LAD1        local BUS data
+9         IN/OUT    I/O Row A      LB_LAD2        local BUS data
+10        IN/OUT    I/O Row A      LB_LAD3        local BUS data
+11        IN/OUT    I/O Row A      LB_LAD4        local BUS data
+12        IN/OUT    I/O Row A      LB_LAD5        local BUS data
+13        IN/OUT    I/O Row A      LB_LAD6        local BUS data
+14        IN/OUT    I/O Row A      LB_LAD7        local BUS data
+
+17        IN/OUT    I/O Row B      LB_LAD8        local BUS data
+18        IN/OUT    I/O Row B      LB_LAD9        local BUS data
+19        IN/OUT    I/O Row B      LB_LAD10       local BUS data
+20        IN/OUT    I/O Row B      LB_LAD11       local BUS data
+21        IN/OUT    I/O Row B      LB_LAD12       local BUS data
+22        IN/OUT    I/O Row B      LB_LAD13       local BUS data
+23        IN/OUT    I/O Row B      LB_LAD14       local BUS data
+
+26        IN/OUT    I/O Row C      LB_LAD15       local BUS data
+27        IN/OUT    I/O Row C      LB_LAD16       local BUS data
+28        IN/OUT    I/O Row C      LB_LAD17       local BUS data
+29        IN/OUT    I/O Row C      LB_LAD18       local BUS data
+30        IN/OUT    I/O Row C      LB_LAD19       local BUS data
+31        IN/OUT    I/O Row C      LB_LAD20       local BUS data
+32        IN/OUT    I/O Row C      LB_LAD21       local BUS data
+33        IN/OUT    I/O Row C      LB_LAD22       local BUS data
+
+35                  nSTATUS        nSTATUS_IN     SPDIF Altera nSTATUS
+36        IN/OUT    I/O C          LB_LAD23       local BUS data
+37        IN        I/O Col23      #SPD_CS_N      ChipSelect 2 (SPDIF card chipSelect -> Digital Memory)
+38        IN        I/O Col22      #LB_RD_N       local bus READ
+39        IN        I/O Col21      #LB_WR_N       local bus WRITE
+
+41        IN        I/O Col20      #LB_RESET_N    local bus RESET
+42                  I/O Col19      #TX_PRO_N      
+43                  I/O Col18      TX_MODE0       
+44                  I/O Col18      TX_MODE1       
+
+46                  I/O Col17      TX_MODE2       
+47                  I/O Col16      RX_MODE0       
+48                  I/O Col15      RX_MODE1
+49                  I/O Col14      RX_MODE2       
+
+51                  I/O Col13      RX_MODE3       
+
+54        IN        Ded.Input      TXCLK_DED      ded. input of pin90 TXCLK (transmitting CHIP clock)
+55        IN        Input/GCLK     LB_CLK         local bus clock (GLOBAL CLOCK 0)
+56        IN        Ded.Input      /              not used
+
+59                  I/O Col12      #TX_RST_N      
+60                  I/O Col12      TX_SBL         
+
+62                  I/O Col11      TX_SBF         
+63                  I/O Col11      TX_FC0         
+64                  I/O Col10      TX_FC1         
+65                  I/O Col9       TX_C2
+67                  I/O Col8       TX_C3
+68                  I/O Col7       TX_C8
+69                  I/O Col6       TX_C9
+70                  I/O Col5       TX_C15
+
+72                  I/O Col4       TX_U           
+73                  I/O C2         TX_V           
+
+78                  I/O Row C      RFSY           receiver LEFT_RIGHT clock
+79                  I/O Row C      RBCK
+80                  I/O Row C      RSDA
+81                  I/O Row C      SPARE6
+82                  I/O Row C      SPARE5
+83                  I/O Row C      WordClock
+
+86                  I/O Row B      LM_OE_N
+87                  I/O Row B      LM_WE_N
+88                  I/O Row B      LM_CE_N
+89                  I/O Row B      SPARE4
+90                  I/O Row B      TXCLK          transmit clock (connected to pin 54 also) -> this is clock that goes to DAC
+91                  I/O Row B      SPD_REQ
+92                  I/O Row B      SPD_GNT
+
+95                  I/O Row A      FPGA_CS_N
+96                                 LB_LBE1_N
+97                                 LRCLK_CE
+98                                 SPARE3
+99                                 SPD_INT_N
+100                                TSDA
+101                                TBCK
+102                                TFSY
+
+109                                RX_VERF
+110                                RX_ERF
+111                                RX_U
+112                                RX_C
+113                                RX_CBL
+114                                RX_SEL
+
+116                                RX_CS12FCK
+117                                RX_ERR0
+118                                RX_ERR1
+119                                RX_ERR2
+120                                RX_FC0
+121                                RX_FC1
+122                                RX_FC2
+
+124                                CLK16M              dedicated input on Altera
+125                                MCLK                GLOBAL CLOCK 1
+126                                CLK18M              dedicated input on Altera
+
+128                                LB_LA15
+
+130                                LB_LA14
+131                                LB_LA13
+132                                LB_LA12
+133                                LB_LA11
+
+135                                LB_LA10
+136                                LB_LA9
+137                                LB_LA8
+138                                LB_LA7
+
+140                                LB_LA6
+141                                LB_LA5
+142                                LB_LA4
+143                                LB_LA3
+144                                LB_LA2
+
+NOTICE:
+SPD_REQ => DC_nFINISHED_TRANSFER (line has pull-down resistor)
+SPD_GRN => DC_nSTART_TRANSFER

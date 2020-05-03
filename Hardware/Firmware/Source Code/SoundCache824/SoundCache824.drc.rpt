@@ -1,0 +1,595 @@
+Design Assistant report for SoundCache824
+Sun Jul 10 14:48:47 2005
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. Design Assistant Results Summary
+  5. Critical
+  6. High
+  7. Medium
+  8. Information only
+  9. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++-----------------------------------------------------------------+
+; Design Assistant Summary                                        ;
++-------------------------+---------------------------------------+
+; Design Assistant Status ; Successful - Sun Jul 10 14:48:47 2005 ;
+; Revision Name           ; SoundCache824                         ;
+; Top-level Entity Name   ; SoundCache824                         ;
+; Family                  ; FLEX6000                              ;
++-------------------------+---------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Option                                                                                                                                                                                                                                                                         ; Setting      ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Design Assistant mode                                                                                                                                                                                                                                                          ; Post-Fitting ;
+; Minimum number of node fan-out                                                                                                                                                                                                                                                 ; 30           ;
+; Maximum number of nodes to report                                                                                                                                                                                                                                              ; 50           ;
+; Combinational logic used as clock signal should be implemented according to Altera standard scheme                                                                                                                                                                             ; On           ;
+; Inverter should not be implemented in logic cell                                                                                                                                                                                                                               ; On           ;
+; Input clock pin should fan out to only one set of combinational logic used as clock signal                                                                                                                                                                                     ; On           ;
+; Clock signal source should drive only input clock ports                                                                                                                                                                                                                        ; On           ;
+; Clock signal should be a global signal (This rule applies during post-fitting analysis. This rule applies during both post-fitting analysis and post-synthesis analysis if the design targets a MAX 3000 or MAX 7000 device. For more information, see the Help for the rule.) ; On           ;
+; Clock signal source should not drive registers that are triggered by different clock edges                                                                                                                                                                                     ; On           ;
+; Combinational logic used as reset signal should be synchronized                                                                                                                                                                                                                ; On           ;
+; External reset should be synchronized using two cascaded registers                                                                                                                                                                                                             ; On           ;
+; External reset should be correctly synchronized                                                                                                                                                                                                                                ; On           ;
+; Reset signal source should drive only input reset ports                                                                                                                                                                                                                        ; On           ;
+; Reset signal that is generated in one clock domain and used in other, asynchronous clock domains should be synchronized                                                                                                                                                        ; On           ;
+; Reset signal that is generated in one clock domain and used in other, asynchronous clock domains should be correctly synchronized                                                                                                                                              ; On           ;
+; Nodes with more than specified number of fan-outs                                                                                                                                                                                                                              ; On           ;
+; Top nodes with highest fan-out                                                                                                                                                                                                                                                 ; On           ;
+; Register output directly drives input of another register when both registers are triggered at same time                                                                                                                                                                       ; On           ;
+; Registers in direct data transfer between clock domains are triggered by clock edges at the same time                                                                                                                                                                          ; On           ;
+; Design should not contain combinational loops                                                                                                                                                                                                                                  ; On           ;
+; Register output should not drive its own control signal directly or through combinational logic                                                                                                                                                                                ; On           ;
+; Design should not contain delay chains                                                                                                                                                                                                                                         ; On           ;
+; Two or more register outputs in cascade should not directly drive clock ports of following registers                                                                                                                                                                           ; On           ;
+; Pulses should be implemented according to Altera standard scheme                                                                                                                                                                                                               ; On           ;
+; Multiple pulses should not be generated in design                                                                                                                                                                                                                              ; On           ;
+; Design should not contain SR latches                                                                                                                                                                                                                                           ; On           ;
+; Design should not contain latches                                                                                                                                                                                                                                              ; On           ;
+; Combinational logic should not directly drive write enable signal of asynchronous RAM                                                                                                                                                                                          ; On           ;
+; Design should not contain asynchronous memory                                                                                                                                                                                                                                  ; On           ;
+; Output enable and input of tri-state node should not be driven by same signal source                                                                                                                                                                                           ; On           ;
+; Data bits are not synchronized when transferred between asynchronous clock domains                                                                                                                                                                                             ; On           ;
+; All data bits that are transferred between asynchronous clock domains are synchronized                                                                                                                                                                                         ; On           ;
+; Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                                                                                                                                                   ; On           ;
+; Only one VREF pin should be assigned to HardCopy test pin in an I/O bank (This rule does not apply to all HardCopy and HardCopy Stratix devices. This rule is used to analyze a design only when the rule applies to the design's target HardCopy or HardCopy Stratix device.) ; Off          ;
+; PLL drives multiple clock network types (This rule does not apply to all HardCopy and HardCopy Stratix devices. This rule is used to analyze a design only when the rule applies to the design's target HardCopy or HardCopy Stratix device.)                                  ; Off          ;
+; Design is missing fmax requirement                                                                                                                                                                                                                                             ; On           ;
+; Design is missing tco, tpd, or tsu requirement                                                                                                                                                                                                                                 ; On           ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+
+
++---------------------------------------------------+
+; Design Assistant Results Summary                  ;
++----------------------------+----------------------+
+; Severity of Rule violation ; Number of violations ;
++----------------------------+----------------------+
+; Critical                   ; 12                   ;
+; High                       ; 8                    ;
+; Medium                     ; 7                    ;
+; Information only           ; 173                  ;
++----------------------------+----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Critical                                                                                                                                                                                                                                                                             ;
++----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Rule name                                                                                          ; Name                                                                                                                                                                            ;
++----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design should not contain combinational loops - Combinational loop1                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[7]~17 ;
+; Design should not contain combinational loops - Combinational loop2                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[6]~16 ;
+; Design should not contain combinational loops - Combinational loop3                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[4]~14 ;
+; Design should not contain combinational loops - Combinational loop4                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[8]~18 ;
+; Design should not contain combinational loops - Combinational loop5                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[9]~19 ;
+; Design should not contain combinational loops - Combinational loop6                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[0]~10 ;
+; Design should not contain combinational loops - Combinational loop7                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[1]~11 ;
+; Design should not contain combinational loops - Combinational loop8                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[3]~13 ;
+; Design should not contain combinational loops - Combinational loop9                                ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[2]~12 ;
+; Design should not contain combinational loops - Combinational loop10                               ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[5]~15 ;
+; Combinational logic used as clock signal should be implemented according to Altera standard scheme ; clocks_engine:CLKE|SRE_selectedClock~1                                                                                                                                          ;
+; Combinational logic used as clock signal should be implemented according to Altera standard scheme ; clocks_engine:CLKE|SRE_masterClock                                                                                                                                              ;
++----------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; High                                                                                                                                                                                                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Rule name                                                                                                 ; Name                                                                                                                                                                           ;
++-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock signal should be a global signal                                                                    ; clocks_engine:CLKE|SRE_selectedClock~1                                                                                                                                         ;
+; Clock signal should be a global signal                                                                    ; clocks_engine:CLKE|SRE_masterClock                                                                                                                                             ;
+; Combinational logic used as reset signal should be synchronized                                           ; lineDecoder_3to8:LD|nOutputEnable_write[2]                                                                                                                                     ;
+; Combinational logic used as reset signal should be synchronized                                           ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|trigger~1                                                                                                                              ;
+; Combinational logic used as reset signal should be synchronized                                           ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|trigger~1                                                                                                                              ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[7] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT:SC_INTERRUPT|interrupts[0]                                                                                                                                    ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[6] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[9] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[4] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[8] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[0] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[1] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[3] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[2] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[5] ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[10]     ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[10]                                                                      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[9]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[9]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[8]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[8]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[7]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[7]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[6]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[6]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[5]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[5]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[4]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[4]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[3]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[3]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[2]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[2]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[1]      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[1]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|q[0]            ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[0]                                                                       ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[15]     ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[15]                                                                      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[14]     ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[14]                                                                      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[13]     ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[13]                                                                      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[12]     ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[12]                                                                      ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[11]     ;
+; Data bits are not synchronized when transferred between asynchronous clock domains - Structure1           ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[11]                                                                      ;
+; Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure1 ; CONVERTERs_engine:CE|nBick24_6halfs                                                                                                                                            ;
+; Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure1 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_transferRequest_protector                                                                   ;
+; Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure1 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_1                                                       ;
+; Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure2 ; CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_2                                                                                                               ;
+; Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure2 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_transferRequest_protector                                                                   ;
+; Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure2 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_1                                                       ;
++-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Medium                                                                                                                                                                  ;
++-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+; Rule name                                                                                                               ; Name                                          ;
++-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+; Clock signal source should drive only input clock ports                                                                 ; clocks_engine:CLKE|SRE_selectedClock~1        ;
+; Clock signal source should drive only input clock ports                                                                 ; clocks_engine:CLKE|CG_generator_sampleRate[6] ;
+; Clock signal source should not drive registers that are triggered by different clock edges                              ; clocks_engine:CLKE|CG_generator_bick[1]       ;
+; Reset signal source should drive only input reset ports                                                                 ; clocks_engine:CLKE|SRE_masterClockGate        ;
+; Reset signal source should drive only input reset ports                                                                 ; lineDecoder_3to8:LD|nOutputEnable_write[2]    ;
+; Reset signal source should drive only input reset ports                                                                 ; reg_SC_ENGINE:SC_ENGINE|regData[3]            ;
+; Reset signal that is generated in one clock domain and used in other, asynchronous clock domains should be synchronized ; reg_SC_ENGINE:SC_ENGINE|regData[3]            ;
++-------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Information only                                                                                                                                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+; Rule name                                                                                                             ; Name                                                                                                                             ; Fan-Out ;
++-----------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+; Nodes with more than specified number of fan-outs                                                                     ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_upperAddress[3]~118                           ; 33      ;
+; Nodes with more than specified number of fan-outs                                                                     ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|nMEMORY_CE~26                                    ; 47      ;
+; Nodes with more than specified number of fan-outs                                                                     ; CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|OUTPUT_PULSE                                                          ; 47      ;
+; Nodes with more than specified number of fan-outs                                                                     ; CONVERTERs_engine:CE|nBick24_3halfs                                                                                              ; 71      ;
+; Nodes with more than specified number of fan-outs                                                                     ; LB_CLK                                                                                                                           ; 122     ;
+; Nodes with more than specified number of fan-outs                                                                     ; clocks_engine:CLKE|CG_generator_bick[1]                                                                                          ; 88      ;
+; Top nodes with highest fan-out                                                                                        ; LB_CLK                                                                                                                           ; 122     ;
+; Top nodes with highest fan-out                                                                                        ; clocks_engine:CLKE|CG_generator_bick[1]                                                                                          ; 88      ;
+; Top nodes with highest fan-out                                                                                        ; CONVERTERs_engine:CE|nBick24_3halfs                                                                                              ; 71      ;
+; Top nodes with highest fan-out                                                                                        ; CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|OUTPUT_PULSE                                                          ; 47      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|nMEMORY_CE~26                                    ; 47      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_upperAddress[3]~118                           ; 33      ;
+; Top nodes with highest fan-out                                                                                        ; clocks_engine:CLKE|CG_generator_sampleRate[6]                                                                                    ; 30      ;
+; Top nodes with highest fan-out                                                                                        ; LB_ADDRESS_16TO1[2]~13                                                                                                           ; 28      ;
+; Top nodes with highest fan-out                                                                                        ; CONVERTERs_engine:CE|nBick24_6halfs                                                                                              ; 27      ;
+; Top nodes with highest fan-out                                                                                        ; CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_2                                                                 ; 26      ;
+; Top nodes with highest fan-out                                                                                        ; LB_ADDRESS_16TO1[0]~15                                                                                                           ; 24      ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_write[2]                                                                                       ; 22      ;
+; Top nodes with highest fan-out                                                                                        ; CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[0]                                                                   ; 19      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_ENGINE:SC_ENGINE|regData[3]                                                                                               ; 18      ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_read[2]                                                                                        ; 17      ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_read[0]~568                                                                                    ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_read[5]                                                                                        ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_waitfortransferrequest_left~6 ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC8_MON_MUTE:SC8_MON_MUTE|regData~1138                                                                                       ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC8_MON_MUTE:SC8_MON_MUTE|regData~1139                                                                                       ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC8_GAIN:SC8_GAIN|regData~1138                                                                                               ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[15]~2200                                                                                                                 ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC8_GAIN:SC8_GAIN|regData~1139                                                                                               ; 16      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~37                               ; 13      ;
+; Top nodes with highest fan-out                                                                                        ; nLB_RESET                                                                                                                        ; 13      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~36                               ; 13      ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_read[4]                                                                                        ; 11      ;
+; Top nodes with highest fan-out                                                                                        ; clocks_engine:CLKE|SRE_masterClockGate                                                                                           ; 10      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~38                               ; 10      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|reduce_nor~206                                                             ; 10      ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~39                               ; 10      ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[23]~0                                                                                                                    ; 9       ;
+; Top nodes with highest fan-out                                                                                        ; clocks_engine:CLKE|CG_generator_sampleRate[0]                                                                                    ; 8       ;
+; Top nodes with highest fan-out                                                                                        ; clocks_engine:CLKE|CG_generator_sampleRate[1]                                                                                    ; 8       ;
+; Top nodes with highest fan-out                                                                                        ; nMemory_readEnable                                                                                                               ; 8       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[0]~23                                                                                                                    ; 7       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[1]~22                                                                                                                    ; 7       ;
+; Top nodes with highest fan-out                                                                                        ; clocks_engine:CLKE|reduce_nor~30                                                                                                 ; 7       ;
+; Top nodes with highest fan-out                                                                                        ; reg_SC_ENGINE:SC_ENGINE|regData[2]                                                                                               ; 7       ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_write[1]~112                                                                                   ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_read[1]                                                                                        ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[9]~14                                                                                                                    ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; lineDecoder_3to8:LD|nOutputEnable_read[0]                                                                                        ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[5]~18                                                                                                                    ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[4]~19                                                                                                                    ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[2]~21                                                                                                                    ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; nLB_RD                                                                                                                           ; 6       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[3]~20                                                                                                                    ; 5       ;
+; Top nodes with highest fan-out                                                                                        ; LB_DATA[6]~17                                                                                                                    ; 5       ;
+; Top nodes with highest fan-out                                                                                        ; nLB_WR                                                                                                                           ; 5       ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure1 ; clocks_engine:CLKE|SRE_masterClockGate_protector                                                                                 ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure1 ; clocks_engine:CLKE|SRE_masterClockGate                                                                                           ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_2         ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_1         ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_transferRequest_protector                     ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|D_FF2                                                                                    ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|D_FF3                                                                                    ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|D_FF3                                                                                    ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|D_FF2                                                                                    ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|D_FF1                                                                                    ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|D_FF1                                                                                    ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure2 ; reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_3         ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure3 ; CONVERTERs_engine:CE|nBick24_4halfs                                                                                              ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure3 ; CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_2                                                                 ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure3 ; CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_1                                                                 ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure3 ; CONVERTERs_engine:CE|nBick24_2halfs                                                                                              ; N/A     ;
+; Register output directly drives input of another register when both registers are triggered at same time - Structure3 ; CONVERTERs_engine:CE|nBick24_6halfs                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nLB_RESET                                                                                                                        ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; INT_MIDI                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nINT_DAUGHTER_CARD                                                                                                               ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; CONVERTER1_SERIAL_DATA_IN                                                                                                        ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nCS_FPGA_DAUGHTER                                                                                                                ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nBANK_CE                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nBANK_OE                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nBANK_WE                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_HOLD                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nLB_CLOCK_SELECT0                                                                                                                ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nLB_CLOCK_SELECT1                                                                                                                ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nLB_CLOCK_SELECT2                                                                                                                ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; DC_DATA_BIT                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; DC_DATA_CLK                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; DC_nCONFIG                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; DAC_DIF0                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nRESET_ADC_0                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nRESET_ADC_1                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nRESET_ADC_2                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nRESET_ADC_3                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; CONVERTER1_SERIAL_DATA_OUT                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; CONVERTER2_SERIAL_DATA_OUT                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; CONVERTER3_SERIAL_DATA_OUT                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; CONVERTER4_SERIAL_DATA_OUT                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; nINT_OUTPUT_REQUEST                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH8_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH7_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH6_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH5_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH4_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH3_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH2_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH1_IN                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH8_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH7_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH6_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH5_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH4_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH3_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH2_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; GAIN_CH1_OUT                                                                                                                     ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH8                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH7                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH6                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH5                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH4                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH3                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH2                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MUTE_CH1                                                                                                                         ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH8                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH7                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH6                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH5                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH4                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH3                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH2                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; MON_CH1                                                                                                                          ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; SPARE7                                                                                                                           ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_1                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_2                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_3                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_4                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_5                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_6                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_7                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; TP_8                                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[4]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[2]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[0]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[1]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[0]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[13]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[12]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[1]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[9]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[7]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[6]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[5]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[3]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[2]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[15]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[14]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[11]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[10]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[8]                                                                                                                       ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[23]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[22]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[21]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[20]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[19]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[18]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[17]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA[16]                                                                                                                      ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[15]                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[14]                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[13]                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[12]                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[11]                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[10]                                                                                                             ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[9]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[8]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[7]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[6]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[5]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[4]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_ADDRESS_16TO1[3]                                                                                                              ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[7]                                                                                                                 ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[6]                                                                                                                 ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[5]                                                                                                                 ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[4]                                                                                                                 ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[3]                                                                                                                 ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[2]                                                                                                                 ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[1]                                                                                                                 ; N/A     ;
+; Design is missing tco, tpd, or tsu requirement                                                                        ; LB_DATA_UPPER[0]                                                                                                                 ; N/A     ;
++-----------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Design Assistant
+    Info: Version 4.1 Build 181 06/29/2004 SJ Full Version
+    Info: Processing started: Sun Jul 10 14:48:46 2005
+Info: Command: quartus_drc --import_settings_files=off --export_settings_files=off SoundCache824 -c SoundCache824
+Info: Design Assistant information: target device EPF6016QC208-3 does not support HardCopy conversion -- ignored HardCopy rules
+Critical Warning: Design Assistant warning: Design should not contain combinational loops. Found 10 combinational loop(s) related to this rule.
+    Critical Warning: Combinational loop 1 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[7]~17
+    Critical Warning: Combinational loop 2 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[6]~16
+    Critical Warning: Combinational loop 3 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[4]~14
+    Critical Warning: Combinational loop 4 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[8]~18
+    Critical Warning: Combinational loop 5 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[9]~19
+    Critical Warning: Combinational loop 6 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[0]~10
+    Critical Warning: Combinational loop 7 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[1]~11
+    Critical Warning: Combinational loop 8 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[3]~13
+    Critical Warning: Combinational loop 9 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[2]~12
+    Critical Warning: Combinational loop 10 contains 1 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|latch_signal[5]~15
+Critical Warning: Design Assistant warning: Combinational logic used as clock signal should be implemented according to Altera standard scheme. Found 2 node(s) related to this rule.
+    Critical Warning: Node clocks_engine:CLKE|SRE_selectedClock~1
+    Critical Warning: Node clocks_engine:CLKE|SRE_masterClock
+Critical Warning: Design Assistant warning: Clock signal should be a global signal. Found 2 node(s) related to this rule.
+    Critical Warning: Node clocks_engine:CLKE|SRE_selectedClock~1
+    Critical Warning: Node clocks_engine:CLKE|SRE_masterClock
+Critical Warning: Design Assistant warning: Combinational logic used as reset signal should be synchronized. Found 3 node(s) related to this rule.
+    Critical Warning: Node lineDecoder_3to8:LD|nOutputEnable_write[2]
+    Critical Warning: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|trigger~1
+    Critical Warning: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|trigger~1
+Critical Warning: Design Assistant warning: Data bits are not synchronized when transferred between asynchronous clock domains. Found 1 asynchronous clock domain interface structure(s) related to this rule.
+    Critical Warning: Structure 1 contains 43 node(s)
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[7]
+        Critical Warning: Node reg_SC_INTERRUPT:SC_INTERRUPT|interrupts[0]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[6]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[9]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[4]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[8]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[0]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[1]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[3]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[2]
+        Critical Warning: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[5]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[10]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[10]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[9]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[9]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[8]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[8]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[7]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[7]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[6]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[6]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[5]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[5]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[4]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[4]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[3]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[3]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[2]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_protector[2]
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter|pre_out[1]
+        Info: Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant Detailed Results section of Compilation Report for complete lists of Design Assistant messages generated.
+Critical Warning: Design Assistant warning: Data bits are not correctly synchronized when transferred between asynchronous clock domains. Found 2 asynchronous clock domain interface structure(s) related to this rule.
+    Critical Warning: Structure 1 contains 3 node(s)
+        Critical Warning: Node CONVERTERs_engine:CE|nBick24_6halfs
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_transferRequest_protector
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_1
+    Critical Warning: Structure 2 contains 3 node(s)
+        Critical Warning: Node CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_2
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_transferRequest_protector
+        Critical Warning: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_1
+Warning: Design Assistant warning: Clock signal source should drive only input clock ports. Found 2 nodes related to this rule.
+    Warning: Node clocks_engine:CLKE|SRE_selectedClock~1
+    Warning: Node clocks_engine:CLKE|CG_generator_sampleRate[6]
+Warning: Design Assistant warning: Clock signal source should not drive registers that are triggered by different clock edges. Found 1 node(s) related to this rule.
+    Warning: Node clocks_engine:CLKE|CG_generator_bick[1]
+Warning: Design Assistant warning: Reset signal source should drive only input reset ports. Found 3 node(s) related to this rule.
+    Warning: Node clocks_engine:CLKE|SRE_masterClockGate
+    Warning: Node lineDecoder_3to8:LD|nOutputEnable_write[2]
+    Warning: Node reg_SC_ENGINE:SC_ENGINE|regData[3]
+Warning: Design Assistant warning: Reset signal that is generated in one clock domain and used in other, asynchronous clock domains should be synchronized. Found 1 node(s) related to this rule.
+    Warning: Node reg_SC_ENGINE:SC_ENGINE|regData[3]
+Info: Design Assistant information: Nodes with more than specified number of fan-outs. Found 6 node(s) with highest fan-out.
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_upperAddress[3]~118 has 33 fan-out(s)
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|nMEMORY_CE~26 has 47 fan-out(s)
+    Info: Node CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|OUTPUT_PULSE has 47 fan-out(s)
+    Info: Node CONVERTERs_engine:CE|nBick24_3halfs has 71 fan-out(s)
+    Info: Node LB_CLK has 122 fan-out(s)
+    Info: Node clocks_engine:CLKE|CG_generator_bick[1] has 88 fan-out(s)
+Info: Design Assistant information: Top nodes with highest fan-out. Found 50 node(s) with highest fan-out.
+    Info: Node LB_CLK has 122 fan-out(s)
+    Info: Node clocks_engine:CLKE|CG_generator_bick[1] has 88 fan-out(s)
+    Info: Node CONVERTERs_engine:CE|nBick24_3halfs has 71 fan-out(s)
+    Info: Node CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|OUTPUT_PULSE has 47 fan-out(s)
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|nMEMORY_CE~26 has 47 fan-out(s)
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_upperAddress[3]~118 has 33 fan-out(s)
+    Info: Node clocks_engine:CLKE|CG_generator_sampleRate[6] has 30 fan-out(s)
+    Info: Node LB_ADDRESS_16TO1[2]~13 has 28 fan-out(s)
+    Info: Node CONVERTERs_engine:CE|nBick24_6halfs has 27 fan-out(s)
+    Info: Node CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_2 has 26 fan-out(s)
+    Info: Node LB_ADDRESS_16TO1[0]~15 has 24 fan-out(s)
+    Info: Node lineDecoder_3to8:LD|nOutputEnable_write[2] has 22 fan-out(s)
+    Info: Node CONVERTERs_engine:CE|lineDecoder_3to8b:LD_CH|nOUTPUT_ENABLE[0] has 19 fan-out(s)
+    Info: Node reg_SC_ENGINE:SC_ENGINE|regData[3] has 18 fan-out(s)
+    Info: Node lineDecoder_3to8:LD|nOutputEnable_read[2] has 17 fan-out(s)
+    Info: Node lineDecoder_3to8:LD|nOutputEnable_read[0]~568 has 16 fan-out(s)
+    Info: Node lineDecoder_3to8:LD|nOutputEnable_read[5] has 16 fan-out(s)
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_waitfortransferrequest_left~6 has 16 fan-out(s)
+    Info: Node reg_SC8_MON_MUTE:SC8_MON_MUTE|regData~1138 has 16 fan-out(s)
+    Info: Node reg_SC8_MON_MUTE:SC8_MON_MUTE|regData~1139 has 16 fan-out(s)
+    Info: Node reg_SC8_GAIN:SC8_GAIN|regData~1138 has 16 fan-out(s)
+    Info: Node LB_DATA[15]~2200 has 16 fan-out(s)
+    Info: Node reg_SC8_GAIN:SC8_GAIN|regData~1139 has 16 fan-out(s)
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~37 has 13 fan-out(s)
+    Info: Node nLB_RESET has 13 fan-out(s)
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~36 has 13 fan-out(s)
+    Info: Node lineDecoder_3to8:LD|nOutputEnable_read[4] has 11 fan-out(s)
+    Info: Node clocks_engine:CLKE|SRE_masterClockGate has 10 fan-out(s)
+    Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~38 has 10 fan-out(s)
+    Info: Node reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|reduce_nor~206 has 10 fan-out(s)
+    Info: Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant Detailed Results section of Compilation Report for complete lists of Design Assistant messages generated.
+Info: Design Assistant information: Register output directly drives input of another register when both registers are triggered at same time. Found 3 shift register structure(s) related to this rule.
+    Info: Structure 1 contains 2 node(s)
+        Info: Node clocks_engine:CLKE|SRE_masterClockGate_protector
+        Info: Node clocks_engine:CLKE|SRE_masterClockGate
+    Info: Structure 2 contains 10 node(s)
+        Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_2
+        Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_1
+        Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_transferRequest_protector
+        Info: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|D_FF2
+        Info: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|D_FF3
+        Info: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|D_FF3
+        Info: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|D_FF2
+        Info: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT2|D_FF1
+        Info: Node reg_SC_ENGINE:SC_ENGINE|clockTester:CT1|D_FF1
+        Info: Node reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG_LEFT|DFF_3
+    Info: Structure 3 contains 5 node(s)
+        Info: Node CONVERTERs_engine:CE|nBick24_4halfs
+        Info: Node CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_2
+        Info: Node CONVERTERs_engine:CE|event_pulse_generator_rising_edge:EPG|DFF_1
+        Info: Node CONVERTERs_engine:CE|nBick24_2halfs
+        Info: Node CONVERTERs_engine:CE|nBick24_6halfs
+Info: Design Assistant information: Design is missing tco, tpd, or tsu requirement. Found 114 instance(s) related to this rule.
+    Info: Node nLB_RESET
+    Info: Node INT_MIDI
+    Info: Node nINT_DAUGHTER_CARD
+    Info: Node CONVERTER1_SERIAL_DATA_IN
+    Info: Node nCS_FPGA_DAUGHTER
+    Info: Node nBANK_CE
+    Info: Node nBANK_OE
+    Info: Node nBANK_WE
+    Info: Node LB_HOLD
+    Info: Node nLB_CLOCK_SELECT0
+    Info: Node nLB_CLOCK_SELECT1
+    Info: Node nLB_CLOCK_SELECT2
+    Info: Node DC_DATA_BIT
+    Info: Node DC_DATA_CLK
+    Info: Node DC_nCONFIG
+    Info: Node DAC_DIF0
+    Info: Node nRESET_ADC_0
+    Info: Node nRESET_ADC_1
+    Info: Node nRESET_ADC_2
+    Info: Node nRESET_ADC_3
+    Info: Node CONVERTER1_SERIAL_DATA_OUT
+    Info: Node CONVERTER2_SERIAL_DATA_OUT
+    Info: Node CONVERTER3_SERIAL_DATA_OUT
+    Info: Node CONVERTER4_SERIAL_DATA_OUT
+    Info: Node nINT_OUTPUT_REQUEST
+    Info: Node GAIN_CH8_IN
+    Info: Node GAIN_CH7_IN
+    Info: Node GAIN_CH6_IN
+    Info: Node GAIN_CH5_IN
+    Info: Node GAIN_CH4_IN
+    Info: Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant Detailed Results section of Compilation Report for complete lists of Design Assistant messages generated.
+Info: Design Assistant information: finished post-fitting analysis of current design -- generated 173 information messages and 27 warning messages
+Info: Quartus II Design Assistant was successful. 0 errors, 83 warnings
+    Info: Processing ended: Sun Jul 10 14:48:47 2005
+    Info: Elapsed time: 00:00:01
+
+

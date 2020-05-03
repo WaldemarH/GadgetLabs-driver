@@ -1,0 +1,116 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 30.200 ns
+From           : LB_ADDRESS_16TO1[0]
+To             : reg_SC_INTERRUPT:SC_INTERRUPT|interrupts[0]
+From Clock     : 
+To Clock       : LB_CLK
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 40.000 ns
+From           : reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~50
+To             : LB_DATA[13]
+From Clock     : LB_CLK
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : -15.300 ns
+Required Time  : 18.000 ns
+Actual Time    : 33.300 ns
+From           : nLB_RD
+To             : nBANK_CE
+From Clock     : 
+To Clock       : 
+Failed Paths   : 4
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -0.700 ns
+From           : LB_DATA[12]
+To             : CONVERTERs_engine:CE|slave_ch12_out[12]
+From Clock     : 
+To Clock       : LB_CLK
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 16.100 ns
+From           : reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|SCR_counter_status[10]
+To             : LB_ADDRESS_16TO1[11]
+From Clock     : LB_CLK
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case Minimum tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.300 ns
+From           : LB_DATA[23]
+To             : LB_DATA_UPPER[3]
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Clock Setup: 'LB_CLK'
+Slack          : -0.800 ns
+Required Time  : 50.00 MHz ( period = 20.000 ns )
+Actual Time    : 48.08 MHz ( period = 20.800 ns )
+From           : reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|BWT_register[0]
+To             : reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|BWT_register[7]
+From Clock     : LB_CLK
+To Clock       : LB_CLK
+Failed Paths   : 12
+
+Type           : Clock Setup: 'clocks_engine:CLKE|SRE_masterClock'
+Slack          : 34.300 ns
+Required Time  : 25.00 MHz ( period = 40.000 ns )
+Actual Time    : Restricted to 125.00 MHz ( period = 8.000 ns )
+From           : clocks_engine:CLKE|CG_generator_bick[0]
+To             : clocks_engine:CLKE|CG_generator_bick[0]
+From Clock     : clocks_engine:CLKE|SRE_masterClock
+To Clock       : clocks_engine:CLKE|SRE_masterClock
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clocks_engine:CLKE|CG_generator_bick[1]'
+Slack          : 66.900 ns
+Required Time  : 6.25 MHz ( period = 160.000 ns )
+Actual Time    : 38.17 MHz ( period = 26.200 ns )
+From           : CONVERTERs_engine:CE|nBick24_2halfs
+To             : CONVERTERs_engine:CE|master_ch78_in[14]
+From Clock     : clocks_engine:CLKE|CG_generator_bick[1]
+To Clock       : clocks_engine:CLKE|CG_generator_bick[1]
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clocks_engine:CLKE|CG_generator_sampleRate[6]'
+Slack          : 15341.300 ns
+Required Time  : 0.07 MHz ( period = 15360.000 ns )
+Actual Time    : 53.48 MHz ( period = 18.700 ns )
+From           : reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[1]
+To             : reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[10]
+From Clock     : clocks_engine:CLKE|CG_generator_sampleRate[6]
+To Clock       : clocks_engine:CLKE|CG_generator_sampleRate[6]
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 4
+
+--------------------------------------------------------------------------------------
+

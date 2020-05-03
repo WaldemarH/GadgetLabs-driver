@@ -1,0 +1,465 @@
+*******************************************************************************
+**  EEPROM data explained  ****************************************************
+*******************************************************************************
+Explanation of structure variables (plxData_496v1):
+
+EEPROM  REGISTER   
+OFFSET  NAME                        VALUE       DESCRIPTION OF THE VALUE
+ 00h    Device ID                   2180h       PLX device ID
+ 02h    Vendor ID                   10B5h       PLX Technology vendor ID
+ 04h    Class Code                  0401h       Base Class: Multimedia Device,
+                                                Sub Class: Audio Device
+ 06h    Class Code                  00xxh       Interface: 00h(no interface defined)
+ 08h    Subsystem ID                0900h       Card type: 496, Version: 1
+ 0Ah    Subsystem Vendor ID         2020h       Gadget Labs subvendor ID
+ 0Ch    Max_Lat, Min_Gnt            xxxxh       (not loadable)
+ 0Eh    Int. Pin, Int. Line         01xxh       Interrupt pin INTA#
+
+ 10h    Range: PCI->Local 0         0FFFFFC1h   Maps into: IO
+                                                Range: FFFFFFC0h => Size: 40h
+                                                (SoundCache -> 32 X 16 bit registers)
+ 14h    Range: PCI->Local 1         0FFFFFF9h   Maps into: IO
+                                                Range: FFFFFFF8h => Size: 8h
+                                                (UART -> 8 X 8 bit registers)
+ 18h    Range: PCI->Local 2         0FFF8008h   Maps into: Memory,
+                                                Location: anywhere in 32bit,
+                                                Reads are prefetchable: Yes
+                                                Range: FFFF8000h => Size: 8000h (32kB)
+                                                (Digital -> Sample Memory)
+
+                                          ERROR:
+                                                Size should be 10000h (64kB) ->
+                                                the right value should be: 0FFF0008.
+
+ 1Ch    Range: PCI->Local 3         0FFE0008h   Maps into: Memory,
+                                                Locate: anywhere in 32bit,
+                                                Reads are prefetchable: Yes
+                                                Range: FFFE0000h => Size: 20000h (128kB)
+                                                (Analog -> Sample Memory)
+ 20h    Range: PCI->Local 4         00000000h   ROM not used
+
+
+ 24h    Remap: PCI->Local 0         000000C1h   (SoundCache IO Registers)
+                                                Direct Slave Access to Local Space: Enabled,
+                                                Local Address: 0000C0h
+ 28h    Remap: PCI->Local 1         00000009h   (UART IO Registers)
+                                                Direct Slave Access to Local Space: Enabled,
+                                                Local Address: 000008h
+ 2Ch    Remap: PCI->Local 2         00030001h   (Digital Memory)
+                                                Direct Slave Access to Local Space: Enabled,
+                                                Local Address: 030000h
+ 30h    Remap: PCI->Local 3         00060001h   (Analog Memory)
+                                                Direct Slave Access to Local Space: Enabled,
+                                                Local Address: 060000h
+ 34h    Remap: PCI->Local 4         00000001h   ROM not used
+
+
+ 38h    Region Descriptor: Local 0  40400040h   (SoundCache IO Registers)
+                                                Burst: Disabled,
+                                                Ready input: Disabled,
+                                                Bterm Input: Disabled,
+                                                Prefetch Count: Disabled/Do not Prefetch
+                                                NRAD Wait States: 1
+                                                NRDD Wait States: 0
+                                                NXDA Wait States: 0
+                                                NWAD Wait States: 0
+                                                NWDD Wait States: 0
+                                                Bus Width: 16bit
+                                                Byte Order: Little Endian
+                                                Read Strobe Delay: 0
+                                                Write Strobe Delay: 0
+                                                Write Cycle Hold: 1
+
+                                                SUM:
+                                                Read traja 2 cikla.
+                                                Write traja 1 cikel, do naslednjega zapisa/branja je 1 cikel premora.
+
+ 3Ch    Region Descriptor: Local 1  D830F880h   (UART IO Registers)
+                                                Burst: Disabled,
+                                                Ready input: Disabled,
+                                                Bterm Input: Disabled,
+                                                Prefetch Count: Disabled/Do not Prefetch
+                                                NRAD Wait States: 2
+                                                NRDD Wait States: 3
+                                                NXDA Wait States: 3
+                                                NWAD Wait States: 1
+                                                NWDD Wait States: 3
+                                                Bus Width: 8bit
+                                                Byte Order: Little Endian
+                                                Read Strobe Delay: 2
+                                                Write Strobe Delay: 1
+                                                Write Cycle Hold: 3
+ 40h    Region Descriptor: Local 2  40800070h   (Digital Memory)
+                                                Burst: Disabled,
+                                                Ready input: Disabled,
+                                                Bterm Input: Disabled,
+                                                Prefetch Count: 8 samples
+                                                NRAD Wait States: 1
+                                                NRDD Wait States: 0
+                                                NXDA Wait States: 0
+                                                NWAD Wait States: 0
+                                                NWDD Wait States: 0
+                                                Bus Width: 32bit
+                                                Byte Order: Little Endian
+                                                Read Strobe Delay: 0
+                                                Write Strobe Delay: 0
+                                                Write Cycle Hold: 1
+
+                                                SUM:
+                                                Read traja 2 cikla.
+                                                Write traja 1 cikel, do naslednjega zapisa/branja je 1 cikel premora.
+                                                8 samples prefech
+
+ 44h    Region Descriptor: Local 3  40800070h   (Analog Memory)
+                                                Burst: Disabled,
+                                                Ready input: Disabled,
+                                                Bterm Input: Disabled,
+                                                Prefetch Count: 8 samples
+                                                NRAD Wait States: 1
+                                                NRDD Wait States: 0
+                                                NXDA Wait States: 0
+                                                NWAD Wait States: 0
+                                                NWDD Wait States: 0
+                                                Bus Width: 32bit
+                                                Byte Order: Little Endian
+                                                Read Strobe Delay: 0
+                                                Write Strobe Delay: 0
+                                                Write Cycle Hold: 1
+
+                                                SUM:
+                                                Read traja 2 cikla.
+                                                Write traja 1 cikel, do naslednjega zapisa/branja je 1 cikel premora.
+                                                8 samples prefech
+
+ 48h    Region Descriptor: Local 4  00000000h   ROM not used
+
+ 4Ch    Chip Select: Local 0        000000C1h   (SoundCache IO Registers)
+                                                Chip Select: Enabled
+                                                Size: 80h
+                                                Address: 80h(multiplier: 1)
+
+                                         ERROR:
+                                                Original address is at C0h, but the size
+                                                is 40h -> so chipSelect is enabled
+                                                for everything from 80h to 100h which
+                                                is OK for current chip.
+                                                Correct solution would be:
+                                                Size: 40h
+                                                Address: C0h(multiplier: 3)
+                                                Value: 00000E1h
+ 50h    Chip Select: Local 1        00000009h   (UART IO Registers)
+                                                Chip Select: Enabled
+                                                Size: 8h
+                                                Address: 0h(multiplier: 0)
+
+                                         ERROR:
+                                                UART is on address 8h, when here it is on 0h.
+                                                Value: 0000000Dh
+ 54h    Chip Select: Local 2        00030001h   (Digital Memory)
+                                                Chip Select: Enabled
+                                                Size: 10000h
+                                                Address: 10000h(multiplier: 1)
+
+                                         ERROR:
+                                                Value: 38001h
+ 58h    Chip Select: Local 3        00060001h   (Analog Memory)
+                                                Chip Select: Enabled
+                                                Size: 40000h
+                                                Address: 40000h(multiplier: 1)
+
+                                         ERROR:
+                                                Original address is at 10000h, but the size
+                                                is 20000h -> so chipSelect is enabled
+                                                for everything from 40000h to 80000h which
+                                                is OK for current chip.
+                                                Correct solution would be:
+                                                Size: 20000h
+                                                Address: 40000h(multiplier: 2)
+                                                Value: 00070001h
+
+ 5Ch    Interrupt control/status    00000041h   Local Interrupt 1: Enabled
+                                                Local Interrupt 1 Polaritey: Active Low
+                                                Local Interrupt 2: Disabled
+                                                PCI Interrupt: Enabled
+                                                Local Interrupt 1 Triggerable: Level
+
+ 60h    Control Register            407B4240h   User I/O 0 pin is USER0.
+                                                User I/O 0 pin is input pin.
+                                                User I/O 1 pin is USER1.
+                                                User I/O 1 pin is input pin.
+                                                User I/O 2 pin is CS2# pin.
+                                                User I/O 3 pin is CS3# pin.
+
+                                                PCI Configuration Base Address Register: PCIBAR0 and PCIBAR1 enabled.
+                                                PCI Read Mode: Fill FIFO and then return (release PCI bus in between)
+                                                PCI Write Mode: write cycle doesn't effect pending read cycles
+                                                Do not flush read FIFO if read cycle completes.
+                                                Retry write if read is pending.
+                                                PCI Write Mode: de-assert TRDY# if no space is available in write FIFO.
+                                                PCI Target Retry Delay Clocks: (write -> no effect on read): 0Fh*8 = 78 PCI clock cycles
+                                                Direct Slave Lock: disabled
+
+                                                PCI Adapter Software Reset: set (driver will clear this)
+
+
+
+
+
+
+Addresses:
+Local 0: SoundCache
+         Size: 40h
+         Local address: 0C0h
+         Bus width: 16bits
+         Fix chipSelect to: 0E1h
+
+Local 1: UART
+         Size: 8h
+         Local address: 08h
+         Bus width: 8bits
+         Fix chipSelect to: 0Dh
+
+Local 2: Digital Memory
+         Size: 10000h -> Fix size to: 0FFF0008h
+         Local address: 30000h
+         Bus width: 32bits
+         Fix chipSelect to: 38001h
+
+Local 3: Analog Memory
+         Size: 20000h
+         Local address: 60000h
+         Bus width: 32bits
+         Fix chipSelect to: 070001h
+
+
+
+*******************************************************************************
+**  PLX chip pins explained  **************************************************
+*******************************************************************************
+Local BUS (Non multiplexed) (only useful pins are explained ->
+                             pins that are connected to GND or VCC aren't here)
+
+pin       size      PLX name  Card name      explanation
+137       1 line    LINTi1    FPGA_INT#      Local Interrup 1 In (set to LOW when interrupt is requested)
+135       1 line    LCLK      LCLK3          Local BUS clock
+134       1 line    LHOLD     LB_LHOLD       Request of local BUS by Altera.
+133       1 line    LHOLDA    LB_LHOLDA      Set by the PLX chip when local bus request is granted.
+                                             Local BUS is held by the local BUS master until both LHOLD and LHOLDA are high.
+                                             (Check Timing Diagram 9-2)
+132       1 line    LRESET#   LB_RESET#      Local bus reset -> chips on local BUS should reset it self.
+
+63        1 line    BCLKO     PCICLK         Buffered PCI BUS clock for use by the local BUS.
+130       1 line    CS0#      FPGA_CS#       ChipSelect 0
+131       1 line    CS1#      UART_CS#       ChipSelect 1
+140       1 line    CS2#      SPD_CS#        ChipSelect 2 (SPDIF card chipSelect -> Digital Memory)
+141       1 line    CS3#      LM_CS#         ChipSelect 3 (Local Memory chipSelect -> Analog Memory)
+
+138       1 line    USER0     LB_USER0       User I/O pin
+139       1 line    USER1     LB_USER1       User I/O pin
+
+126       1 line    RD#       LB_RD#         Read strobe
+                                             When inserted the BUS master is reading data.
+125       1 line    WR#       LB_WR#         Write Strobe
+                                             When inserted the BUS master is writing data(the data on BUS should be valid).
+128       1 line    LRDY#     LB_RDY#        Local Ready In
+                                             Indicates read data is on the local BUS or that write data is accepted.
+
+xxx       26 lines  LA[27:2]  LB_LA[16:2]    Local Address BUS
+                                             Upper 26bits of 28bit address. -> ONLY to bit lane 16 is used by the card.
+46-49     4 lines   LBE#                     Only lower 2 are connected ->
+                                             with 16bit BUS: LBE1# = Address bit 1 -> LA1
+                                             with  8bit BUS: LBE1# = Address bit 1 -> LA1
+                                                             LBE0# = Address bit 0 -> LA0
+
+NOTICE:
+Daughter cards headers have different connections -> if PLD code will be written
+use only those that are common to all master cards.
+
+                              
+Notice:
+# means negative logic (active LOW).
+
+*******************************************************************************
+**  Altera chip pins explained  ***********************************************
+*******************************************************************************
+
+pin       type      Altera name    Card name      explanation
+1         3state    I/O (Row A)    LB_LD4         local bus data line
+2         3state    I/O (Row A)    LB_LD5         local bus data line
+3         3state    I/O (Row B)    LB_LD6         local bus data line
+8         3state    I/O (Row B)    LB_LD7         local bus data line
+9         3state    I/O (Row B)    LB_LD8         local bus data line
+10        3state    I/O (Row B)    LB_LD9         local bus data line
+11        3state    I/O (Row B)    LB_LD10        local bus data line
+12        3state    I/O (Row C)    LB_LD11        local bus data line
+13        3state    I/O (Row C)    LB_LD12        local bus data line
+14        3state    I/O (Row C)    LB_LD13        local bus data line
+15        3state    I/O (Row C)    LB_LD14        local bus data line
+16        3state    I/O (Row C)    LB_LD15        local bus data line
+17        IN        Ded. Input     MCLK3          dedicated input ( global clock 3 )
+20        IN        Ded. Input     LCLK1          dedicated input ( global clock 1 )
+21        3state    I/O (Row D)    LB_LD16        local bus data line
+22        3state    I/O (Row D)    LB_LD17        local bus data line
+23        3state    I/O (Row D)    LB_LD18        local bus data line
+24        3state    I/O (Row D)    LB_LD19        local bus data line
+25        3state    I/O (Row D)    LB_LD20        local bus data line
+26        3state    I/O (Row E)    LB_LD21        local bus data line
+27        3state    I/O (Row E)    LB_LD22        local bus data line
+28        3state    I/O (Row E)    LB_LD23        local bus data line
+29        3state    I/O (Row E)    LB_LD24        local bus data line
+34        3state    I/O (Row E)    LB_LD25        local bus data line
+35        3state    I/O (Row F)    LB_LD26        local bus data line
+36        3state    I/O (Row F)    LB_LD27        local bus data line
+37        3state    I/O RF         LB_LD28        local bus data line
+38        3state    I/O RF         LB_LD29        local bus data line
+39        3state    I/O RF         LB_LD30        local bus data line
+40        3state    I/O RF         LB_LD31        local bus data line
+41        IN        I/O C1         CLK4M          4MHz clock from UART
+42        IN        I/O C2         FPGA_CS#       Altera chip select (registers)
+43        OUT_OD    I/O C3         FPGA_INT#      interrupt request
+44        IN        I/O C4         LM_CS#         local memory chip select
+45        OUT       I/O C5         LB_HOLD        local bus request
+46        IN        I/O C6         LB_HOLDA       local bus granted
+47        OUT_OD    I/O C7         LB_RDY#        Local Ready In
+                                                  Indicates read data is on the local BUS or that write data is accepted.
+48        IN        I/O C8         LB_RD#         
+49        IN        I/O C9         LB_WR#         
+50        OUT       I/O C10        SPD_GNT        local BUS granted (by the Altera chip) (same as LB_HOLDA)
+51        IN        I/O C11        SPD_PRSNT#     daughter card present
+52        IN        I/O C12        SPD_REQ        local BUS request (same as LB_HOLD)
+57        IN        I/O C13        SPD_INT#       SPDIF interrupt
+58        IN        I/O C14        MIDI_INT       UART interrupt
+59        OUT       I/O C15        IGCTL_OUT      496 card output gain switch
+60        OUT       I/O C16        PWR_ON_MUTE    power on mute tranzistor
+61        OUT       I/O C17        MCTL_CHR4      monitor enable/disable
+62        OUT       I/O C18        MCTL_CHL4      monitor enable/disable
+63        OUT       I/O C19        MCTL_CHR3      monitor enable/disable
+64        OUT       I/O C20        MCTL_CHL3      monitor enable/disable
+65        OUT       I/O C21        IGCTL_B        input gain switch B
+66        OUT       I/O C22        IGCTL_A        input gain switch A
+67        OUT       I/O C23        MCLKOUT        master clock out
+68        IN        I/O C24        LRCLK_CE       daughter card clock
+69        IN        I/O RF         MCLK_8         8.192 MHz for 32 kHz sample rate
+70        IN        I/O RF         MSTRCLK        sync clock IN
+71        IN        I/O RF         MCLK_11        11.2896 MHz for 44.1 kHz sample rate
+72        IN        I/O RF         MCLK_12        12.288 MHz for 48 kHz sample rate
+73        OUT       I/O (Row F)    CGEN_PD        PLL power down
+74        OUT       I/O (Row E)    PROG_OSC_OUT   reference clock for PLL
+75        IN        I/O (Row E)    MCLK_24_IN     main CODEC clk 24.576 MHz
+
+79        \
+80        |-> test points connected to daughter card -> will be used for 'Start audio engine' and
+81        |   'Reset memory pointer and InterruptSignalRegister' signals
+82        /
+83        OUT       I/O (Row D)    LRCLK          left/right select clock
+84        OUT       I/O (Row D)    BICK           64*fs CODEC clock (data transfer clock)
+87        IN        I/O (Row D)    SDTO_2         CODEC 2 data output (data from ADC)
+88        IN        I/O (Row D)    SDTO_1         CODEC 1 data output (data from ADC)
+89        IN        Ded.Input      MCLK_24        24.576 MHz clock from PLL (can be used for 96 kHz sample rate)
+92        IN        Ded.Input      GND            not used
+93        OUT       I/O (Row C)    SDTI_2         CODEC 2 data input (data for DAC)
+94        OUT       I/O (Row C)    SDTI_1         CODEC 1 data input (data for DAC)
+95        OUT       I/O (Row C)    CDTI           CODEC control data input
+96        OUT       I/O (Row C)    CCLK           CODEC control data clock
+97        OUT       I/O (Row C)    CIF            CODEC control data I/F format pin
+98        OUT       I/O (Row B)    CS2_4524       CODEC 2 chip select
+99        OUT       I/O (Row B)    CS1_4524       CODEC 1 chip select
+100       OUT       I/O (Row B)    PD             CODEC power down
+101       OUT       I/O (Row B)    M_S            CODEC master/slave mode
+106       OUT       I/O (Row B)    BANK0_OE#      SRAM control pin (output enable)
+107       OUT       I/O (Row B)    BANK0_WE#      SRAM control pin (write enable)
+108       OUT       I/O (Row A)    BANK0_CE#      SRAM control pin (chip enable)
+109       OUT       I/O RA         CGEN_SEL_CD    PLL C/D select
+110       OUT       I/O RA         CGEN_SCL       PLL serial interface clock
+111       OUT       I/O RA         CGEN_SDA       PLL serial interface data input/output
+112       OUT       I/O RA         SPD_nCONFIG    SPDIF Altera nCONFIG
+113       3state    I/O C24        SPD_nSTATUS    SPDIF Altera nSTATUS
+114       3state    I/O C23        SPD_CONF_DONE  SPIDF Altera CONF_DONE
+115       OUT       I/O C22        SPD_DCLK       SPDIF Altera DCLK
+116       OUT       I/O C21        SPD_DATA       SPDIF Altera DATA
+117       IN        I/O C20        LB_LA16        local BUS address line
+118       IN        I/O C19        LB_LA15        local BUS address line
+119       IN        I/O C18        LB_LA14        local BUS address line
+120       IN        I/O C17        LB_LA13        local BUS address line
+121       IN        I/O C16        LB_LA12        local BUS address line
+122       IN        I/O C15        LB_LA11        local BUS address line
+123       IN        I/O C14        LB_LA10        local BUS address line
+124       IN        I/O C13        LB_LA9         local BUS address line
+129       IN        I/O C12        LB_LA8         local BUS address line
+130       IN        I/O C11        LB_LA7         local BUS address line
+131       IN        I/O C10        LB_LA6         local BUS address line
+132       IN        I/O C9         LB_LA5         local BUS address line
+133       IN        I/O C8         LB_LA4         local BUS address line
+134       IN        I/O C7         LB_LA3         local BUS address line
+135       IN        I/O C6         LB_LA2         local BUS address line
+136       IN        I/O C5         LB_LA1         local BUS address line
+137       IN        I/O C4         LB_LA0         local BUS address line
+138       IN/OUT    I/O C3         LB_USER0       USER 0 I/O pin (can be used for anything)
+139       IN/OUT    I/O C2         LB_USER1       USER 1 I/O pin (can be used for anything)
+140       IN        I/O C1         LB_RESET#      local BUS reset (it should reset devices on local BUS)
+141       3state    I/O RA         LB_LD0         local bus data line
+142       3state    I/O RA         LB_LD1         local bus data line
+143       3state    I/O RA         LB_LD2         local bus data line
+144       3state    I/O RA         LB_LD3         local bus data line
+
+
+POGLEJ KATERI IZHODI IMAJO PULL UP IN POPRAVI TIP NA ODEN DRAIN
+
+types: - common INput, OUTput = IN, OUT
+       - 3 state              = 3state
+       - open drain OUTput    = OUT_OD
+ 
+Notice:
+# means negative logic (active LOW).
+
+*******************************************************************************
+**  Memory chips pins explained  **********************************************
+*******************************************************************************
+
+pin       type      Memory name    Card name      explanation
+20        IN        CE#            BANK_CE#       chip enable
+22        IN        OE#            BANK_OE#       output enable
+27        IN        WE#            BANK_WE#       write enable
+
+Notice:
+# means negative logic (active LOW).
+
+*******************************************************************************
+**  Clock path explained  *****************************************************
+*******************************************************************************
+PLX  PCICLK  -> LCLK1 -> FPGA (pin 20: dedicated input)
+             -> LCLK2 -> SPDIF
+             -> LCLK3 -> PLX (pin 135: local clock in)
+
+FPGA MCLKOUT -> MCLK1 -> CODEC1 (pin 9: master clock input)
+             -> MCLK2 -> CODEC2 (pin 9: master clock input)
+             -> MCLK3 -> FPGA (pin 17: dedicated input)
+             -> MCLK4 -> SPDIF
+             -> MCLK5 -> card SYNC output
+
+*******************************************************************************
+**  Explanation of memory read/write cycles  **********************************
+*******************************************************************************
+Local BUS lines:
+- LA[16:0]  -> local BUS address
+- LAD[31:0] -> local BUS data
+- FPGA_CS#  -> FPGA chipEnable
+- LM_CS#    -> local memory chipEnable
+- LB_HOLD   -> local BUS request (hold until finish)
+- LB_HOLDA  -> local BUS available (it can be just a HIGH->LOW->HIGH pulse or it can be LOW for a longer time)
+- LB_RDY#   -> takrat, ko se dogaja DATA transfer (read or write)
+- LB_RD#    -> read data
+- LB_WR#    -> write data
+
+- BANK_OE#
+- BANK_WE#
+- BANK_CE#
+
+Timing diagram je na listih.
+
+
+
+PCI to memory ne rabi nobenih delay-ev na read ali write -> PCI cikel traja 30.3ns memoryja,
+pa dela s hitrostjo 15ns -> odstrani delay-e.
+
+

@@ -1,0 +1,203 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOGBAR DIALOGEX 0, 0, 252, 299
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "GadgetLabs ASIO ControlPanel"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_SAMPLE_TYPE,71,31,124,64,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Host Path:",IDC_STATIC,21,12,35,8
+    LTEXT           "",ID_HOST_PATH,59,12,170,8
+    LTEXT           "Open Card1 channels:",IDC_STATIC,20,56,72,8
+    LTEXT           "1-2",IDC_STATIC,40,66,18,8
+    LTEXT           "3-4",IDC_STATIC,64,65,18,8
+    LTEXT           "5-6",IDC_STATIC,86,65,18,8
+    LTEXT           "7-8",IDC_STATIC,110,65,18,8
+    LTEXT           "OUTs",IDC_STATIC,22,75,18,8
+    CONTROL         "",ID_CARD1_OUT_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,75,8,8
+    CONTROL         "",ID_CARD1_OUT_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,75,8,8
+    CONTROL         "",ID_CARD1_OUT_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,75,8,8
+    CONTROL         "",ID_CARD1_OUT_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,75,8,8
+    LTEXT           "INs",IDC_STATIC,22,87,12,8
+    CONTROL         "",ID_CARD1_IN_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,87,8,8
+    CONTROL         "",ID_CARD1_IN_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,87,8,8
+    CONTROL         "",ID_CARD1_IN_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,87,8,8
+    CONTROL         "",ID_CARD1_IN_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,87,8,8
+    LTEXT           "Open Card2 channels:",IDC_STATIC,20,110,72,8
+    LTEXT           "1-2",IDC_STATIC,40,119,18,8
+    LTEXT           "3-4",IDC_STATIC,64,119,18,8
+    LTEXT           "5-6",IDC_STATIC,86,119,18,8
+    LTEXT           "OUTs",IDC_STATIC,22,129,18,8
+    CONTROL         "",ID_CARD2_OUT_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,129,8,8
+    CONTROL         "",ID_CARD2_OUT_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,129,8,8
+    CONTROL         "",ID_CARD2_OUT_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,129,8,8
+    CONTROL         "",ID_CARD2_OUT_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,129,8,8
+    LTEXT           "INs",IDC_STATIC,22,141,12,8
+    CONTROL         "",ID_CARD2_IN_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,141,8,8
+    CONTROL         "",ID_CARD2_IN_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,141,8,8
+    CONTROL         "",ID_CARD2_IN_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,141,8,8
+    CONTROL         "",ID_CARD2_IN_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,141,8,8
+    LTEXT           "Open Card3 channels:",IDC_STATIC,20,164,72,8
+    LTEXT           "1-2",IDC_STATIC,40,173,18,8
+    LTEXT           "3-4",IDC_STATIC,64,173,18,8
+    LTEXT           "5-6",IDC_STATIC,86,173,18,8
+    LTEXT           "7-8",IDC_STATIC,110,173,18,8
+    LTEXT           "OUTs",IDC_STATIC,22,183,18,8
+    CONTROL         "",ID_CARD3_OUT_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,183,8,8
+    CONTROL         "",ID_CARD3_OUT_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,183,8,8
+    CONTROL         "",ID_CARD3_OUT_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,183,8,8
+    CONTROL         "",ID_CARD3_OUT_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,183,8,8
+    LTEXT           "INs",IDC_STATIC,22,195,12,8
+    CONTROL         "",ID_CARD3_IN_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,195,8,8
+    CONTROL         "",ID_CARD3_IN_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,195,8,8
+    CONTROL         "",ID_CARD3_IN_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,195,8,8
+    CONTROL         "",ID_CARD3_IN_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,195,8,8
+    LTEXT           "Open Card4 channels:",IDC_STATIC,20,218,72,8
+    LTEXT           "1-2",IDC_STATIC,40,227,18,8
+    LTEXT           "3-4",IDC_STATIC,64,227,18,8
+    LTEXT           "5-6",IDC_STATIC,86,227,18,8
+    LTEXT           "7-8",IDC_STATIC,110,227,18,8
+    LTEXT           "OUTs",IDC_STATIC,22,237,18,8
+    CONTROL         "",ID_CARD4_OUT_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,237,8,8
+    CONTROL         "",ID_CARD4_OUT_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,237,8,8
+    CONTROL         "",ID_CARD4_OUT_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,237,8,8
+    CONTROL         "",ID_CARD4_OUT_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,237,8,8
+    LTEXT           "INs",IDC_STATIC,22,250,12,8
+    CONTROL         "",ID_CARD4_IN_1_2,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,42,250,8,8
+    CONTROL         "",ID_CARD4_IN_3_4,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,65,250,8,8
+    CONTROL         "",ID_CARD4_IN_5_6,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,88,250,8,8
+    CONTROL         "",ID_CARD4_IN_7_8,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,111,250,8,8
+    LTEXT           "Sample Type:",IDC_STATIC,20,33,44,8
+    PUSHBUTTON      "Save and Exit",ID_BUTTON_SAVE_AND_EXIT,57,267,64,14
+    PUSHBUTTON      "Exit",ID_BUTTON_EXIT,131,267,64,14
+    LTEXT           "",ID_TYPE_CARD3,97,164,117,8
+    LTEXT           "",ID_TYPE_CARD4,97,218,118,8
+    LTEXT           "7-8",IDC_STATIC,110,119,18,8
+    LTEXT           "",ID_TYPE_CARD2,97,110,117,8
+    LTEXT           "",ID_TYPE_CARD1,97,56,118,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOGBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 292
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 4,2,0,2
+ PRODUCTVERSION 4,2,0,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000904b0"
+        BEGIN
+            VALUE "Comments", "ASIO driver for Gadgetlabs WavePro series sound cards"
+            VALUE "CompanyName", "Gadgetlabs"
+            VALUE "FileDescription", "Gadgetlabs ASIO Driver"
+            VALUE "FileVersion", "4.2.0.2"
+            VALUE "InternalName", "Gadgetlabs ASIO Driver"
+            VALUE "LegalCopyright", "Copyright (C) 2010"
+            VALUE "OriginalFilename", "Gadgetlabs ASIO Driver"
+            VALUE "ProductName", "Gadgetlabs ASIO Driver"
+            VALUE "ProductVersion", "4.2.0.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x9, 1200
+    END
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

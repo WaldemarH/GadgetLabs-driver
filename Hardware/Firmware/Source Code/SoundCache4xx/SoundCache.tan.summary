@@ -1,0 +1,76 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 35.300 ns
+From           : LB_ADDRESS[1]
+To             : reg_SC_INTERRUPT:SC_INTERRUPT|interrupts[0]
+From Clock     : 
+To Clock       : LB_CLK
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 53.300 ns
+From           : CODEC_engine:CE|slave_ch1_in[13]
+To             : LB_DATA[13]
+From Clock     : LB_CLK
+To Clock       : 
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : -11.600 ns
+Required Time  : 14.000 ns
+Actual Time    : 25.600 ns
+From           : nCS_LM
+To             : nBANK_OE
+From Clock     : 
+To Clock       : 
+Failed Paths   : 4
+
+Type           : Clock Setup: 'LB_CLK'
+Slack          : 2.400 ns
+Required Time  : 50.00 MHz ( period = 20.000 ns )
+Actual Time    : 56.82 MHz ( period = 17.600 ns )
+From           : clocks_engine:CLKE|CG_generator_bick[0]
+To             : clocks_engine:CLKE|CG_generator_bick[0]
+From Clock     : LB_CLK
+To Clock       : LB_CLK
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clocks_engine:CLKE|CG_generator_bick[1]'
+Slack          : 3.200 ns
+Required Time  : 20.00 MHz ( period = 50.000 ns )
+Actual Time    : 22.94 MHz ( period = 43.600 ns )
+From           : CODEC_engine:CE|LRS_counter[1]
+To             : CODEC_engine:CE|master_ch1_out[19]
+From Clock     : clocks_engine:CLKE|CG_generator_bick[1]
+To Clock       : clocks_engine:CLKE|CG_generator_bick[1]
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clocks_engine:CLKE|CG_generator_sampleRate[6]'
+Slack          : 9571.000 ns
+Required Time  : 0.10 MHz ( period = 9600.000 ns )
+Actual Time    : 34.48 MHz ( period = 29.000 ns )
+From           : reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[4]
+To             : reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter|registered_out[5]
+From Clock     : clocks_engine:CLKE|CG_generator_sampleRate[6]
+To Clock       : clocks_engine:CLKE|CG_generator_sampleRate[6]
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 4
+
+--------------------------------------------------------------------------------------
+

@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_64bit|Win32">
+      <Configuration>Debug_64bit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_64bit|x64">
+      <Configuration>Debug_64bit</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{510DFE7E-060C-4D71-9499-5A772DE2FD40}</ProjectGuid>
+    <RootNamespace>Driver_Kernel</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)Build\x64\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)Build\x64\Debug\Objects\Driver\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Build\x32\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Build\x32\Debug\Objects\Driver\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'">$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'">true</PostBuildEventUseInBuild>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)Build\x64\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)Build\x64\Release\Objects\Driver\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Build\x32\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Build\x32\Release\Objects\Driver\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateManifest>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</PostBuildEventUseInBuild>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">gadgetlabs_driver_64</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">gadgetlabs_driver_32</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">gadgetlabs_driver_32</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">gadgetlabs_driver_64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\ddk;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\crt;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;WINVER=0x0601;_WIN32_WINNT=0x0601;_NT_TARGET_VERSION=0x601;DDKBUILDENV=fre;NTDEBUG=ntsdnodbg;NTDEBUGTYPE=windbg;CONDITION_HANDLING=1;STD_CALL;NT_UP=1;NT_INST=0;WIN32=100;_NT1X_=100;WINNT=1;WIN32_LEAN_AND_MEAN=1;DEVL=1;__BUILDMACHINE__=WinDDK;FPO=0;NDEBUG;_DLL=1;UNICODE;_UNICODE;DEBUG_LEVEL=DEBUGLVL_BLAB;_WIN2K_COMPAT_SLIST_USAGE;MSC_NOOPT;NTDDI_VERSION=0x06010000;KMDF_MAJOR_VERSION_STRING=01;KMDF_MINOR_VERSION_STRING=009;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>main.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <AdditionalOptions>/MP4 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/DEBUGTYPE:CV /SUBSYSTEM:NATIVE,1.10 /ignore:4078 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wdm.lib;ks.lib;BufferOverflowK.lib</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <OutputFile>$(OutDir)gadgetlabs_driver_64.sys</OutputFile>
+      <AdditionalLibraryDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\lib\win7\amd64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Driver>WDM</Driver>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\ddk;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\crt;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_X86_=1;i386=1;WINVER=0x0601;_WIN32_WINNT=0x0601;_NT_TARGET_VERSION=0x601;DDKBUILDENV=fre;NTDEBUG=ntsdnodbg;NTDEBUGTYPE=windbg;CONDITION_HANDLING=1;STD_CALL;NT_UP=1;NT_INST=0;WIN32=100;_NT1X_=100;WINNT=1;WIN32_LEAN_AND_MEAN=1;DEVL=1;__BUILDMACHINE__=WinDDK;FPO=0;NDEBUG;_DLL=1;UNICODE;_UNICODE;DEBUG_LEVEL=DEBUGLVL_BLAB;_WIN2K_COMPAT_SLIST_USAGE;MSC_NOOPT;NTDDI_VERSION=0x06010000;KMDF_MAJOR_VERSION_STRING=01;KMDF_MINOR_VERSION_STRING=009;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <StringPooling>false</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>main.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <AdditionalOptions>/MP4 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/DEBUGTYPE:CV /SUBSYSTEM:NATIVE,1.10 /ignore:4078 /safeseh %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wdm.lib;ks.lib;BufferOverflowK.lib</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <OutputFile>$(OutDir)gadgetlabs_driver_32.sys</OutputFile>
+      <AdditionalLibraryDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\Lib\win7\i386;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>NotSet</SubSystem>
+      <Driver>WDM</Driver>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\ddk;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\crt;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>i386=1;_X86_=1;_NT_TARGET_VERSION=0x601;DDKBUILDENV=fre;NTDEBUG=ntsdnodbg;NTDEBUGTYPE=windbg;DBG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>main.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/DEBUGTYPE:CV /ignore:4078 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wdm.lib;ks.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <OutputFile>$(OutDir)glDriver_32.sys</OutputFile>
+      <AdditionalLibraryDirectories>D:\Work\Programs\SDK_DDK\WDK\Lib\win7\i386;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <SubSystem>Native</SubSystem>
+      <Driver>WDM</Driver>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>"D:\Work\Laboratory\Programiranje\Drivers\GadgetLabs Driver_New\Debug\copy_to_remote.bat"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_64bit|Win32'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>D:\Work\Programs\SDK_DDK\WDK\inc\ddk;D:\Work\Programs\SDK_DDK\WDK\inc\crt;D:\Work\Programs\SDK_DDK\WDK\inc\api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>i386=1;_X86_=1;_NT_TARGET_VERSION=0x601;DDKBUILDENV=fre;NTDEBUG=ntsdnodbg;NTDEBUGTYPE=windbg;DBG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>main.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <OmitDefaultLibName>false</OmitDefaultLibName>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/DEBUGTYPE:CV /ignore:4078 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wdm.lib;ks.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <OutputFile>$(OutDir)glDriver_32.sys</OutputFile>
+      <AdditionalLibraryDirectories>D:\Work\Programs\SDK_DDK\WDK\Lib\win7\i386;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <SubSystem>Native</SubSystem>
+      <Driver>WDM</Driver>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>"D:\Work\Laboratory\Programiranje\Drivers\GadgetLabs Driver_New\Debug\copy_to_remote.bat"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\ddk;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\crt;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WIN64;_AMD64_;AMD64;WINVER=0x0601;_WIN32_WINNT=0x0601;_NT_TARGET_VERSION=0x601;DDKBUILDENV=fre;NTDEBUG=ntsdnodbg;NTDEBUGTYPE=windbg;CONDITION_HANDLING=1;STD_CALL;NT_UP=1;NT_INST=0;WIN32=100;_NT1X_=100;WINNT=1;WIN32_LEAN_AND_MEAN=1;DEVL=1;__BUILDMACHINE__=WinDDK;FPO=0;NDEBUG;_DLL=1;UNICODE;_UNICODE;DEBUG_LEVEL=DEBUGLVL_BLAB;_WIN2K_COMPAT_SLIST_USAGE;MSC_NOOPT;NTDDI_VERSION=0x06010000;KMDF_MAJOR_VERSION_STRING=01;KMDF_MINOR_VERSION_STRING=009;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>main.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <CallingConvention>StdCall</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/MP4 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/SUBSYSTEM:NATIVE,1.10 /ignore:4078 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wdm.lib;ks.lib;BufferOverflowK.lib</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <OutputFile>$(OutDir)gadgetlabs_driver_64.sys</OutputFile>
+      <AdditionalLibraryDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\lib\win7\amd64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Driver>WDM</Driver>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <AdditionalIncludeDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\ddk;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\crt;$(WORK_DIR)\Programs\SDK_DDK\WDK\inc\api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_X86_=1;i386=1;WINVER=0x0601;_WIN32_WINNT=0x0601;_NT_TARGET_VERSION=0x601;DDKBUILDENV=fre;NTDEBUG=ntsdnodbg;NTDEBUGTYPE=windbg;CONDITION_HANDLING=1;STD_CALL;NT_UP=1;NT_INST=0;WIN32=100;_NT1X_=100;WINNT=1;WIN32_LEAN_AND_MEAN=1;DEVL=1;__BUILDMACHINE__=WinDDK;FPO=0;NDEBUG;_DLL=1;UNICODE;_UNICODE;DEBUG_LEVEL=DEBUGLVL_BLAB;_WIN2K_COMPAT_SLIST_USAGE;MSC_NOOPT;NTDDI_VERSION=0x06010000;KMDF_MAJOR_VERSION_STRING=01;KMDF_MINOR_VERSION_STRING=009;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <StringPooling>false</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderFile>main.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <AdditionalOptions>/MP4 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/SUBSYSTEM:NATIVE,1.10 /ignore:4078 /safeseh %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wdm.lib;ks.lib;BufferOverflowK.lib</AdditionalDependencies>
+      <ShowProgress>LinkVerboseLib</ShowProgress>
+      <OutputFile>$(OutDir)gadgetlabs_driver_32.sys</OutputFile>
+      <AdditionalLibraryDirectories>$(WORK_DIR)\Programs\SDK_DDK\WDK\Lib\win7\i386;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Driver>WDM</Driver>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\channel_midi_.cpp" />
+    <ClCompile Include="Source\channel_midi_copy_buffers.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_midi_automation.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_midi_start_stop.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_midi_state.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_register_midi.cpp" />
+    <ClCompile Include="Source\logger_proces_ioctl_data.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\card.cpp" />
+    <ClCompile Include="Source\card_altera.cpp" />
+    <ClCompile Include="Source\card_channel_properties.cpp" />
+    <ClCompile Include="Source\card_channels.cpp" />
+    <ClCompile Include="Source\card_clock.cpp" />
+    <ClCompile Include="Source\card_codec.cpp" />
+    <ClCompile Include="Source\card_pll.cpp" />
+    <ClCompile Include="Source\card_plx.cpp" />
+    <ClCompile Include="Source\card_stream.cpp" />
+    <ClCompile Include="Source\card_uart.cpp" />
+    <ClCompile Include="Source\channel_base_.cpp" />
+    <ClCompile Include="Source\channel_base_copy_buffers.cpp" />
+    <ClCompile Include="Source\channel_base_transfer.cpp" />
+    <ClCompile Include="Source\channel_stereo_.cpp" />
+    <ClCompile Include="Source\channel_stereo_copy_buffers_asio.cpp" />
+    <ClCompile Include="Source\channel_stereo_copy_buffers_avstream.cpp" />
+    <ClCompile Include="Source\channel_all_.cpp" />
+    <ClCompile Include="Source\channel_all_copy_buffers_avstream.cpp" />
+    <ClCompile Include="Source\sync_start_.cpp" />
+    <ClCompile Include="Source\sync_start_channel.cpp" />
+    <ClCompile Include="Source\sync_start_linking.cpp" />
+    <ClCompile Include="Source\notify_event_.cpp" />
+    <ClCompile Include="Source\notify_event_events.cpp" />
+    <ClCompile Include="Source\linked_array_.cpp" />
+    <ClCompile Include="Source\asio_handle_.cpp" />
+    <ClCompile Include="Source\asio_handle_buffers.cpp" />
+    <ClCompile Include="Source\asio_handle_channels.cpp" />
+    <ClCompile Include="Source\asio_handle_create_remove.cpp" />
+    <ClCompile Include="Source\asio_handle_transfer.cpp" />
+    <ClCompile Include="Source\logger_.cpp" />
+    <ClCompile Include="Source\logger_log.cpp" />
+    <ClCompile Include="Source\logger_log_fast.cpp" />
+    <ClCompile Include="Source\logger_proces_card.cpp" />
+    <ClCompile Include="Source\logger_proces_card_plx.cpp" />
+    <ClCompile Include="Source\logger_proces_channel.cpp" />
+    <ClCompile Include="Source\logger_proces_driver_avstream.cpp" />
+    <ClCompile Include="Source\logger_proces_driver_avstream_pin_format.cpp" />
+    <ClCompile Include="Source\logger_proces_driver_avstream_pin_state.cpp" />
+    <ClCompile Include="Source\logger_proces_ioctl_asio.cpp" />
+    <ClCompile Include="Source\logger_proces_ioctl_gui.cpp" />
+    <ClCompile Include="Source\logger_time.cpp" />
+    <ClCompile Include="Source\driver_.cpp" />
+    <ClCompile Include="Source\driver_interface.cpp" />
+    <ClCompile Include="Source\driver_interface_device_io.cpp" />
+    <ClCompile Include="Source\driver_isr.cpp" />
+    <ClCompile Include="Source\driver_ioctl_asio.cpp" />
+    <ClCompile Include="Source\driver_avstream_start_stop.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_interface_.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_register_wave.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_automation.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_common.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_format.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_start_stop.cpp" />
+    <ClCompile Include="Source\driver_avstream_filter_pin_wave_state.cpp" />
+    <ClCompile Include="Source\driver_ioctl_gui.cpp" />
+    <ClCompile Include="Source\driver_ioctl_data.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\channel_midi.h" />
+    <ClInclude Include="Source\main.h" />
+    <ClInclude Include="Source\main_defines.h" />
+    <ClInclude Include="Source\card.h" />
+    <ClInclude Include="Source\card_altera_firmware.h" />
+    <ClInclude Include="Source\card_altera_firmware_4xx.h" />
+    <ClInclude Include="Source\card_altera_firmware_824.h" />
+    <ClInclude Include="Source\card_codec.h" />
+    <ClInclude Include="Source\card_pci.h" />
+    <ClInclude Include="Source\card_pll.h" />
+    <ClInclude Include="Source\card_plx.h" />
+    <ClInclude Include="Source\card_uart.h" />
+    <ClInclude Include="Source\channel_base.h" />
+    <ClInclude Include="Source\channel_stereo.h" />
+    <ClInclude Include="Source\channel_all.h" />
+    <ClInclude Include="Source\midi.h" />
+    <ClInclude Include="Source\port.h" />
+    <ClInclude Include="Source\delay.h" />
+    <ClInclude Include="Source\sync_start.h" />
+    <ClInclude Include="Source\notify_event.h" />
+    <ClInclude Include="Source\linked_array.h" />
+    <ClInclude Include="Source\asio_handle.h" />
+    <ClInclude Include="Source\logger.h" />
+    <ClInclude Include="Source\driver.h" />
+    <ClInclude Include="Source\driver_ioctl.h" />
+    <ClInclude Include="Source\driver_ioctl_asio.h" />
+    <ClInclude Include="Source\driver_avstream_filter_interface.h" />
+    <ClInclude Include="Source\driver_avstream_filter_register.h" />
+    <ClInclude Include="Source\driver_ioctl_gui.h" />
+    <ClInclude Include="Source\driver_ioctl_data.h" />
+    <ClInclude Include="Source\resource.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Source\Driver_Kernel.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,367 @@
+Analysis & Synthesis report for SoundCache
+Sun Jan 16 11:06:55 2011
+Version 4.1 Build 181 06/29/2004 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Hierarchy
+  5. State Machine - reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis Equations
+  8. Analysis & Synthesis Source Files Read
+  9. Analysis & Synthesis Resource Usage Summary
+ 10. WYSIWYG Cells
+ 11. General Register Statistics
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2004 Altera Corporation
+Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+support information,  device programming or simulation file,  and any other
+associated  documentation or information  provided by  Altera  or a partner
+under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+other  use  of such  megafunction  design,  netlist,  support  information,
+device programming or simulation file,  or any other  related documentation
+or information  is prohibited  for  any  other purpose,  including, but not
+limited to  modification,  reverse engineering,  de-compiling, or use  with
+any other  silicon devices,  unless such use is  explicitly  licensed under
+a separate agreement with  Altera  or a megafunction partner.  Title to the
+intellectual property,  including patents,  copyrights,  trademarks,  trade
+secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+support  information,  device programming or simulation file,  or any other
+related documentation or information provided by  Altera  or a megafunction
+partner, remains with Altera, the megafunction partner, or their respective
+licensors. No other licenses, including any licenses needed under any third
+party's intellectual property, are provided herein.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sun Jan 16 11:06:55 2011    ;
+; Quartus II Version          ; 4.1 Build 181 06/29/2004 SJ Full Version ;
+; Revision Name               ; SoundCache                               ;
+; Top-level Entity Name       ; main                                     ;
+; Family                      ; FLEX6000                                 ;
+; Total logic elements        ; 867                                      ;
+; Total pins                  ; 103                                      ;
++-----------------------------+------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                               ;
++-------------------------------------------+-----------------+---------------+
+; Option                                    ; Setting         ; Default Value ;
++-------------------------------------------+-----------------+---------------+
+; Device                                    ; EPF6016ATC144-3 ;               ;
+; Disk space/compilation speed tradeoff     ; Smart           ; Normal        ;
+; Preserve fewer node names                 ; Off             ; On            ;
+; Family name                               ; FLEX6000        ; Stratix       ;
+; Top-level entity name                     ; main            ; SoundCache    ;
+; State Machine Processing                  ; Minimal Bits    ; Auto          ;
+; Optimization Technique -- FLEX 6000       ; Speed           ; Area          ;
+; Create Debugging Nodes for IP Cores       ; off             ; off           ;
+; Disable OpenCore Plus hardware evaluation ; Off             ; Off           ;
+; Verilog Version                           ; Verilog_2001    ; Verilog_2001  ;
+; VHDL Version                              ; VHDL93          ; VHDL93        ;
+; NOT Gate Push-Back                        ; On              ; On            ;
+; Power-Up Don't Care                       ; On              ; On            ;
+; Remove Redundant Logic Cells              ; Off             ; Off           ;
+; Remove Duplicate Registers                ; On              ; On            ;
+; Ignore CARRY Buffers                      ; Off             ; Off           ;
+; Ignore CASCADE Buffers                    ; Off             ; Off           ;
+; Ignore GLOBAL Buffers                     ; Off             ; Off           ;
+; Ignore ROW GLOBAL Buffers                 ; Off             ; Off           ;
+; Ignore LCELL Buffers                      ; Off             ; Off           ;
+; Ignore SOFT Buffers                       ; On              ; On            ;
+; Limit AHDL Integers to 32 Bits            ; Off             ; Off           ;
+; Carry Chain Length -- FLEX 6000           ; 32              ; 32            ;
+; Cascade Chain Length                      ; 2               ; 2             ;
+; Auto Carry Chains                         ; On              ; On            ;
+; Remove Duplicate Logic                    ; On              ; On            ;
+; Auto Resource Sharing                     ; Off             ; Off           ;
++-------------------------------------------+-----------------+---------------+
+
+
++-----------+
+; Hierarchy ;
++-----------+
+main
+ |-- CODEC_engine:CE
+      |-- event_pulse_generator:EPG
+      |-- lineDecoder_3to8b:LD_CH
+ |-- clocks_engine:CLKE
+ |-- lineDecoder_3to8:LD
+ |-- reg_SC4_GAIN_MON:SC4_GAIN_MON
+ |-- reg_SC_DEVICES:SC_DEVICES
+ |-- reg_SC_ENGINE:SC_ENGINE
+      |-- clockTester:CT1
+      |-- clockTester:CT2
+ |-- reg_SC_INTERRUPT:SC_INTERRUPT
+ |-- reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER
+      |-- lpm_counter:IDC_downCounter_rtl_0
+           |-- alt_synch_counter_f:wysi_counter
+                |-- alt_asynch_counter_f:asynch_counter
+ |-- reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE
+      |-- sample_counter:AC
+           |-- lpm_counter:counter_L_rtl_1
+                |-- alt_synch_counter_f:wysi_counter
+      |-- neg_event_pulse_generator:EPG
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState                                          ;
++-------------------------------------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; Name                                            ; TE_currentState~53 ; TE_currentState~52 ; TE_currentState~51 ; TE_currentState~50 ; TE_currentState~49 ;
++-------------------------------------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; TE_currentState.te_waitfortransferrequest       ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ;
+; TE_currentState.te_requestlocalbus              ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; TE_currentState.te_write_ch1                    ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
+; TE_currentState.te_write_ch1_w                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ;
+; TE_currentState.te_write_ch2                    ; 0                  ; 0                  ; 1                  ; 1                  ; 0                  ;
+; TE_currentState.te_write_ch2_w                  ; 0                  ; 0                  ; 1                  ; 1                  ; 1                  ;
+; TE_currentState.te_write_ch3                    ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ;
+; TE_currentState.te_write_ch3_w                  ; 0                  ; 0                  ; 1                  ; 0                  ; 1                  ;
+; TE_currentState.te_write_ch4                    ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ;
+; TE_currentState.te_write_ch4_w                  ; 0                  ; 1                  ; 0                  ; 0                  ; 1                  ;
+; TE_currentState.te_read_ch1                     ; 0                  ; 1                  ; 0                  ; 1                  ; 0                  ;
+; TE_currentState.te_read_ch1_r                   ; 0                  ; 1                  ; 0                  ; 1                  ; 1                  ;
+; TE_currentState.te_read_ch2                     ; 0                  ; 1                  ; 1                  ; 0                  ; 0                  ;
+; TE_currentState.te_read_ch2_r                   ; 0                  ; 1                  ; 1                  ; 0                  ; 1                  ;
+; TE_currentState.te_read_ch3                     ; 0                  ; 1                  ; 1                  ; 1                  ; 0                  ;
+; TE_currentState.te_read_ch3_r                   ; 0                  ; 1                  ; 1                  ; 1                  ; 1                  ;
+; TE_currentState.te_read_ch4                     ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ;
+; TE_currentState.te_read_ch4_r                   ; 1                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; TE_currentState.te_daughtercard_transferrequest ; 1                  ; 0                  ; 0                  ; 1                  ; 0                  ;
++-------------------------------------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                   ;
++--------------------------------------------------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Compilation Hierarchy Node                                                           ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name                                                                                                                                                  ;
++--------------------------------------------------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; |main                                                                                ; 867 (151)   ; 511          ; 0           ; 103  ; 356 (151)    ; 36 (0)            ; 475 (0)          ; 44 (0)          ; |main                                                                                                                                                                ;
+;    |CODEC_engine:CE|                                                                 ; 495 (486)   ; 390          ; 0           ; 0    ; 105 (98)     ; 4 (2)             ; 386 (386)        ; 0 (0)           ; |main|CODEC_engine:CE                                                                                                                                                ;
+;       |event_pulse_generator:EPG|                                                    ; 3 (3)       ; 2            ; 0           ; 0    ; 1 (1)        ; 2 (2)             ; 0 (0)            ; 0 (0)           ; |main|CODEC_engine:CE|event_pulse_generator:EPG                                                                                                                      ;
+;       |lineDecoder_3to8b:LD_CH|                                                      ; 6 (6)       ; 0            ; 0           ; 0    ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |main|CODEC_engine:CE|lineDecoder_3to8b:LD_CH                                                                                                                        ;
+;    |clocks_engine:CLKE|                                                              ; 23 (23)     ; 11           ; 0           ; 0    ; 12 (12)      ; 3 (3)             ; 8 (8)            ; 7 (7)           ; |main|clocks_engine:CLKE                                                                                                                                             ;
+;    |lineDecoder_3to8:LD|                                                             ; 9 (9)       ; 0            ; 0           ; 0    ; 9 (9)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |main|lineDecoder_3to8:LD                                                                                                                                            ;
+;    |reg_SC4_GAIN_MON:SC4_GAIN_MON|                                                   ; 7 (7)       ; 7            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 7 (7)            ; 0 (0)           ; |main|reg_SC4_GAIN_MON:SC4_GAIN_MON                                                                                                                                  ;
+;    |reg_SC_DEVICES:SC_DEVICES|                                                       ; 12 (12)     ; 12           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 12 (12)          ; 0 (0)           ; |main|reg_SC_DEVICES:SC_DEVICES                                                                                                                                      ;
+;    |reg_SC_ENGINE:SC_ENGINE|                                                         ; 27 (5)      ; 15           ; 0           ; 0    ; 12 (0)       ; 8 (0)             ; 7 (5)            ; 10 (0)          ; |main|reg_SC_ENGINE:SC_ENGINE                                                                                                                                        ;
+;       |clockTester:CT1|                                                              ; 11 (11)     ; 5            ; 0           ; 0    ; 6 (6)        ; 4 (4)             ; 1 (1)            ; 5 (5)           ; |main|reg_SC_ENGINE:SC_ENGINE|clockTester:CT1                                                                                                                        ;
+;       |clockTester:CT2|                                                              ; 11 (11)     ; 5            ; 0           ; 0    ; 6 (6)        ; 4 (4)             ; 1 (1)            ; 5 (5)           ; |main|reg_SC_ENGINE:SC_ENGINE|clockTester:CT2                                                                                                                        ;
+;    |reg_SC_INTERRUPT:SC_INTERRUPT|                                                   ; 23 (23)     ; 9            ; 0           ; 0    ; 14 (14)      ; 3 (3)             ; 6 (6)            ; 0 (0)           ; |main|reg_SC_INTERRUPT:SC_INTERRUPT                                                                                                                                  ;
+;    |reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|                           ; 44 (0)      ; 11           ; 0           ; 0    ; 33 (0)       ; 0 (0)             ; 11 (0)           ; 11 (0)          ; |main|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER                                                                                                          ;
+;       |lpm_counter:IDC_downCounter_rtl_0|                                            ; 44 (0)      ; 11           ; 0           ; 0    ; 33 (0)       ; 0 (0)             ; 11 (0)           ; 11 (0)          ; |main|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0                                                                        ;
+;          |alt_synch_counter_f:wysi_counter|                                          ; 44 (0)      ; 11           ; 0           ; 0    ; 33 (0)       ; 0 (0)             ; 11 (0)           ; 11 (0)          ; |main|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter                                       ;
+;             |alt_asynch_counter_f:asynch_counter|                                    ; 44 (44)     ; 11           ; 0           ; 0    ; 33 (33)      ; 0 (0)             ; 11 (11)          ; 11 (11)         ; |main|reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|lpm_counter:IDC_downCounter_rtl_0|alt_synch_counter_f:wysi_counter|alt_asynch_counter_f:asynch_counter   ;
+;    |reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE| ; 76 (58)     ; 56           ; 0           ; 0    ; 20 (20)      ; 18 (16)           ; 38 (22)          ; 16 (0)          ; |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE                                                                                ;
+;       |neg_event_pulse_generator:EPG|                                                ; 2 (2)       ; 2            ; 0           ; 0    ; 0 (0)        ; 2 (2)             ; 0 (0)            ; 0 (0)           ; |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|neg_event_pulse_generator:EPG                                                  ;
+;       |sample_counter:AC|                                                            ; 16 (0)      ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (0)           ; 16 (0)          ; |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC                                                              ;
+;          |lpm_counter:counter_L_rtl_1|                                               ; 16 (0)      ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (0)           ; 16 (0)          ; |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1                                  ;
+;             |alt_synch_counter_f:wysi_counter|                                       ; 16 (16)     ; 16           ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 16 (16)          ; 16 (16)         ; |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|lpm_counter:counter_L_rtl_1|alt_synch_counter_f:wysi_counter ;
++--------------------------------------------------------------------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in D:/Work/Laboratory/Programiranje/Drivers/GadgetLabs_Driver_New/Hardware/Firmware/Source Code/SoundCache4xx_b/SoundCache.map.eqn.
+
+
++-------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                ;
++-------------------------------------------------------------------------------------+-----------------+
+; File Name                                                                           ; Used in Netlist ;
++-------------------------------------------------------------------------------------+-----------------+
+; Source/main.vhd                                                                     ; yes             ;
+; Source/reg_devices.vhd                                                              ; yes             ;
+; Source/reg_sc_engine.vhd                                                            ; yes             ;
+; Source/reg_sc_sample_counter_and_transfer_engine.vhd                                ; yes             ;
+; Source/reg_sc_interrupt_downcounter.vhd                                             ; yes             ;
+; Source/reg_sc_interrupt.vhd                                                         ; yes             ;
+; Source/reg_sc4_gain_mon.vhd                                                         ; yes             ;
+; Source/clocks_engine.vhd                                                            ; yes             ;
+; Source/CODECs.vhd                                                                   ; yes             ;
+; d:/work/electronics/quartus ii 4.1/libraries/megafunctions/lpm_counter.tdf          ; yes             ;
+; d:/work/electronics/quartus ii 4.1/libraries/megafunctions/lpm_constant.inc         ; yes             ;
+; d:/work/electronics/quartus ii 4.1/libraries/megafunctions/alt_synch_counter_f.tdf  ; yes             ;
+; d:/work/electronics/quartus ii 4.1/libraries/megafunctions/flex6k_lcell.inc         ; yes             ;
+; d:/work/electronics/quartus ii 4.1/libraries/megafunctions/alt_asynch_counter_f.tdf ; yes             ;
++-------------------------------------------------------------------------------------+-----------------+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                 ;
++-----------------------------------+-----------------------------------------+
+; Resource                          ; Usage                                   ;
++-----------------------------------+-----------------------------------------+
+; Logic cells                       ; 867                                     ;
+; Total combinational functions     ; 831                                     ;
+; Total 4-input functions           ; 684                                     ;
+; Total 3-input functions           ; 63                                      ;
+; Total 2-input functions           ; 48                                      ;
+; Total 1-input functions           ; 35                                      ;
+; Total 0-input functions           ; 1                                       ;
+; Combinational cells for routing   ; 0                                       ;
+; Total registers                   ; 511                                     ;
+; Total logic cells in carry chains ; 44                                      ;
+; I/O pins                          ; 103                                     ;
+; Maximum fan-out node              ; clocks_engine:CLKE|CG_generator_bick[1] ;
+; Maximum fan-out                   ; 301                                     ;
+; Total fan-out                     ; 3922                                    ;
+; Average fan-out                   ; 4.04                                    ;
++-----------------------------------+-----------------------------------------+
+
+
++----------------------------------------------------------------+
+; WYSIWYG Cells                                                  ;
++--------------------------------------------------------+-------+
+; Statistic                                              ; Value ;
++--------------------------------------------------------+-------+
+; Number of WYSIWYG cells                                ; 55    ;
+; Number of synthesis-generated cells                    ; 812   ;
+; Number of WYSIWYG LUTs                                 ; 55    ;
+; Number of synthesis-generated LUTs                     ; 776   ;
+; Number of WYSIWYG registers                            ; 27    ;
+; Number of synthesis-generated registers                ; 484   ;
+; Number of cells with combinational logic only          ; 356   ;
+; Number of cells with registers only                    ; 36    ;
+; Number of cells with combinational logic and registers ; 475   ;
++--------------------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 11    ;
+; Number of registers using Asynchronous Clear ; 48    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Output Enable      ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 4.1 Build 181 06/29/2004 SJ Full Version
+    Info: Processing started: Sun Jan 16 11:06:50 2011
+Info: Command: quartus_map --import_settings_files=on --export_settings_files=off SoundCache -c SoundCache
+Info: Found 4 design units, including 2 entities, in source file Source/main.vhd
+    Info: Found design unit 1: main-opis
+    Info: Found design unit 2: lineDecoder_3to8-opis
+    Info: Found entity 1: main
+    Info: Found entity 2: lineDecoder_3to8
+Info: Found 2 design units, including 1 entities, in source file Source/reg_devices.vhd
+    Info: Found design unit 1: reg_SC_DEVICES-opis
+    Info: Found entity 1: reg_SC_DEVICES
+Info: Found 4 design units, including 2 entities, in source file Source/reg_sc_engine.vhd
+    Info: Found design unit 1: reg_SC_ENGINE-opis
+    Info: Found design unit 2: clockTester-opis
+    Info: Found entity 1: reg_SC_ENGINE
+    Info: Found entity 2: clockTester
+Info: Found 6 design units, including 3 entities, in source file Source/reg_sc_sample_counter_and_transfer_engine.vhd
+    Info: Found design unit 1: reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE-opis
+    Info: Found design unit 2: sample_counter-opis
+    Info: Found design unit 3: neg_event_pulse_generator-opis
+    Info: Found entity 1: reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE
+    Info: Found entity 2: sample_counter
+    Info: Found entity 3: neg_event_pulse_generator
+Info: Found 2 design units, including 1 entities, in source file Source/reg_sc_uart_counter.vhd
+    Info: Found design unit 1: reg_SC_UART_COUNTER-opis
+    Info: Found entity 1: reg_SC_UART_COUNTER
+Info: Found 2 design units, including 1 entities, in source file Source/reg_sc_interrupt_downcounter.vhd
+    Info: Found design unit 1: reg_SC_INTERRUPT_DOWNCOUNTER-opis
+    Info: Found entity 1: reg_SC_INTERRUPT_DOWNCOUNTER
+Info: Found 2 design units, including 1 entities, in source file Source/reg_sc_interrupt.vhd
+    Info: Found design unit 1: reg_SC_INTERRUPT-opis
+    Info: Found entity 1: reg_SC_INTERRUPT
+Info: Found 2 design units, including 1 entities, in source file Source/reg_sc4_gain_mon.vhd
+    Info: Found design unit 1: reg_SC4_GAIN_MON-opis
+    Info: Found entity 1: reg_SC4_GAIN_MON
+Info: Found 2 design units, including 1 entities, in source file Source/clocks_engine.vhd
+    Info: Found design unit 1: clocks_engine-opis
+    Info: Found entity 1: clocks_engine
+Info: Found 6 design units, including 3 entities, in source file Source/CODECs.vhd
+    Info: Found design unit 1: CODEC_engine-opis
+    Info: Found design unit 2: lineDecoder_3to8b-opis
+    Info: Found design unit 3: event_pulse_generator-opis
+    Info: Found entity 1: CODEC_engine
+    Info: Found entity 2: lineDecoder_3to8b
+    Info: Found entity 3: event_pulse_generator
+Info: Inferred 2 megafunctions from design logic
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=11) from the following logic: reg_SC_INTERRUPT_DOWNCOUNTER:SC_INTERRUPT_DOWNCOUNTER|IDC_downCounter[0]~0
+    Info: Inferred lpm_counter megafunction (LPM_WIDTH=16) from the following logic: reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|sample_counter:AC|counter_L[0]~0
+Info: Found 1 design units, including 1 entities, in source file ../../../../../../../../electronics/quartus ii 4.1/libraries/megafunctions/lpm_counter.tdf
+    Info: Found entity 1: lpm_counter
+Info: Found 1 design units, including 1 entities, in source file ../../../../../../../../electronics/quartus ii 4.1/libraries/megafunctions/alt_synch_counter_f.tdf
+    Info: Found entity 1: alt_synch_counter_f
+Info: Found 1 design units, including 1 entities, in source file ../../../../../../../../electronics/quartus ii 4.1/libraries/megafunctions/alt_asynch_counter_f.tdf
+    Info: Found entity 1: alt_asynch_counter_f
+Info: State machine |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState contains 19 states and 0 state bits
+Info: Selected Minimal Bits state machine encoding method for state machine |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState
+Info: Encoding result for state machine |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState
+    Info: Completed encoding using 5 state bits
+        Info: Encoded state bit reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~53
+        Info: Encoded state bit reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~52
+        Info: Encoded state bit reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~51
+        Info: Encoded state bit reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~50
+        Info: Encoded state bit reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState~49
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_waitfortransferrequest uses code string 00000
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_requestlocalbus uses code string 00001
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch1 uses code string 00010
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch1_w uses code string 00011
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch2 uses code string 00110
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch2_w uses code string 00111
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch3 uses code string 00100
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch3_w uses code string 00101
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch4 uses code string 01000
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_write_ch4_w uses code string 01001
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch1 uses code string 01010
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch1_r uses code string 01011
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch2 uses code string 01100
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch2_r uses code string 01101
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch3 uses code string 01110
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch3_r uses code string 01111
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch4 uses code string 10000
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_read_ch4_r uses code string 10001
+    Info: State |main|reg_SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE:SC_SAMPLE_COUNTER_and_TRANSFER_ENGINE|TE_currentState.te_daughtercard_transferrequest uses code string 10010
+Info: Ignored 152 buffer(s)
+    Info: Ignored 152 SOFT buffer(s)
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin nBANK_CE stuck at GND
+    Warning: Pin LB_USER1 stuck at GND
+    Warning: Pin CODEC_MASTER_SLAVE stuck at GND
+    Warning: Pin POWER_ON_MUTE stuck at GND
+Warning: Design contains 1 input pin(s) that do not drive logic
+    Warning: No output dependent on input pin CLOCK_UART
+Info: Implemented 970 device resources after synthesis - the final resource count might be different
+    Info: Implemented 20 input pins
+    Info: Implemented 33 output pins
+    Info: Implemented 50 bidirectional pins
+    Info: Implemented 867 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Processing ended: Sun Jan 16 11:06:55 2011
+    Info: Elapsed time: 00:00:04
+
+
