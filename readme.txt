@@ -26,7 +26,7 @@ Version: 4.2.0.2:  - 32/64 bit OS support
 
 date: 16.01.2011
 
-by: Waldemar Haszlakiewicz ('wal demar. has zlaki e wicz @ sio l.n et' <- remove spaces to get mail address)
+by: Waldemar Haszlakiewicz
 
 For any help/support join the GadgetLabs group: http://tech.groups.yahoo.com/group/gadgetlabs2/
 
